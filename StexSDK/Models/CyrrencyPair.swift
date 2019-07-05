@@ -10,26 +10,109 @@ import Foundation
 
 public class CyrrencyPair: Codable {
     
+    /// Currency pair ID.
+    ///
+    /// Example: `1`
     public var id: Int
+    
+    /// Currency id as returned by `/public/currencies`.
+    ///
+    /// Example: `2`
     public var currencyId: Int
+    
+    /// Currency code as returned by `/public/currencies`.
+    ///
+    /// Example: `ETH`
     public var currencyCode: String
+    
+    /// Full name of the currency.
+    ///
+    /// Example: `Etherium`
     public var currencyName: String
+    
+    /// Currency id of the market currency as returned by `/public/currencies`.
+    ///
+    /// Example: `1`
     public var marketCurrencyId: Int
+    
+    /// CurrencyPairGroup code as returned by /public/markets.
+    ///
+    /// Example: `BTC`
     public var marketCode: String
+    
+    /// Full name of the market.
+    ///
+    /// Example: `Bitcoin`
     public var marketName: String
+    
+    /// The minimum amount of the order that can be placed.
+    ///
+    /// Example: `0.0000001`
     public var minOrderAmount: Double?
+    
+    /// The minimum price of the bid.
+    ///
+    /// Example: `0.0000001`
     public var minBuyPrice: Double?
+    
+    /// The minimum price of the ask.
+    ///
+    /// Example: `0.0000001`
     public var minSellPrice: Double?
+    
+    /// Bid fee in percents.
+    ///
+    /// Example: `0`
     public var buyFeePercent: Double?
+    
+    /// Ask fee in percents.
+    ///
+    /// Example: `0`
     public var sellFeePercent: Double?
+    
+    /// Indicates is the currency pair active (trades are enabled) or not.
+    ///
+    /// Example: `true`
     public var isActive: Bool
+    
+    /// Indicates if the currency pair is delisted.
+    ///
+    /// Example: `false`
     public var isDelisted: Bool
+    
+    /// Message that is shown on the currency pair trade page.
+    ///
+    /// Example: `Happy trading!`
     public var pairMessage: String?
+    
+    /// Number of decimal places allowed for this currency.
+    ///
+    /// Example: `8`
     public var currencyPrecision: Int
+    
+    /// Number of decimal places allowed for the currency of the market.
+    ///
+    /// Example: `8`
     public var marketPrecision: Int
+    
+    /// CurrencyPairGroup symbol.
+    ///
+    /// Example: `ETH_BTC`
     public var symbol: String
+    
+    /// Currency pair group name.
+    ///
+    /// Example: `Fiat coins`
     public var groupName: String
+    
+    /// Currency pair group ID.
+    ///
+    /// Example: `1`
     public var groupId: Int
+    
+    /// Amount multiplier used to trade for some pairs with low price.
+    ///
+    /// Example: `1`
     public var amountMultiplier: Int?
     
     enum CodingKeys: String, CodingKey {
