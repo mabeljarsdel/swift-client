@@ -36,6 +36,11 @@
 		FAB183CA22CF400000D9C98E /* StexTickerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB183C622CF3FFF00D9C98E /* StexTickerTest.swift */; };
 		FAB183CC22CF400000D9C98E /* StexClientTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB183C722CF3FFF00D9C98E /* StexClientTest.swift */; };
 		FAB183CE22CF400000D9C98E /* StexCurrenciesTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB183C822CF3FFF00D9C98E /* StexCurrenciesTest.swift */; };
+		FAB183D022CF6A1C00D9C98E /* MarketsReqest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB183CF22CF6A1C00D9C98E /* MarketsReqest.swift */; };
+		FAB183D122CF6A1C00D9C98E /* MarketsReqest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB183CF22CF6A1C00D9C98E /* MarketsReqest.swift */; };
+		FAB183D322CF6AA000D9C98E /* Market.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB183D222CF6AA000D9C98E /* Market.swift */; };
+		FAB183D422CF6AA000D9C98E /* Market.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB183D222CF6AA000D9C98E /* Market.swift */; };
+		FAB183D722CF6BC900D9C98E /* StexMarketTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB183D522CF6BC900D9C98E /* StexMarketTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +79,9 @@
 		FAB183C622CF3FFF00D9C98E /* StexTickerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StexTickerTest.swift; sourceTree = "<group>"; };
 		FAB183C722CF3FFF00D9C98E /* StexClientTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StexClientTest.swift; sourceTree = "<group>"; };
 		FAB183C822CF3FFF00D9C98E /* StexCurrenciesTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StexCurrenciesTest.swift; sourceTree = "<group>"; };
+		FAB183CF22CF6A1C00D9C98E /* MarketsReqest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketsReqest.swift; sourceTree = "<group>"; };
+		FAB183D222CF6AA000D9C98E /* Market.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Market.swift; sourceTree = "<group>"; };
+		FAB183D522CF6BC900D9C98E /* StexMarketTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StexMarketTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -201,6 +209,7 @@
 			children = (
 				FAB183AB22CF3FDC00D9C98E /* CurrenciesRequest.swift */,
 				FAB183AC22CF3FDC00D9C98E /* TickerRequest.swift */,
+				FAB183CF22CF6A1C00D9C98E /* MarketsReqest.swift */,
 			);
 			path = Public;
 			sourceTree = "<group>";
@@ -210,6 +219,7 @@
 			children = (
 				FAB183C022CF3FEA00D9C98E /* Ticker.swift */,
 				FAB183BF22CF3FEA00D9C98E /* Currency.swift */,
+				FAB183D222CF6AA000D9C98E /* Market.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -220,6 +230,7 @@
 				FAB183C722CF3FFF00D9C98E /* StexClientTest.swift */,
 				FAB183C622CF3FFF00D9C98E /* StexTickerTest.swift */,
 				FAB183C822CF3FFF00D9C98E /* StexCurrenciesTest.swift */,
+				FAB183D522CF6BC900D9C98E /* StexMarketTest.swift */,
 			);
 			path = StexClientTest;
 			sourceTree = "<group>";
@@ -409,6 +420,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FAB183BC22CF3FDC00D9C98E /* IRequest.swift in Sources */,
+				FAB183D322CF6AA000D9C98E /* Market.swift in Sources */,
 				FAB183B422CF3FDC00D9C98E /* ServerConstants.swift in Sources */,
 				FAB183BA22CF3FDC00D9C98E /* TickerRequest.swift in Sources */,
 				FAB183A022CF3FCD00D9C98E /* KeyedDecodingContainer+Extension.swift in Sources */,
@@ -417,6 +429,7 @@
 				FAB183C322CF3FEA00D9C98E /* Ticker.swift in Sources */,
 				FAB183C122CF3FEA00D9C98E /* Currency.swift in Sources */,
 				FAB183B222CF3FDC00D9C98E /* RxStexClient.swift in Sources */,
+				FAB183D022CF6A1C00D9C98E /* MarketsReqest.swift in Sources */,
 				FAB183B622CF3FDC00D9C98E /* StexResponse.swift in Sources */,
 				FAB183B022CF3FDC00D9C98E /* StexClient.swift in Sources */,
 			);
@@ -432,10 +445,13 @@
 				FAB183A122CF3FCE00D9C98E /* KeyedDecodingContainer+Extension.swift in Sources */,
 				FAB183BD22CF3FDC00D9C98E /* IRequest.swift in Sources */,
 				FAB183CE22CF400000D9C98E /* StexCurrenciesTest.swift in Sources */,
+				FAB183D122CF6A1C00D9C98E /* MarketsReqest.swift in Sources */,
+				FAB183D722CF6BC900D9C98E /* StexMarketTest.swift in Sources */,
 				FAB183BB22CF3FDC00D9C98E /* TickerRequest.swift in Sources */,
 				FAB183CA22CF400000D9C98E /* StexTickerTest.swift in Sources */,
 				FAB183B522CF3FDC00D9C98E /* ServerConstants.swift in Sources */,
 				FAB183C222CF3FEA00D9C98E /* Currency.swift in Sources */,
+				FAB183D422CF6AA000D9C98E /* Market.swift in Sources */,
 				FAB183B122CF3FDC00D9C98E /* StexClient.swift in Sources */,
 				FAB183AF22CF3FDC00D9C98E /* APIClient.swift in Sources */,
 				FAB183B922CF3FDC00D9C98E /* CurrenciesRequest.swift in Sources */,

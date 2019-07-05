@@ -46,6 +46,16 @@ public class RxStexClient: APIClient {
         return request(CurrenciesRequest(with: id))
     }
     
+    //MARK: - Markets
+    
+    /**
+     Available markets.
+     Get list of all avialable markets.
+     */
+    public func fetchAllMarkets() -> Observable<[Market]> {
+        return request(MarketsReqest())
+    }
+    
     //MARK: - Private
     private func request<T: Codable> (_ req: IRequest) -> Observable<T> {
         return Observable<T>.create { [weak self] observer in

@@ -22,6 +22,7 @@ public struct ServerConstants {
         enum Public: String {
             case ticker
             case currencies
+            case markets
             
             var path: String {
                 return ServerConstants.baseUrl + Endpoints.public + rawValue

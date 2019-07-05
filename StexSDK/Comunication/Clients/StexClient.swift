@@ -44,4 +44,14 @@ public class StexClient: APIClient {
     public func fetchCurrency(with id: Int, completion: @escaping StexClientCompletion<Currency>) {
         request(CurrenciesRequest(with: id), completion: completion)
     }
+    
+    //MARK: - Markets
+    
+    /**
+     Available markets.
+     Get list of all avialable markets.
+     */
+    public func fetchAllMarkets(completion: @escaping StexClientCompletion<[Market]>) {
+        request(MarketsReqest(), completion: completion)
+    }
 }
