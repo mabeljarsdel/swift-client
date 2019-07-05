@@ -23,6 +23,7 @@ public struct ServerConstants {
             case ticker
             case currencies
             case markets
+            case pairsGroups = "pairs-groups"
             
             var path: String {
                 return ServerConstants.baseUrl + Endpoints.public + rawValue

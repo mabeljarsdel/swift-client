@@ -56,6 +56,16 @@ public class RxStexClient: APIClient {
         return request(MarketsReqest())
     }
     
+    //MARK: - Pairs Groups
+    
+    /**
+     Available currency pairs groups (as displayed at stex trading page).
+     Get list of all avialable currency pairs groups.
+     */
+    public func fetchAllPairsGroups() -> Observable<[PairGroup]> {
+        return request(PairsGroupsReqest())
+    }
+    
     //MARK: - Private
     private func request<T: Codable> (_ req: IRequest) -> Observable<T> {
         return Observable<T>.create { [weak self] observer in

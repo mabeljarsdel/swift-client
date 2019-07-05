@@ -54,4 +54,14 @@ public class StexClient: APIClient {
     public func fetchAllMarkets(completion: @escaping StexClientCompletion<[Market]>) {
         request(MarketsReqest(), completion: completion)
     }
+    
+    //MARK: - Pairs Groups
+    
+    /**
+     Available currency pairs groups (as displayed at stex trading page).
+     Get list of all avialable currency pairs groups.
+     */
+    public func fetchAllPairsGroups(completion: @escaping StexClientCompletion<[PairGroup]>) {
+        request(PairsGroupsReqest(), completion: completion)
+    }
 }
