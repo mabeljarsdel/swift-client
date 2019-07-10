@@ -89,7 +89,29 @@ public class StexClient: APIClient {
     /// - Parameters:
     ///   - code: The `String`. Available values: `ALL, BTC`
     ///   - completion: A closure to be executed once the request has finished.
-    public func fetchCurrencyPairsList(with code: String = "ALL", completion: @escaping StexClientCompletion<[CyrrencyPair]>) {
+    public func fetchCurrencyPairsList(with code: String = "ALL", completion: @escaping StexClientCompletion<[CurrencyPair]>) {
         request(CurrencyPairsListReqest(with: code), completion: completion)
+    }
+    
+    /// Available currency pairs for a given group.
+    ///
+    /// Returns a list of avialable currency pairs in the given currency pair group.
+    ///
+    /// - Parameters:
+    ///   - groupId: The `Int`. Group ID.
+    ///   - completion: A closure to be executed once the request has finished.
+    public func fetchCurrencyPairs(with groupId: Int, completion: @escaping StexClientCompletion<[CurrencyPair]>) {
+        request(CurrencyPairsGroupRequest(with: groupId), completion: completion)
+    }
+    
+    /// Get currency pair information.
+    ///
+    /// Returns currency pair information.
+    ///
+    /// - Parameters:
+    ///   - id: The `Int`. Currency pair id.
+    ///   - completion: A closure to be executed once the request has finished.
+    public func fetchCurrencyPair(with id: Int, completion: @escaping StexClientCompletion<CurrencyPair>) {
+        request(CurrencyPairRequest(with: id), completion: completion)
     }
 }

@@ -1,5 +1,5 @@
 //
-//  CyrrencyPair.swift
+//  CurrencyPair.swift
 //  StexSDK
 //
 //  Created by Alexander Rudyk on 7/5/19.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class CyrrencyPair: Codable {
+public class CurrencyPair: Codable {
     
     /// Currency pair ID.
     ///

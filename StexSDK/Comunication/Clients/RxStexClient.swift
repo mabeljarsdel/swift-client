@@ -85,8 +85,30 @@ public extension RxStexClient {
     /// - Parameters:
     ///   - code: The `String`. Available values: `ALL, BTC`
     /// - Returns: The observable sequence with the specified implementation for the `subscribe` method.
-    func fetchCurrencyPairsList(with code: String = "ALL") -> Observable<[CyrrencyPair]> {
+    func fetchCurrencyPairsList(with code: String = "ALL") -> Observable<[CurrencyPair]> {
         return request(CurrencyPairsListReqest(with: code))
+    }
+    
+    /// Available currency pairs for a given group.
+    ///
+    /// Returns a list of avialable currency pairs in the given currency pair group.
+    ///
+    /// - Parameters:
+    ///   - groupId: The `Int`. Group ID.
+    /// - Returns: The observable sequence with the specified implementation for the `subscribe` method.
+    func fetchCurrencyPairs(with groupId: Int) -> Observable<[CurrencyPair]> {
+        return request(CurrencyPairsGroupRequest(with: groupId))
+    }
+    
+    /// Get currency pair information.
+    ///
+    /// Returns currency pair information.
+    ///
+    /// - Parameters:
+    ///   - id: The `Int`. Currency pair id.
+    /// - Returns: The observable sequence with the specified implementation for the `subscribe` method.
+    func fetchCurrencyPair(with id: Int) -> Observable<CurrencyPair> {
+        return request(CurrencyPairRequest(with: id))
     }
 }
 
