@@ -21,6 +21,6 @@ class CurrencyPairRequest: IRequest {
     }
     
     var endpoint: String {
-        return PublicEndpoints.currencyPairs.path + "/\(id)"
+        return PublicEndpoints.currencyPairs.path + "/\(id)?return_single_object=1"
     }
 }
