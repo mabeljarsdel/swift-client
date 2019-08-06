@@ -25,6 +25,7 @@ public struct ServerConstants {
             case markets
             case pairsGroups = "pairs-groups"
             case currencyPairs = "currency_pairs"
+            case trades
             
             var path: String {
                 return ServerConstants.baseUrl + Endpoints.public + rawValue
@@ -39,4 +40,20 @@ public struct ServerConstants {
             }
         }
     }
+    
+    static let sort = "sort"
+    static let limit = "limit"
+    static let from = "from"
+    static let till = "till"
+    static let offset = "offset"
+}
+
+public enum SortKey: String {
+    case desc
+    case asc
+}
+
+public enum TradeType: String, Codable {
+    case sell = "SELL"
+    case buy = "BUY"
 }

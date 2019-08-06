@@ -110,6 +110,21 @@ public extension RxStexClient {
     func fetchCurrencyPair(with id: Int) -> Observable<CurrencyPair> {
         return request(CurrencyPairRequest(with: id))
     }
+    
+    /// Trades for given currency pair
+    ///
+    /// - Parameters:
+    ///   - id: The `Int`. Currency pair id.
+    ///   - sortKey: The `SortKey`. Direction of the sort - ASCending (.asc) or DESCending (.desc) by trade timestamp.
+    ///   - from: The `Double`. The timestamp in millisecond.
+    ///   - till: The `Double`. The timestamp in millisecond.
+    ///   - limit: The `Int`. Default value : 100
+    ///   - offset: The `Int`
+    /// - Returns: The observable sequence with the specified implementation for the `subscribe` method.
+    func fetchTrades(with id: Int, sortKey: SortKey = .desc, from: Double?, till: Double?, limit: Int = 100, offset: Int?) -> Observable<[Trade]> {
+        
+        return request(TradesReqest(with: id, sortKey: sortKey, from: from, till: till, limit: limit, offset: offset))
+    }
 }
 
 //MARK: -

@@ -114,4 +114,19 @@ public class StexClient: APIClient {
     public func fetchCurrencyPair(with id: Int, completion: @escaping StexClientCompletion<CurrencyPair>) {
         request(CurrencyPairRequest(with: id), completion: completion)
     }
+    
+    /// Trades for given currency pair
+    ///
+    /// - Parameters:
+    ///   - id: The `Int`. Currency pair id.
+    ///   - sortKey: The `SortKey`. Direction of the sort - ASCending (.asc) or DESCending (.desc) by trade timestamp.
+    ///   - from: The `Double`. The timestamp in millisecond.
+    ///   - till: The `Double`. The timestamp in millisecond.
+    ///   - limit: The `Int`. Default value : 100
+    ///   - offset: The `Int`
+    ///   - completion: A closure to be executed once the request has finished.
+    public func fetchTrades(with id: Int, sortKey: SortKey = .desc, from: Double?, till: Double?, limit: Int = 100, offset: Int?, completion: @escaping StexClientCompletion<[Trade]>) {
+        
+        request(TradesReqest(with: id, sortKey: sortKey, from: from, till: till, limit: limit, offset: offset), completion: completion)
+    }
 }
