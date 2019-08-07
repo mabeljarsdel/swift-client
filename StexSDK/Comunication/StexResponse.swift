@@ -40,7 +40,7 @@ public enum StexResult<Value: Codable> {
         if response.isSuccess, let data = response.data {
             self = .success(data)
         } else {
-            let message = response.message ?? "Server error"
+            let message = response.message ?? "Oops! Something went wrong."
             self = .error(StexResultError.serverError(message))
         }
     }

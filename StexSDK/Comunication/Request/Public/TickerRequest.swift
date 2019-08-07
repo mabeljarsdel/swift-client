@@ -9,15 +9,15 @@
 import Alamofire
 
 /**
-    Tickers list for all currency pairs.
-    Last 24H information about every currency pair.
-*/
+ Tickers list for all currency pairs.
+ Last 24H information about every currency pair.
+ */
 
-public class TickerRequest: IRequest {
+class TickerRequest: IRequest {
     
     private var id: Int?
     
-    public init(with currencyPairId: Int? = nil) {
+    init(with currencyPairId: Int? = nil) {
         id = currencyPairId
     }
     
