@@ -10,7 +10,7 @@ import XCTest
 
 class StexTradesTest: StexClientTest {
     
-    func testBTCTrades() {
+    func testBTC_ETHTrades() {
         let expectation = self.expectation(description: "Testing Trades API")
         
         var btcTradesCount: Int = 0

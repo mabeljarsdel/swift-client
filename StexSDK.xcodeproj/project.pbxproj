@@ -58,6 +58,13 @@
 		FACA3B6A22F9C5AF00E9970B /* StexTradesTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACA3B6922F9C5AF00E9970B /* StexTradesTest.swift */; };
 		FACA3B6B22F9C72700E9970B /* TradesReqest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA077D3822DDFC1E00CE9B8E /* TradesReqest.swift */; };
 		FACA3B6C22F9C72900E9970B /* Trade.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACA3B6722F9C30400E9970B /* Trade.swift */; };
+		FACA3B6E22F9D16800E9970B /* OrderbookOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACA3B6D22F9D16800E9970B /* OrderbookOrder.swift */; };
+		FACA3B6F22F9D16800E9970B /* OrderbookOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACA3B6D22F9D16800E9970B /* OrderbookOrder.swift */; };
+		FACA3B7122F9D4A000E9970B /* Orderbook.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACA3B7022F9D4A000E9970B /* Orderbook.swift */; };
+		FACA3B7222F9D4A000E9970B /* Orderbook.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACA3B7022F9D4A000E9970B /* Orderbook.swift */; };
+		FACA3B7422F9D54D00E9970B /* OrderbookReqest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACA3B7322F9D54D00E9970B /* OrderbookReqest.swift */; };
+		FACA3B7522F9D54D00E9970B /* OrderbookReqest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACA3B7322F9D54D00E9970B /* OrderbookReqest.swift */; };
+		FACA3B7822F9D6CE00E9970B /* StexOrderbookTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACA3B7622F9D6CE00E9970B /* StexOrderbookTest.swift */; };
 		FAE59E4D22D5E82C00A55E19 /* CurrencyPairsGroupRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE59E4C22D5E82C00A55E19 /* CurrencyPairsGroupRequest.swift */; };
 		FAE59E4E22D5E82C00A55E19 /* CurrencyPairsGroupRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE59E4C22D5E82C00A55E19 /* CurrencyPairsGroupRequest.swift */; };
 /* End PBXBuildFile section */
@@ -111,6 +118,10 @@
 		FAB183E522CF8E6F00D9C98E /* StexCurrencyPairsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StexCurrencyPairsTest.swift; sourceTree = "<group>"; };
 		FACA3B6722F9C30400E9970B /* Trade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trade.swift; sourceTree = "<group>"; };
 		FACA3B6922F9C5AF00E9970B /* StexTradesTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StexTradesTest.swift; sourceTree = "<group>"; };
+		FACA3B6D22F9D16800E9970B /* OrderbookOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderbookOrder.swift; sourceTree = "<group>"; };
+		FACA3B7022F9D4A000E9970B /* Orderbook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Orderbook.swift; sourceTree = "<group>"; };
+		FACA3B7322F9D54D00E9970B /* OrderbookReqest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderbookReqest.swift; sourceTree = "<group>"; };
+		FACA3B7622F9D6CE00E9970B /* StexOrderbookTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StexOrderbookTest.swift; sourceTree = "<group>"; };
 		FAE59E4C22D5E82C00A55E19 /* CurrencyPairsGroupRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyPairsGroupRequest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -243,6 +254,7 @@
 				FAB183D822CF6D6A00D9C98E /* PairsGroupsReqest.swift */,
 				FAB183E222CF88EF00D9C98E /* CurrencyPairs */,
 				FA077D3822DDFC1E00CE9B8E /* TradesReqest.swift */,
+				FACA3B7322F9D54D00E9970B /* OrderbookReqest.swift */,
 			);
 			path = Public;
 			sourceTree = "<group>";
@@ -256,6 +268,8 @@
 				FAB183DB22CF6E6600D9C98E /* PairGroup.swift */,
 				FAB183E022CF819C00D9C98E /* CurrencyPair.swift */,
 				FACA3B6722F9C30400E9970B /* Trade.swift */,
+				FACA3B6D22F9D16800E9970B /* OrderbookOrder.swift */,
+				FACA3B7022F9D4A000E9970B /* Orderbook.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -270,6 +284,7 @@
 				FAB183DE22CF6FF300D9C98E /* StexPairsGroupsTest.swift */,
 				FAB183E522CF8E6F00D9C98E /* StexCurrencyPairsTest.swift */,
 				FACA3B6922F9C5AF00E9970B /* StexTradesTest.swift */,
+				FACA3B7622F9D6CE00E9970B /* StexOrderbookTest.swift */,
 			);
 			path = StexClientTest;
 			sourceTree = "<group>";
@@ -472,9 +487,11 @@
 				FAB183BC22CF3FDC00D9C98E /* IRequest.swift in Sources */,
 				FAB183D322CF6AA000D9C98E /* Market.swift in Sources */,
 				FA8044B822D5EAB300B77EC5 /* CurrencyPairRequest.swift in Sources */,
+				FACA3B6E22F9D16800E9970B /* OrderbookOrder.swift in Sources */,
 				FAB183B422CF3FDC00D9C98E /* ServerConstants.swift in Sources */,
 				FAB183BA22CF3FDC00D9C98E /* TickerRequest.swift in Sources */,
 				FAB183A022CF3FCD00D9C98E /* KeyedDecodingContainer+Extension.swift in Sources */,
+				FACA3B7122F9D4A000E9970B /* Orderbook.swift in Sources */,
 				FAB183D922CF6D6A00D9C98E /* PairsGroupsReqest.swift in Sources */,
 				FAB183AE22CF3FDC00D9C98E /* APIClient.swift in Sources */,
 				FAE59E4D22D5E82C00A55E19 /* CurrencyPairsGroupRequest.swift in Sources */,
@@ -485,6 +502,7 @@
 				FACA3B6822F9C30400E9970B /* Trade.swift in Sources */,
 				FAB183C122CF3FEA00D9C98E /* Currency.swift in Sources */,
 				FAB183B222CF3FDC00D9C98E /* RxStexClient.swift in Sources */,
+				FACA3B7422F9D54D00E9970B /* OrderbookReqest.swift in Sources */,
 				FAB183DC22CF6E6600D9C98E /* PairGroup.swift in Sources */,
 				FAB183D022CF6A1C00D9C98E /* MarketsReqest.swift in Sources */,
 				FAB183B622CF3FDC00D9C98E /* StexResponse.swift in Sources */,
@@ -508,6 +526,7 @@
 				FAB183E722CF8F0000D9C98E /* CurrencyPair.swift in Sources */,
 				FAB183CE22CF400000D9C98E /* StexCurrenciesTest.swift in Sources */,
 				FAB183D122CF6A1C00D9C98E /* MarketsReqest.swift in Sources */,
+				FACA3B7522F9D54D00E9970B /* OrderbookReqest.swift in Sources */,
 				FAB183D722CF6BC900D9C98E /* StexMarketTest.swift in Sources */,
 				FAB183BB22CF3FDC00D9C98E /* TickerRequest.swift in Sources */,
 				FACA3B6C22F9C72900E9970B /* Trade.swift in Sources */,
@@ -516,12 +535,15 @@
 				FAB183B522CF3FDC00D9C98E /* ServerConstants.swift in Sources */,
 				FAB183C222CF3FEA00D9C98E /* Currency.swift in Sources */,
 				FAB183D422CF6AA000D9C98E /* Market.swift in Sources */,
+				FACA3B6F22F9D16800E9970B /* OrderbookOrder.swift in Sources */,
 				FA8044B922D5ED1D00B77EC5 /* CurrencyPairRequest.swift in Sources */,
 				FAB183DA22CF6D6A00D9C98E /* PairsGroupsReqest.swift in Sources */,
+				FACA3B7222F9D4A000E9970B /* Orderbook.swift in Sources */,
 				FAB183E622CF8E6F00D9C98E /* StexCurrencyPairsTest.swift in Sources */,
 				FAB183DF22CF6FF300D9C98E /* StexPairsGroupsTest.swift in Sources */,
 				FAB183B122CF3FDC00D9C98E /* StexClient.swift in Sources */,
 				FAB183AF22CF3FDC00D9C98E /* APIClient.swift in Sources */,
+				FACA3B7822F9D6CE00E9970B /* StexOrderbookTest.swift in Sources */,
 				FAB183B922CF3FDC00D9C98E /* CurrenciesRequest.swift in Sources */,
 				FAB183B322CF3FDC00D9C98E /* RxStexClient.swift in Sources */,
 			);

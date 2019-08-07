@@ -115,6 +115,8 @@ public class StexClient: APIClient {
         request(CurrencyPairRequest(with: id), completion: completion)
     }
     
+    //MARK: - Trades
+    
     /// Trades for given currency pair
     ///
     /// - Parameters:
@@ -128,5 +130,11 @@ public class StexClient: APIClient {
     public func fetchTrades(with id: Int, sortKey: SortKey = .desc, from: Double?, till: Double?, limit: Int = 100, offset: Int?, completion: @escaping StexClientCompletion<[Trade]>) {
         
         request(TradesReqest(with: id, sortKey: sortKey, from: from, till: till, limit: limit, offset: offset), completion: completion)
+    }
+    
+    //MARK: - Orderbook
+    
+    public func fetchOrderbook(with id: Int, limitBids: Int = 100, limitAsks: Int = 100, completion: @escaping StexClientCompletion<Orderbook>) {
+        request(OrderbookReqest(with: id, limitBids: limitBids, limitAsks: limitAsks), completion: completion)
     }
 }

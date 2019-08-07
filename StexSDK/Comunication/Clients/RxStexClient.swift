@@ -111,6 +111,8 @@ public extension RxStexClient {
         return request(CurrencyPairRequest(with: id))
     }
     
+    //MARK: - Trades
+    
     /// Trades for given currency pair
     ///
     /// - Parameters:
