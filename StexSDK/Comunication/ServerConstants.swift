@@ -47,6 +47,8 @@ public struct ServerConstants {
     static let from = "from"
     static let till = "till"
     static let offset = "offset"
+    static let limitBids = "limit_bids"
+    static let limitAsks = "limit_asks"
 }
 
 public enum SortKey: String {

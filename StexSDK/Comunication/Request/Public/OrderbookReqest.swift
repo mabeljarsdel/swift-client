@@ -30,8 +30,8 @@ class OrderbookReqest: IRequest {
     
     func parameters() -> Parameters? {
         return [
-            "limit_bids": limitBids,
-            "limit_asks": limitAsks
+            ServerConstants.limitBids: limitBids,
+            ServerConstants.limitAsks: limitAsks
         ]
     }
 }
