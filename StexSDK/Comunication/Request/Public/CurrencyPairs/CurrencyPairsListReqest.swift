@@ -1,5 +1,5 @@
 //
-//  CurrencyPairsListReqest.swift
+//  CurrencyPairsListRequest.swift
 //  StexSDK
 //
 //  Created by Alexander Rudyk on 7/5/19.
@@ -8,7 +8,7 @@
 
 import Alamofire
 
-class CurrencyPairsListReqest: IRequest {
+class CurrencyPairsListRequest: IRequest {
     
     private var code: String
     

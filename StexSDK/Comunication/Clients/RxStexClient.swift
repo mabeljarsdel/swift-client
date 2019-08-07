@@ -61,7 +61,7 @@ public extension RxStexClient {
     ///
     /// - Returns: The observable sequence with the specified implementation for the `subscribe` method.
     func fetchAllMarkets() -> Observable<[Market]> {
-        return request(MarketsReqest())
+        return request(MarketsRequest())
     }
     
     //MARK: - Pairs Groups
@@ -72,7 +72,7 @@ public extension RxStexClient {
     ///
     /// - Returns: The observable sequence with the specified implementation for the `subscribe` method.
     func fetchAllPairsGroups() -> Observable<[PairGroup]> {
-        return request(PairsGroupsReqest())
+        return request(PairsGroupsRequest())
     }
     
     //MARK: - Currency Pairs
@@ -86,7 +86,7 @@ public extension RxStexClient {
     ///   - code: The `String`. Available values: `ALL, BTC`
     /// - Returns: The observable sequence with the specified implementation for the `subscribe` method.
     func fetchCurrencyPairsList(with code: String = "ALL") -> Observable<[CurrencyPair]> {
-        return request(CurrencyPairsListReqest(with: code))
+        return request(CurrencyPairsListRequest(with: code))
     }
     
     /// Available currency pairs for a given group.
@@ -125,7 +125,7 @@ public extension RxStexClient {
     /// - Returns: The observable sequence with the specified implementation for the `subscribe` method.
     func fetchTrades(with id: Int, sortKey: SortKey = .desc, from: Double?, till: Double?, limit: Int = 100, offset: Int?) -> Observable<[Trade]> {
         
-        return request(TradesReqest(with: id, sortKey: sortKey, from: from, till: till, limit: limit, offset: offset))
+        return request(TradesRequest(with: id, sortKey: sortKey, from: from, till: till, limit: limit, offset: offset))
     }
     
     //MARK: - Orderbook
@@ -141,7 +141,7 @@ public extension RxStexClient {
                                limitBids: Int = 100,
                                limitAsks: Int = 100) -> Observable<Orderbook> {
         
-        return request(OrderbookReqest(with: id,
+        return request(OrderbookRequest(with: id,
                                 limitBids: limitBids,
                                 limitAsks: limitAsks))
     }

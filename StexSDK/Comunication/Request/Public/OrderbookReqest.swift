@@ -1,5 +1,5 @@
 //
-//  OrderbookReqest.swift
+//  OrderbookRequest.swift
 //  StexSDK
 //
 //  Created by Alexander Rudyk on 8/6/19.
@@ -8,7 +8,7 @@
 
 import Alamofire
 
-class OrderbookReqest: IRequest {
+class OrderbookRequest: IRequest {
     
     private var id: Int
     private var limitBids: Int

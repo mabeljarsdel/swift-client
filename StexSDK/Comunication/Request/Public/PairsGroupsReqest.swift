@@ -1,5 +1,5 @@
 //
-//  PairsGroupsReqest.swift
+//  PairsGroupsRequest.swift
 //  StexSDK
 //
 //  Created by Alexander Rudyk on 7/5/19.
@@ -13,7 +13,7 @@ import Alamofire
  Get list of all avialable currency pairs groups.
  */
 
-class PairsGroupsReqest: IRequest {
+class PairsGroupsRequest: IRequest {
     
     var httpMethod: HTTPMethod {
         return .get

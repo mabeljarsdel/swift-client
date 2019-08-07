@@ -64,7 +64,7 @@ public class StexClient: APIClient {
     /// - Parameters:
     ///   - completion: A closure to be executed once the request has finished.
     public func fetchAllMarkets(completion: @escaping StexClientCompletion<[Market]>) {
-        request(MarketsReqest(), completion: completion)
+        request(MarketsRequest(), completion: completion)
     }
     
     //MARK: - Pairs Groups
@@ -76,7 +76,7 @@ public class StexClient: APIClient {
     /// - Parameters:
     ///   - completion: A closure to be executed once the request has finished.
     public func fetchAllPairsGroups(completion: @escaping StexClientCompletion<[PairGroup]>) {
-        request(PairsGroupsReqest(), completion: completion)
+        request(PairsGroupsRequest(), completion: completion)
     }
     
     //MARK: - Currency Pairs
@@ -90,7 +90,7 @@ public class StexClient: APIClient {
     ///   - code: The `String`. Available values: `ALL, BTC`
     ///   - completion: A closure to be executed once the request has finished.
     public func fetchCurrencyPairsList(with code: String = "ALL", completion: @escaping StexClientCompletion<[CurrencyPair]>) {
-        request(CurrencyPairsListReqest(with: code), completion: completion)
+        request(CurrencyPairsListRequest(with: code), completion: completion)
     }
     
     /// Available currency pairs for a given group.
@@ -135,7 +135,7 @@ public class StexClient: APIClient {
                             offset: Int?,
                             completion: @escaping StexClientCompletion<[Trade]>) {
         
-        request(TradesReqest(with: id,
+        request(TradesRequest(with: id,
                              sortKey: sortKey,
                              from: from,
                              till: till,
@@ -158,7 +158,7 @@ public class StexClient: APIClient {
                                limitAsks: Int = 100,
                                completion: @escaping StexClientCompletion<Orderbook>) {
         
-        request(OrderbookReqest(with: id,
+        request(OrderbookRequest(with: id,
                                 limitBids: limitBids,
                                 limitAsks: limitAsks),
                 completion: completion)

@@ -1,5 +1,5 @@
 //
-//  MarketsReqest.swift
+//  MarketsRequest.swift
 //  StexSDK
 //
 //  Created by Alexander Rudyk on 7/5/19.
@@ -13,7 +13,7 @@ import Alamofire
  Get list of all avialable markets.
  */
 
-class MarketsReqest: IRequest {
+class MarketsRequest: IRequest {
     
     var httpMethod: HTTPMethod {
         return .get

@@ -1,5 +1,5 @@
 //
-//  TradesReqest.swift
+//  TradesRequest.swift
 //  StexSDK
 //
 //  Created by Alexander Rudyk on 7/16/19.
@@ -8,7 +8,7 @@
 
 import Alamofire
 
-class TradesReqest: IRequest {
+class TradesRequest: IRequest {
     
     private var sortKey: SortKey
     private var id: Int
