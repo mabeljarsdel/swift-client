@@ -122,19 +122,76 @@ public class StexClient: APIClient {
     /// - Parameters:
     ///   - id: The `Int`. Currency pair id.
     ///   - sortKey: The `SortKey`. Direction of the sort - ASCending (.asc) or DESCending (.desc) by trade timestamp.
-    ///   - from: The `Double`. The timestamp in millisecond.
-    ///   - till: The `Double`. The timestamp in millisecond.
+    ///   - from: The `Double`. The timestamp in second.
+    ///   - till: The `Double`. The timestamp in second.
     ///   - limit: The `Int`. Default value : 100
     ///   - offset: The `Int`
     ///   - completion: A closure to be executed once the request has finished.
-    public func fetchTrades(with id: Int, sortKey: SortKey = .desc, from: Double?, till: Double?, limit: Int = 100, offset: Int?, completion: @escaping StexClientCompletion<[Trade]>) {
+    public func fetchTrades(with id: Int,
+                            sortKey: SortKey = .desc,
+                            from: Double?,
+                            till: Double?,
+                            limit: Int = 100,
+                            offset: Int?,
+                            completion: @escaping StexClientCompletion<[Trade]>) {
         
-        request(TradesReqest(with: id, sortKey: sortKey, from: from, till: till, limit: limit, offset: offset), completion: completion)
+        request(TradesReqest(with: id,
+                             sortKey: sortKey,
+                             from: from,
+                             till: till,
+                             limit: limit,
+                             offset: offset),
+                completion: completion)
     }
     
     //MARK: - Orderbook
     
-    public func fetchOrderbook(with id: Int, limitBids: Int = 100, limitAsks: Int = 100, completion: @escaping StexClientCompletion<Orderbook>) {
-        request(OrderbookReqest(with: id, limitBids: limitBids, limitAsks: limitAsks), completion: completion)
+    /// Orderbook for given currency pair.
+    ///
+    /// - Parameters:
+    ///   - id: The `Int`. Currency pair id.
+    ///   - limitBids: The `Int`. Return only top N bids. Returns all if set to 0.
+    ///   - limitAsks: The `Int`. Return only top N asks. Returns all if set to 0.
+    ///   - completion: A closure to be executed once the request has finished.
+    public func fetchOrderbook(with id: Int,
+                               limitBids: Int = 100,
+                               limitAsks: Int = 100,
+                               completion: @escaping StexClientCompletion<Orderbook>) {
+        
+        request(OrderbookReqest(with: id,
+                                limitBids: limitBids,
+                                limitAsks: limitAsks),
+                completion: completion)
+    }
+    
+    //MARK: - Chart
+    
+    /// A list of candles for given currency pair.
+    ///
+    /// Provides a list of candles for the chart. Candles are always ordered in descending order (the latest are first).
+    ///
+    ///   - id: The `Int`. Currency pair id.
+    ///   - candlesType: The `CandlesType`. Candle size oneMinute for 1 minute, fiveMinute - 5 minutes and so on.
+    ///   - timeStart: The `Double`. Timestamp in second. Should be less then timeEnd.
+    ///   - timeEnd: The `Double`. Timestamp in second. Should be greater then timeStart.
+    ///   - limit: The `Int`. Default value : 100.
+    ///   - offset: The `Int`.
+    ///   - completion: A closure to be executed once the request has finished.
+    public func fetchChartData(with id: Int,
+                               candlesType: CandlesType = .oneDay,
+                               timeStart: Double,
+                               timeEnd: Double,
+                               limit: Int = 100,
+                               offset: Int? = nil,
+                               completion: @escaping StexClientCompletion<[Candle]>) {
+        
+        let req = ChartRequest(with: id,
+                               candlesType: candlesType,
+                               timeStart: timeStart,
+                               timeEnd: timeEnd,
+                               limit: limit,
+                               offset: offset)
+        
+        request(req, completion: completion)
     }
 }

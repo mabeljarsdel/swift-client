@@ -127,6 +127,54 @@ public extension RxStexClient {
         
         return request(TradesReqest(with: id, sortKey: sortKey, from: from, till: till, limit: limit, offset: offset))
     }
+    
+    //MARK: - Orderbook
+    
+    /// Orderbook for given currency pair.
+    ///
+    /// - Parameters:
+    ///   - id: The `Int`. Currency pair id.
+    ///   - limitBids: The `Int`. Return only top N bids. Returns all if set to 0.
+    ///   - limitAsks: The `Int`. Return only top N asks. Returns all if set to 0.
+    /// - Returns: The observable sequence with the specified implementation for the `subscribe` method.
+    func fetchOrderbook(with id: Int,
+                               limitBids: Int = 100,
+                               limitAsks: Int = 100) -> Observable<Orderbook> {
+        
+        return request(OrderbookReqest(with: id,
+                                limitBids: limitBids,
+                                limitAsks: limitAsks))
+    }
+    
+    //MARK: - Chart
+    
+    /// A list of candles for given currency pair.
+    ///
+    /// Provides a list of candles for the chart. Candles are always ordered in descending order (the latest are first).
+    ///
+    ///   - id: The `Int`. Currency pair id.
+    ///   - candlesType: The `CandlesType`. Candle size oneMinute for 1 minute, fiveMinute - 5 minutes and so on.
+    ///   - timeStart: The `Double`. Timestamp in second. Should be less then timeEnd.
+    ///   - timeEnd: The `Double`. Timestamp in second. Should be greater then timeStart.
+    ///   - limit: The `Int`. Default value : 100.
+    ///   - offset: The `Int`.
+    /// - Returns: The observable sequence with the specified implementation for the `subscribe` method.
+    func fetchChartData(with id: Int,
+                               candlesType: CandlesType = .oneDay,
+                               timeStart: Double,
+                               timeEnd: Double,
+                               limit: Int = 100,
+                               offset: Int? = nil) -> Observable<[Candle]> {
+        
+        let req = ChartRequest(with: id,
+                               candlesType: candlesType,
+                               timeStart: timeStart,
+                               timeEnd: timeEnd,
+                               limit: limit,
+                               offset: offset)
+        
+        return request(req)
+    }
 }
 
 //MARK: -

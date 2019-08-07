@@ -27,6 +27,7 @@ public struct ServerConstants {
             case currencyPairs = "currency_pairs"
             case trades
             case orderbook
+            case chart
             
             var path: String {
                 return ServerConstants.baseUrl + Endpoints.public + rawValue
@@ -49,6 +50,8 @@ public struct ServerConstants {
     static let offset = "offset"
     static let limitBids = "limit_bids"
     static let limitAsks = "limit_asks"
+    static let timeStart = "timeStart"
+    static let timeEnd = "timeEnd"
 }
 
 public enum SortKey: String {
@@ -59,4 +62,14 @@ public enum SortKey: String {
 public enum TradeType: String, Codable {
     case sell = "SELL"
     case buy = "BUY"
+}
+
+public enum CandlesType: String {
+    case oneMinute = "1"
+    case fiveMinute = "5"
+    case thirtyMinutes = "30"
+    case oneHours = "60"
+    case fourHours = "240"
+    case twelveHours = "720"
+    case oneDay
 }
