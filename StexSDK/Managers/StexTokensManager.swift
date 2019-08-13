@@ -6,7 +6,7 @@
 //  Copyright © 2019 beleven. All rights reserved.
 //
 
-import Alamofire
+import Locksmith
 
 public class StexTokensManager {
     
@@ -15,8 +15,34 @@ public class StexTokensManager {
     internal var accessToken: String?
     internal var refreshToken: String?
     
+    init() {
+        accessToken = Locksmith.loadDataForUserAccount(userAccount: Token.tokens)?[Token.accessToken] as? String
+        refreshToken = Locksmith.loadDataForUserAccount(userAccount: Token.tokens)?[Token.refreshToken] as? String
+    }
+    
+    /// Set up your tokens for autorized request
     public func setTokens(accessToken: String, refreshToken: String) {
         self.accessToken = accessToken
         self.refreshToken = refreshToken
+        
+        saveTokens(accessToken: accessToken, refreshToken: refreshToken)
+    }
+    
+    //MARK: - Private
+    
+    private struct Token {
+        static let tokens = "tokens"
+        static let accessToken = "accessToken"
+        static let refreshToken = "refreshToken"
+    }
+    
+    private func saveTokens(accessToken: String, refreshToken: String) {
+        let tokens = [Token.accessToken: accessToken, Token.refreshToken: refreshToken]
+        
+        do {
+            try Locksmith.updateData(data: tokens, forUserAccount: Token.tokens)
+        }  catch let error {
+            NSLog(error.localizedDescription)
+        }
     }
 }
