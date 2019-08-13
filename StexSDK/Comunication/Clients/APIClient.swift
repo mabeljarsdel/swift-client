@@ -10,17 +10,24 @@ import Alamofire
 
 public class APIClient {
     
-    public init() {}
+    private var session: Session
+    
+    public init() {
+        let adapter = AccessTokenAdapter()
+        
+        session = Session(adapter: adapter, retrier: adapter)
+    }
     
     @discardableResult
     func request<T: Codable> (_ req: IRequest, completion: @escaping (StexResult<T>) -> ()) -> DataRequest {
-        let request = AF.request(req.endpoint,
-                                 method: req.httpMethod,
-                                 parameters: req.parameters(),
-                                 encoding: req.encoding,
-                                 headers: req.httpHeaders())
         
-        request.responseDecodable { (response: DataResponse<StexResponse<T>>) in
+        let request = session.request(req.endpoint,
+                                      method: req.httpMethod,
+                                      parameters: req.parameters(),
+                                      encoding: req.encoding,
+                                      headers: req.httpHeaders())
+        
+        request.validate().responseDecodable { (response: DataResponse<StexResponse<T>>) in
             switch response.result {
             case .success(let data):
                 let result = StexResult(response: data)
@@ -31,5 +38,11 @@ public class APIClient {
         }
         
         return request
+    }
+}
+
+extension APIClient {
+    func refreshToken(completion: @escaping (StexResult<Tokens>) -> ()) {
+        request(RefreshTokensRequest(), completion: completion)
     }
 }

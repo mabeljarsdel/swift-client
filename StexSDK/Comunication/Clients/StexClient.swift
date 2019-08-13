@@ -194,4 +194,15 @@ public class StexClient: APIClient {
         
         request(req, completion: completion)
     }
+    
+    //MARK: - Profile
+    
+    /// Account information.
+    ///
+    /// Get general information about the current user
+    ///
+    ///   - completion: A closure to be executed once the request has finished.
+    public func fetchProfileInfo(completion: @escaping StexClientCompletion<User>) {
+        request(ProfileInfoRequest(), completion: completion)
+    }
 }
