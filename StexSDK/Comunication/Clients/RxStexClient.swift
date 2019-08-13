@@ -175,6 +175,17 @@ public extension RxStexClient {
         
         return request(req)
     }
+    
+    //MARK: - Profile
+    
+    /// Account information.
+    ///
+    /// Get general information about the current user
+    ///
+    /// - Returns: The observable sequence with the specified implementation for the `subscribe` method.
+    func fetchProfileInfo() -> Observable<User> {
+        return request(ProfileInfoRequest())
+    }
 }
 
 //MARK: -

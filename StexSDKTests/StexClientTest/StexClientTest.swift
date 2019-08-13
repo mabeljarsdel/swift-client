@@ -14,7 +14,7 @@ import StexSDK
 class StexClientTest: XCTestCase {
     
     var stexClient: StexClient!
-    let timeout: Double = 3
+    var timeout: Double = 3
     
     override func setUp() {
         super.setUp()

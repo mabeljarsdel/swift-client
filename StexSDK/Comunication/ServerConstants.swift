@@ -9,7 +9,7 @@
 import Foundation
 
 typealias PublicEndpoints = ServerConstants.Endpoints.Public
-typealias PrivateEndpoints = ServerConstants.Endpoints.Private
+typealias ProfileEndpoints = ServerConstants.Endpoints.Profile
 
 public struct ServerConstants {
     
@@ -17,7 +17,7 @@ public struct ServerConstants {
     
     struct Endpoints {
         private static let `public` = "public/"
-        private static let `private` = "private/"
+        private static let profile = "profile/"
         
         enum Public: String {
             case ticker
@@ -34,11 +34,11 @@ public struct ServerConstants {
             }
         }
         
-        enum Private: String {
-            case some
+        enum Profile: String {
+            case info
             
             var path: String {
-                return ServerConstants.baseUrl + Endpoints.private + rawValue
+                return ServerConstants.baseUrl + Endpoints.profile + rawValue
             }
         }
     }
