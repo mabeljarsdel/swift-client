@@ -22,6 +22,18 @@ public enum StexSocketEvent {
     /// Given currency pair buy glass totals changes
     case buyGlassTotalChanged(Int)
     
+    /// Given currency pair sell glass row changes.
+    ///
+    /// Returns the added or changed glass row data.
+    /// In case the amount is zero this means the row should be removed from the glass
+    case sellGlassRowChanget(Int)
+    
+    /// Given currency pair buy glass row changes.
+    ///
+    /// Returns the added or changed glass row data.
+    /// In case the amount is zero this means the row should be removed from the glass
+    case buyGlassRowChanget(Int)
+    
     var channel: String {
         switch self {
         case .rate:
@@ -31,13 +43,23 @@ public enum StexSocketEvent {
         case .sellGlassTotalChanged(let pairId):
             return SocketConstants.Channels.sellGlassTotalChanget + "\(pairId)"
         case .buyGlassTotalChanged(let pairId):
-            return SocketConstants.Channels.sellGlassTotalChanget + "\(pairId)"
+            return SocketConstants.Channels.buyGlassTotalChanget + "\(pairId)"
+        case .sellGlassRowChanget(let pairId):
+            return SocketConstants.Channels.sellGlassRowChanget + "\(pairId)"
+        case .buyGlassRowChanget(let pairId):
+            return SocketConstants.Channels.buyGlassRowChanget + "\(pairId)"
         }
     }
     
     var isPrivate: Bool {
         switch self {
-        case .rate, .tradeCreated(_), .sellGlassTotalChanged(_), .buyGlassTotalChanged(_):
+        case .rate,
+             .tradeCreated(_),
+             .sellGlassTotalChanged(_),
+             .buyGlassTotalChanged(_),
+             .sellGlassRowChanget(_),
+             .buyGlassRowChanget(_):
+            
             return false
         }
     }
@@ -128,6 +150,12 @@ public class StexSocketClient {
             guard let self = self else { return }
             let totals: [GlassTotalChanged] = data.compactMap { SocketDataDecoder().decode(withJSONObject: $0) }
             self.eventListener?.socket(self, receiveGlassTotalChangedWith: totals)
+        }
+        
+        socket?.on(SocketConstants.Event.glassRowChanget) { [weak self] data, ack in
+            guard let self = self else { return }
+            let rows: [GlassRowChanged] = data.compactMap { SocketDataDecoder().decode(withJSONObject: $0) }
+            self.eventListener?.socket(self, receiveGlassRowChangedWith: rows)
         }
     }
 }

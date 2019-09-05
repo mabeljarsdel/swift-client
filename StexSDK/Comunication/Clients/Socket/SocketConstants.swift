@@ -27,6 +27,7 @@ struct SocketConstants {
         static let ticker = "App\\Events\\Ticker"
         static let tradeCreated = "App\\Events\\OrderFillCreated"
         static let glassTotalChanget = "App\\Events\\GlassTotalChanged"
+        static let glassRowChanget = "App\\Events\\GlassRowChanged"
     }
     
     struct Channels {
@@ -34,5 +35,7 @@ struct SocketConstants {
         static let tradeCreated = "trade_c"
         static let sellGlassTotalChanget = "sell_total_data"
         static let buyGlassTotalChanget = "buy_total_data"
+        static let sellGlassRowChanget = "sell_data"
+        static let buyGlassRowChanget = "buy_data"
     }
 }
