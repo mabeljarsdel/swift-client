@@ -13,7 +13,7 @@ public protocol ISocketEventListener {
     func socket(_ socketClient: StexSocketClient, disconnectWith data: [Any])
     
     func socket(_ socketClient: StexSocketClient, receiveRatesWith data: [Rate])
-    func socket(_ socketClient: StexSocketClient, receiveTradesCreatedWith data: [Any])
+    func socket(_ socketClient: StexSocketClient, receiveTradesCreatedWith data: [OrderCreated])
 }
 
 extension ISocketEventListener {
@@ -21,5 +21,5 @@ extension ISocketEventListener {
     func socket(_ socketClient: StexSocketClient, disconnectWith data: [Any]) {}
     
     func socket(_ socketClient: StexSocketClient, receiveTickerWith data: [Rate]) {}
-    func socket(_ socketClient: StexSocketClient, receiveTradesCreatedWith data: [Any]) {}
+    func socket(_ socketClient: StexSocketClient, receiveTradesCreatedWith data: [OrderCreated]) {}
 }

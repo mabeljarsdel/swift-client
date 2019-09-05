@@ -110,8 +110,8 @@ public class StexSocketClient {
         
         socket?.on(SocketConstants.Event.tradeCreated) { [weak self] data, ack in
             guard let self = self else { return }
-            //let rates: [Rate] = data.compactMap { SocketDataDecoder().decode(withJSONObject: $0) }
-            self.eventListener?.socket(self, receiveTradesCreatedWith: data)
+            let orders: [OrderCreated] = data.compactMap { SocketDataDecoder().decode(withJSONObject: $0) }
+            self.eventListener?.socket(self, receiveTradesCreatedWith: orders)
         }
     }
 }
