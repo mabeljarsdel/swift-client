@@ -12,6 +12,8 @@
 		FA077D3922DDFC1E00CE9B8E /* TradesReqest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA077D3822DDFC1E00CE9B8E /* TradesReqest.swift */; };
 		FA8044B822D5EAB300B77EC5 /* CurrencyPairRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8044B722D5EAB300B77EC5 /* CurrencyPairRequest.swift */; };
 		FA8044B922D5ED1D00B77EC5 /* CurrencyPairRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8044B722D5EAB300B77EC5 /* CurrencyPairRequest.swift */; };
+		FA95C614231FC01C0031D6F9 /* SocketDataDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95C613231FC01C0031D6F9 /* SocketDataDecoder.swift */; };
+		FA95C615231FC01C0031D6F9 /* SocketDataDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95C613231FC01C0031D6F9 /* SocketDataDecoder.swift */; };
 		FAB1838E22CF3EA600D9C98E /* StexSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAB1838422CF3EA600D9C98E /* StexSDK.framework */; };
 		FAB1839522CF3EA600D9C98E /* StexSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = FAB1838722CF3EA600D9C98E /* StexSDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FAB183A022CF3FCD00D9C98E /* KeyedDecodingContainer+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB1839F22CF3FCD00D9C98E /* KeyedDecodingContainer+Extension.swift */; };
@@ -107,6 +109,7 @@
 		E8ACF3AB611B0EEF83C6CBD7 /* Pods-StexSDK.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StexSDK.debug.xcconfig"; path = "Target Support Files/Pods-StexSDK/Pods-StexSDK.debug.xcconfig"; sourceTree = "<group>"; };
 		FA077D3822DDFC1E00CE9B8E /* TradesReqest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradesReqest.swift; sourceTree = "<group>"; };
 		FA8044B722D5EAB300B77EC5 /* CurrencyPairRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyPairRequest.swift; sourceTree = "<group>"; };
+		FA95C613231FC01C0031D6F9 /* SocketDataDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketDataDecoder.swift; sourceTree = "<group>"; };
 		FAB1838422CF3EA600D9C98E /* StexSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = StexSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAB1838722CF3EA600D9C98E /* StexSDK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StexSDK.h; sourceTree = "<group>"; };
 		FAB1838822CF3EA600D9C98E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -196,6 +199,14 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		FA95C61A2321112F0031D6F9 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				FA95C613231FC01C0031D6F9 /* SocketDataDecoder.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		FAB1837A22CF3EA600D9C98E = {
 			isa = PBXGroup;
 			children = (
@@ -219,6 +230,7 @@
 		FAB1838622CF3EA600D9C98E /* StexSDK */ = {
 			isa = PBXGroup;
 			children = (
+				FA95C61A2321112F0031D6F9 /* Utils */,
 				FACA3B81230177FE00E9970B /* Managers */,
 				FAB1839E22CF3FCD00D9C98E /* Extension */,
 				FAB183A222CF3FDC00D9C98E /* Comunication */,
@@ -576,6 +588,7 @@
 				FAB183C322CF3FEA00D9C98E /* Ticker.swift in Sources */,
 				FAB183E422CF893600D9C98E /* CurrencyPairsListReqest.swift in Sources */,
 				FACA3B6822F9C30400E9970B /* Trade.swift in Sources */,
+				FA95C614231FC01C0031D6F9 /* SocketDataDecoder.swift in Sources */,
 				FAB183C122CF3FEA00D9C98E /* Currency.swift in Sources */,
 				FAB183B222CF3FDC00D9C98E /* RxStexClient.swift in Sources */,
 				FACA3B7422F9D54D00E9970B /* OrderbookReqest.swift in Sources */,
@@ -604,6 +617,7 @@
 				FAB183E822CF8F0500D9C98E /* CurrencyPairsListReqest.swift in Sources */,
 				FACA3B7B22FAD40C00E9970B /* ChartRequest.swift in Sources */,
 				FAF8995723019DDC00C18AA1 /* ProfileInfoRequest.swift in Sources */,
+				FA95C615231FC01C0031D6F9 /* SocketDataDecoder.swift in Sources */,
 				FABDBF2E2302E89B00F9A12B /* StexPrivateClientTest.swift in Sources */,
 				FAB183B722CF3FDC00D9C98E /* StexResponse.swift in Sources */,
 				FACA3B8C2301875C00E9970B /* StexProfileInfoTest.swift in Sources */,
