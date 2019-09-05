@@ -16,18 +16,28 @@ public enum StexSocketEvent {
     /// New trades for the given currency pair
     case tradeCreated(Int)
     
+    /// Given currency pair sell glass totals changes
+    case sellGlassTotalChanged(Int)
+    
+    /// Given currency pair buy glass totals changes
+    case buyGlassTotalChanged(Int)
+    
     var channel: String {
         switch self {
         case .rate:
             return SocketConstants.Channels.rate
         case .tradeCreated(let pairId):
             return SocketConstants.Channels.tradeCreated + "\(pairId)"
+        case .sellGlassTotalChanged(let pairId):
+            return SocketConstants.Channels.sellGlassTotalChanget + "\(pairId)"
+        case .buyGlassTotalChanged(let pairId):
+            return SocketConstants.Channels.sellGlassTotalChanget + "\(pairId)"
         }
     }
     
     var isPrivate: Bool {
         switch self {
-        case .rate, .tradeCreated(_):
+        case .rate, .tradeCreated(_), .sellGlassTotalChanged(_), .buyGlassTotalChanged(_):
             return false
         }
     }
@@ -112,6 +122,12 @@ public class StexSocketClient {
             guard let self = self else { return }
             let orders: [OrderCreated] = data.compactMap { SocketDataDecoder().decode(withJSONObject: $0) }
             self.eventListener?.socket(self, receiveTradesCreatedWith: orders)
+        }
+        
+        socket?.on(SocketConstants.Event.glassTotalChanget) { [weak self] data, ack in
+            guard let self = self else { return }
+            let totals: [GlassTotalChanged] = data.compactMap { SocketDataDecoder().decode(withJSONObject: $0) }
+            self.eventListener?.socket(self, receiveGlassTotalChangedWith: totals)
         }
     }
 }
