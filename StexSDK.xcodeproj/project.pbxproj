@@ -18,6 +18,8 @@
 		FA95C61D232131C50031D6F9 /* OrderCreated.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95C61B232131C50031D6F9 /* OrderCreated.swift */; };
 		FA95C61F232151D80031D6F9 /* GlassTotalChanged.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95C61E232151D70031D6F9 /* GlassTotalChanged.swift */; };
 		FA95C620232151D80031D6F9 /* GlassTotalChanged.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95C61E232151D70031D6F9 /* GlassTotalChanged.swift */; };
+		FA95C62223215B700031D6F9 /* GlassRowChanged.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95C62123215B700031D6F9 /* GlassRowChanged.swift */; };
+		FA95C62323215B700031D6F9 /* GlassRowChanged.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95C62123215B700031D6F9 /* GlassRowChanged.swift */; };
 		FAB1838E22CF3EA600D9C98E /* StexSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAB1838422CF3EA600D9C98E /* StexSDK.framework */; };
 		FAB1839522CF3EA600D9C98E /* StexSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = FAB1838722CF3EA600D9C98E /* StexSDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FAB183A022CF3FCD00D9C98E /* KeyedDecodingContainer+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB1839F22CF3FCD00D9C98E /* KeyedDecodingContainer+Extension.swift */; };
@@ -124,6 +126,7 @@
 		FA95C613231FC01C0031D6F9 /* SocketDataDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketDataDecoder.swift; sourceTree = "<group>"; };
 		FA95C61B232131C50031D6F9 /* OrderCreated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderCreated.swift; sourceTree = "<group>"; };
 		FA95C61E232151D70031D6F9 /* GlassTotalChanged.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlassTotalChanged.swift; sourceTree = "<group>"; };
+		FA95C62123215B700031D6F9 /* GlassRowChanged.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlassRowChanged.swift; sourceTree = "<group>"; };
 		FAB1838422CF3EA600D9C98E /* StexSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = StexSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAB1838722CF3EA600D9C98E /* StexSDK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StexSDK.h; sourceTree = "<group>"; };
 		FAB1838822CF3EA600D9C98E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -412,6 +415,7 @@
 				FABDBF3E2305995600F9A12B /* Rate.swift */,
 				FA95C61B232131C50031D6F9 /* OrderCreated.swift */,
 				FA95C61E232151D70031D6F9 /* GlassTotalChanged.swift */,
+				FA95C62123215B700031D6F9 /* GlassRowChanged.swift */,
 			);
 			path = Socket;
 			sourceTree = "<group>";
@@ -627,6 +631,7 @@
 				FA95C61C232131C50031D6F9 /* OrderCreated.swift in Sources */,
 				FACA3B6E22F9D16800E9970B /* OrderbookOrder.swift in Sources */,
 				FAB183B422CF3FDC00D9C98E /* ServerConstants.swift in Sources */,
+				FA95C62223215B700031D6F9 /* GlassRowChanged.swift in Sources */,
 				FAB183BA22CF3FDC00D9C98E /* TickerRequest.swift in Sources */,
 				FAB183A022CF3FCD00D9C98E /* KeyedDecodingContainer+Extension.swift in Sources */,
 				FAF8995623019C1B00C18AA1 /* User.swift in Sources */,
@@ -693,6 +698,7 @@
 				FAE59E4E22D5E82C00A55E19 /* CurrencyPairsGroupRequest.swift in Sources */,
 				FAB183B522CF3FDC00D9C98E /* ServerConstants.swift in Sources */,
 				FAB183C222CF3FEA00D9C98E /* Currency.swift in Sources */,
+				FA95C62323215B700031D6F9 /* GlassRowChanged.swift in Sources */,
 				FABDBF4323059F3100F9A12B /* Rate.swift in Sources */,
 				FAB183D422CF6AA000D9C98E /* Market.swift in Sources */,
 				FABDBF362302F3A700F9A12B /* SocketConstants.swift in Sources */,
