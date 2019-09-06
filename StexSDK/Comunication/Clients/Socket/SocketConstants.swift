@@ -29,6 +29,7 @@ struct SocketConstants {
         static let glassTotalChanget = "App\\Events\\GlassTotalChanged"
         static let glassRowChanget = "App\\Events\\GlassRowChanged"
         static let bestPriceChanged = "App\\Events\\BestPriceChanged"
+        static let candleChanged = "App\\Events\\CandleChanged"
     }
     
     struct Channels {
@@ -40,5 +41,6 @@ struct SocketConstants {
         static let buyGlassRowChanget = "buy_data"
         static let bidBestPriceChanged = "best_bid_price_"
         static let askBestPriceChanged = "best_ask_price_"
+        static let candleChanged = "stats_data_%@_%@"
     }
 }

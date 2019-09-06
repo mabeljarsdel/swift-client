@@ -39,6 +39,10 @@ public enum StexSocketEvent {
     /// Changes of the best ask price for given currency pair and orders type
     case askBestPriceChanged(Int)
     
+    /// Changes of the chart candles for given currency pair of the given chart type
+    case candleChanged(CandlesType, Int)
+    
+    /// Channels for event.
     var channel: String {
         switch self {
         case .rate:
@@ -57,9 +61,12 @@ public enum StexSocketEvent {
             return SocketConstants.Channels.bidBestPriceChanged + "\(pairId)"
         case .askBestPriceChanged(let pairId):
             return SocketConstants.Channels.askBestPriceChanged + "\(pairId)"
+        case .candleChanged(let type, let pairId):
+            return String(format: SocketConstants.Channels.candleChanged, type.rawValue, "\(pairId)")
         }
     }
     
+    /// Is private event
     var isPrivate: Bool {
         switch self {
         case .rate,
@@ -69,7 +76,8 @@ public enum StexSocketEvent {
              .sellGlassRowChanget(_),
              .buyGlassRowChanget(_),
              .bidBestPriceChanged(_),
-             .askBestPriceChanged(_):
+             .askBestPriceChanged(_),
+             .candleChanged(_, _):
             
             return false
         }

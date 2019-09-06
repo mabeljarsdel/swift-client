@@ -71,5 +71,5 @@ public enum CandlesType: String {
     case oneHours = "60"
     case fourHours = "240"
     case twelveHours = "720"
-    case oneDay
+    case oneDay = "1D"
 }

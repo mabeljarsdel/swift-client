@@ -107,5 +107,11 @@ public class StexSocketClient {
             let prices: [BestPriceChanged] = data.compactMap { SocketDataDecoder().decode(withJSONObject: $0) }
             self.eventListener?.socket(self, receiveBestPriceChangedWith: prices)
         }
+        
+        socket?.on(SocketConstants.Event.candleChanged) { [weak self] data, ack in
+            guard let self = self else { return }
+            let candles: [CandleChanged] = data.compactMap { SocketDataDecoder().decode(withJSONObject: $0) }
+            self.eventListener?.socket(self, receiveCandleChangedWith: candles)
+        }
     }
 }
