@@ -19,6 +19,7 @@ public protocol ISocketEventListener {
     func socket(_ socketClient: StexSocketClient, receiveBestPriceChangedWith data: [BestPriceChanged])
     func socket(_ socketClient: StexSocketClient, receiveCandleChangedWith data: [CandleChanged])
     func socket(_ socketClient: StexSocketClient, receiveBalanceChangedWith data: [BalanceChanged])
+    func socket(_ socketClient: StexSocketClient, receiveUserOrdersWith data: [UserOrder])
 }
 
 extension ISocketEventListener {
@@ -32,4 +33,5 @@ extension ISocketEventListener {
     func socket(_ socketClient: StexSocketClient, receiveBestPriceChangedWith data: [BestPriceChanged]) {}
     func socket(_ socketClient: StexSocketClient, receiveCandleChangedWith data: [CandleChanged]) {}
     func socket(_ socketClient: StexSocketClient, receiveBalanceChangedWith data: [BalanceChanged]) {}
+    func socket(_ socketClient: StexSocketClient, receiveUserOrdersWith data: [UserOrder]) {}
 }

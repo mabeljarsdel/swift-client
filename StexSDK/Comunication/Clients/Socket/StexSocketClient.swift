@@ -119,5 +119,11 @@ public class StexSocketClient {
             let balances: [BalanceChanged] = data.compactMap { SocketDataDecoder().decode(withJSONObject: $0) }
             self.eventListener?.socket(self, receiveBalanceChangedWith: balances)
         }
+        
+        socket?.on(SocketConstants.Event.userOrder) { [weak self] data, ack in
+            guard let self = self else { return }
+            let orders: [UserOrder] = data.compactMap { SocketDataDecoder().decode(withJSONObject: $0) }
+            self.eventListener?.socket(self, receiveUserOrdersWith: orders)
+        }
     }
 }

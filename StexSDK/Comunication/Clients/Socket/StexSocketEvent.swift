@@ -45,6 +45,12 @@ public enum StexSocketEvent {
     /// Balance changes of the given wallet
     case balanceChanged(Int)
     
+    /// User sell order changes for given currency_pair
+    case sellUserOrder(Int, Int)
+    
+    /// User buy order changes for given currency_pair
+    case buyUserOrder(Int, Int)
+    
     /// Channels for event.
     var channel: String {
         switch self {
@@ -68,6 +74,10 @@ public enum StexSocketEvent {
             return String(format: SocketConstants.Channels.candleChanged, type.rawValue, "\(pairId)")
         case .balanceChanged(let walletId):
             return SocketConstants.Channels.balanceChanged + "\(walletId)"
+        case .sellUserOrder(let userId, let pairId):
+            return String(format: SocketConstants.Channels.sellUserOrder, "\(userId)", "\(pairId)")
+        case .buyUserOrder(let userId, let pairId):
+            return String(format: SocketConstants.Channels.buyUserOrder, "\(userId)", "\(pairId)")
         }
     }
     
@@ -86,7 +96,9 @@ public enum StexSocketEvent {
             
             return false
             
-        case .balanceChanged(_):
+        case .balanceChanged(_),
+             .sellUserOrder(_, _),
+             .buyUserOrder(_, _):
             
             return true
         }
