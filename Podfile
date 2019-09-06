@@ -7,8 +7,6 @@ def shared_pods
   
   pod 'Locksmith'
   
-  pod 'SwiftyJSON'
-  
   pod 'RxSwift', '~> 4.0'
   pod 'RxCocoa', '~> 4.0'
 end
