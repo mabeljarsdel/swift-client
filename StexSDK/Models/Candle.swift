@@ -13,7 +13,7 @@ public class Candle: Codable {
     /// Timestamp in milliseconds.
     ///
     /// Example: `1538737692000`
-    public var time: Double
+    public var time: Double?
     
     /// Candle close price.
     ///
