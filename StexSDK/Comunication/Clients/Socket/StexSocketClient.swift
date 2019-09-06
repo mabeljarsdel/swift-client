@@ -57,7 +57,7 @@ public class StexSocketClient {
         var param: [String: AnyHashable] = [SocketConstants.Param.channel: channel]
         
         if let token = token {
-            let headers = [SocketConstants.Param.authorization: SocketConstants.Param.bearer + token]
+            let headers = [SocketConstants.Param.authorization: SocketConstants.Param.bearer + " " + token]
             param[SocketConstants.Param.auth] = [SocketConstants.Param.headers : headers]
         }
         
@@ -112,6 +112,12 @@ public class StexSocketClient {
             guard let self = self else { return }
             let candles: [CandleChanged] = data.compactMap { SocketDataDecoder().decode(withJSONObject: $0) }
             self.eventListener?.socket(self, receiveCandleChangedWith: candles)
+        }
+        
+        socket?.on(SocketConstants.Event.balanceChanged) { [weak self] data, ack in
+            guard let self = self else { return }
+            let balances: [BalanceChanged] = data.compactMap { SocketDataDecoder().decode(withJSONObject: $0) }
+            self.eventListener?.socket(self, receiveBalanceChangedWith: balances)
         }
     }
 }

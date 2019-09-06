@@ -42,6 +42,9 @@ public enum StexSocketEvent {
     /// Changes of the chart candles for given currency pair of the given chart type
     case candleChanged(CandlesType, Int)
     
+    /// Balance changes of the given wallet
+    case balanceChanged(Int)
+    
     /// Channels for event.
     var channel: String {
         switch self {
@@ -63,6 +66,8 @@ public enum StexSocketEvent {
             return SocketConstants.Channels.askBestPriceChanged + "\(pairId)"
         case .candleChanged(let type, let pairId):
             return String(format: SocketConstants.Channels.candleChanged, type.rawValue, "\(pairId)")
+        case .balanceChanged(let walletId):
+            return SocketConstants.Channels.balanceChanged + "\(walletId)"
         }
     }
     
@@ -80,6 +85,10 @@ public enum StexSocketEvent {
              .candleChanged(_, _):
             
             return false
+            
+        case .balanceChanged(_):
+            
+            return true
         }
     }
 }
