@@ -32,6 +32,7 @@ struct SocketConstants {
         static let candleChanged = "App\\Events\\CandleChanged"
         static let balanceChanged = "App\\Events\\BalanceChanged"
         static let userOrder = "App\\Events\\UserOrder"
+        static let userOrderDeleted = "App\\Events\\UserOrderDeleted"
     }
     
     struct Channels {
@@ -47,5 +48,6 @@ struct SocketConstants {
         static let balanceChanged = "private-balance_changed_w_"
         static let sellUserOrder = "private-sell_user_data_u%@c%@"
         static let buyUserOrder = "private-buy_user_data_u%@c%@"
+        static let delUserOrder = "private-del_order_u%@c%@"
     }
 }

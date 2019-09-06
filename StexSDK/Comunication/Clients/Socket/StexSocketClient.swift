@@ -125,5 +125,11 @@ public class StexSocketClient {
             let orders: [UserOrder] = data.compactMap { SocketDataDecoder().decode(withJSONObject: $0) }
             self.eventListener?.socket(self, receiveUserOrdersWith: orders)
         }
+        
+        socket?.on(SocketConstants.Event.userOrderDeleted) { [weak self] data, ack in
+            guard let self = self else { return }
+            let orders: [UserOrderDeleted] = data.compactMap { SocketDataDecoder().decode(withJSONObject: $0) }
+            self.eventListener?.socket(self, receiveUserOrdersDeletedWith: orders)
+        }
     }
 }

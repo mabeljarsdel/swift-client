@@ -46,10 +46,25 @@ public enum StexSocketEvent {
     case balanceChanged(Int)
     
     /// User sell order changes for given currency_pair
+    ///
+    /// Parameters:
+    ///  - Int: `user_id`
+    ///  - Int: `pair_id`
     case sellUserOrder(Int, Int)
     
     /// User buy order changes for given currency_pair
+    ///
+    /// Parameters:
+    ///  - Int: `user_id`
+    ///  - Int: `pair_id`
     case buyUserOrder(Int, Int)
+    
+    /// Any type of finishing (including the cancelling) of the user orders for given currency pair
+    ///
+    /// Parameters:
+    ///  - Int: `user_id`
+    ///  - Int: `pair_id`
+    case userOrderDeleted(Int, Int)
     
     /// Channels for event.
     var channel: String {
@@ -78,6 +93,8 @@ public enum StexSocketEvent {
             return String(format: SocketConstants.Channels.sellUserOrder, "\(userId)", "\(pairId)")
         case .buyUserOrder(let userId, let pairId):
             return String(format: SocketConstants.Channels.buyUserOrder, "\(userId)", "\(pairId)")
+        case .userOrderDeleted(let userId, let pairId):
+            return String(format: SocketConstants.Channels.delUserOrder, "\(userId)", "\(pairId)")
         }
     }
     
@@ -98,7 +115,8 @@ public enum StexSocketEvent {
             
         case .balanceChanged(_),
              .sellUserOrder(_, _),
-             .buyUserOrder(_, _):
+             .buyUserOrder(_, _),
+             .userOrderDeleted(_, _):
             
             return true
         }
