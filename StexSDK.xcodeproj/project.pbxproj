@@ -30,6 +30,8 @@
 		FA95C62F23227C3F0031D6F9 /* BalanceChanged.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95C62D23227C3F0031D6F9 /* BalanceChanged.swift */; };
 		FA95C631232288D20031D6F9 /* UserOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95C630232288D20031D6F9 /* UserOrder.swift */; };
 		FA95C632232288D20031D6F9 /* UserOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95C630232288D20031D6F9 /* UserOrder.swift */; };
+		FA95C634232294AD0031D6F9 /* UserOrderDeleted.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95C633232294AD0031D6F9 /* UserOrderDeleted.swift */; };
+		FA95C635232294AE0031D6F9 /* UserOrderDeleted.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95C633232294AD0031D6F9 /* UserOrderDeleted.swift */; };
 		FAB1838E22CF3EA600D9C98E /* StexSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAB1838422CF3EA600D9C98E /* StexSDK.framework */; };
 		FAB1839522CF3EA600D9C98E /* StexSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = FAB1838722CF3EA600D9C98E /* StexSDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FAB183A022CF3FCD00D9C98E /* KeyedDecodingContainer+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB1839F22CF3FCD00D9C98E /* KeyedDecodingContainer+Extension.swift */; };
@@ -142,6 +144,7 @@
 		FA95C62A23225D290031D6F9 /* CandleChanged.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CandleChanged.swift; sourceTree = "<group>"; };
 		FA95C62D23227C3F0031D6F9 /* BalanceChanged.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceChanged.swift; sourceTree = "<group>"; };
 		FA95C630232288D20031D6F9 /* UserOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserOrder.swift; sourceTree = "<group>"; };
+		FA95C633232294AD0031D6F9 /* UserOrderDeleted.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserOrderDeleted.swift; sourceTree = "<group>"; };
 		FAB1838422CF3EA600D9C98E /* StexSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = StexSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAB1838722CF3EA600D9C98E /* StexSDK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StexSDK.h; sourceTree = "<group>"; };
 		FAB1838822CF3EA600D9C98E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -436,6 +439,7 @@
 				FA95C62A23225D290031D6F9 /* CandleChanged.swift */,
 				FA95C62D23227C3F0031D6F9 /* BalanceChanged.swift */,
 				FA95C630232288D20031D6F9 /* UserOrder.swift */,
+				FA95C633232294AD0031D6F9 /* UserOrderDeleted.swift */,
 			);
 			path = Socket;
 			sourceTree = "<group>";
@@ -658,6 +662,7 @@
 				FAB183BA22CF3FDC00D9C98E /* TickerRequest.swift in Sources */,
 				FAB183A022CF3FCD00D9C98E /* KeyedDecodingContainer+Extension.swift in Sources */,
 				FAF8995623019C1B00C18AA1 /* User.swift in Sources */,
+				FA95C634232294AD0031D6F9 /* UserOrderDeleted.swift in Sources */,
 				FA95C61F232151D80031D6F9 /* GlassTotalChanged.swift in Sources */,
 				FACA3B7122F9D4A000E9970B /* Orderbook.swift in Sources */,
 				FAB183D922CF6D6A00D9C98E /* PairsGroupsReqest.swift in Sources */,
@@ -726,6 +731,7 @@
 				FAB183B522CF3FDC00D9C98E /* ServerConstants.swift in Sources */,
 				FAB183C222CF3FEA00D9C98E /* Currency.swift in Sources */,
 				FA95C62323215B700031D6F9 /* GlassRowChanged.swift in Sources */,
+				FA95C635232294AE0031D6F9 /* UserOrderDeleted.swift in Sources */,
 				FABDBF4323059F3100F9A12B /* Rate.swift in Sources */,
 				FAB183D422CF6AA000D9C98E /* Market.swift in Sources */,
 				FABDBF362302F3A700F9A12B /* SocketConstants.swift in Sources */,
