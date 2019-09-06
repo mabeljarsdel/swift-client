@@ -34,6 +34,12 @@ public enum StexSocketEvent {
     /// In case the amount is zero this means the row should be removed from the glass
     case buyGlassRowChanget(Int)
     
+    /// Changes of the best bid price for given currency pair and orders type
+    case bidBestPriceChanged(Int)
+    
+    /// Changes of the best ask price for given currency pair and orders type
+    case askBestPriceChanged(Int)
+    
     var channel: String {
         switch self {
         case .rate:
@@ -48,6 +54,10 @@ public enum StexSocketEvent {
             return SocketConstants.Channels.sellGlassRowChanget + "\(pairId)"
         case .buyGlassRowChanget(let pairId):
             return SocketConstants.Channels.buyGlassRowChanget + "\(pairId)"
+        case .bidBestPriceChanged(let pairId):
+            return SocketConstants.Channels.bidBestPriceChanged + "\(pairId)"
+        case .askBestPriceChanged(let pairId):
+             return SocketConstants.Channels.askBestPriceChanged + "\(pairId)"
         }
     }
     
@@ -58,7 +68,9 @@ public enum StexSocketEvent {
              .sellGlassTotalChanged(_),
              .buyGlassTotalChanged(_),
              .sellGlassRowChanget(_),
-             .buyGlassRowChanget(_):
+             .buyGlassRowChanget(_),
+             .bidBestPriceChanged(_),
+             .askBestPriceChanged(_):
             
             return false
         }
@@ -156,6 +168,12 @@ public class StexSocketClient {
             guard let self = self else { return }
             let rows: [GlassRowChanged] = data.compactMap { SocketDataDecoder().decode(withJSONObject: $0) }
             self.eventListener?.socket(self, receiveGlassRowChangedWith: rows)
+        }
+        
+        socket?.on(SocketConstants.Event.bestPriceChanged) { [weak self] data, ack in
+            guard let self = self else { return }
+            let prices: [BestPriceChanged] = data.compactMap { SocketDataDecoder().decode(withJSONObject: $0) }
+            self.eventListener?.socket(self, receiveBestPriceChangedWith: prices)
         }
     }
 }
