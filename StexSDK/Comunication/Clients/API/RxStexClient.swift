@@ -197,6 +197,24 @@ public extension RxStexClient {
     func fetchFee(for pairId: Int) -> Observable<Fee> {
         return request(FeesRequest(pairId: pairId))
     }
+    
+    //MARK: Orders
+    
+    /// List of your currently open orders.
+    ///
+    /// - Returns: The observable sequence with the specified implementation for the `subscribe` method.
+    func fetchOrdersList() -> Observable<[Order]> {
+        return request(OrdersRequest())
+    }
+    
+    /// List of your currently open orders for certain currency pair.
+    ///
+    /// - Parameters:
+    ///   - pairId: The `Int`. Currency pair id.
+    /// - Returns: The observable sequence with the specified implementation for the `subscribe` method.
+    func fetchOrdersList(with pairId: Int) -> Observable<[Order]> {
+        return request(OrdersRequest(pairId: pairId))
+    }
 }
 
 //MARK: -

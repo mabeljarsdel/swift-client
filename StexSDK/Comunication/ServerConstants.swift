@@ -84,3 +84,17 @@ public enum CandlesType: String {
     case twelveHours = "720"
     case oneDay = "1D"
 }
+
+public enum OrderType: String, Codable {
+    case sell = "SELL"
+    case buy = "BUY"
+    case stopLimitBuy = "STOP_LIMIT_BUY"
+    case stopLimitSell = "STOP_LIMIT_SELL"
+}
+
+public enum OrderStatus: String, Codable {
+    case processing = "PROCESSING"
+    case pending = "PENDING"
+    case finished = "FINISHED"
+    case cancelled = "CANCELLED"
+}

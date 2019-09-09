@@ -218,4 +218,23 @@ public class StexClient: APIClient {
     public func fetchFee(for pairId: Int, completion: @escaping StexClientCompletion<Fee>) {
         request(FeesRequest(pairId: pairId), completion: completion)
     }
+    
+    //MARK: Orders
+    
+    /// List of your currently open orders.
+    ///
+    /// - Parameters:
+    ///   - completion: A closure to be executed once the request has finished.
+    public func fetchOrdersList(completion: @escaping StexClientCompletion<[Order]>) {
+        request(OrdersRequest(), completion: completion)
+    }
+    
+    /// List of your currently open orders for certain currency pair.
+    ///
+    /// - Parameters:
+    ///   - pairId: The `Int`. Currency pair id.
+    ///   - completion: A closure to be executed once the request has finished.
+    public func fetchOrdersList(with pairId: Int, completion: @escaping StexClientCompletion<[Order]>) {
+        request(OrdersRequest(pairId: pairId), completion: completion)
+    }
 }
