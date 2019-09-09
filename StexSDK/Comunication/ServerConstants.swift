@@ -63,6 +63,10 @@ public struct ServerConstants {
     static let limitAsks = "limit_asks"
     static let timeStart = "timeStart"
     static let timeEnd = "timeEnd"
+    static let type = "type"
+    static let amount = "amount"
+    static let price = "price"
+    static let triggerPrice = "trigger_price"
 }
 
 public enum SortKey: String {

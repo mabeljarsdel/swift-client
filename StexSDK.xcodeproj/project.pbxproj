@@ -46,6 +46,10 @@
 		FA95C649232664C30031D6F9 /* CancelOrdersRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95C647232664C30031D6F9 /* CancelOrdersRequest.swift */; };
 		FA95C64B232666E60031D6F9 /* CanceledOrders.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95C64A232666E60031D6F9 /* CanceledOrders.swift */; };
 		FA95C64C232666E60031D6F9 /* CanceledOrders.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95C64A232666E60031D6F9 /* CanceledOrders.swift */; };
+		FA95C64E2326724A0031D6F9 /* CreateOrderReqest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95C64D2326724A0031D6F9 /* CreateOrderReqest.swift */; };
+		FA95C64F2326724A0031D6F9 /* CreateOrderReqest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95C64D2326724A0031D6F9 /* CreateOrderReqest.swift */; };
+		FA95C65123267B940031D6F9 /* DoubleFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95C65023267B940031D6F9 /* DoubleFormatter.swift */; };
+		FA95C65223267B940031D6F9 /* DoubleFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95C65023267B940031D6F9 /* DoubleFormatter.swift */; };
 		FAB1838E22CF3EA600D9C98E /* StexSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAB1838422CF3EA600D9C98E /* StexSDK.framework */; };
 		FAB1839522CF3EA600D9C98E /* StexSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = FAB1838722CF3EA600D9C98E /* StexSDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FAB183A022CF3FCD00D9C98E /* KeyedDecodingContainer+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB1839F22CF3FCD00D9C98E /* KeyedDecodingContainer+Extension.swift */; };
@@ -167,6 +171,8 @@
 		FA95C645232651810031D6F9 /* StexOrdersTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StexOrdersTest.swift; sourceTree = "<group>"; };
 		FA95C647232664C30031D6F9 /* CancelOrdersRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelOrdersRequest.swift; sourceTree = "<group>"; };
 		FA95C64A232666E60031D6F9 /* CanceledOrders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanceledOrders.swift; sourceTree = "<group>"; };
+		FA95C64D2326724A0031D6F9 /* CreateOrderReqest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateOrderReqest.swift; sourceTree = "<group>"; };
+		FA95C65023267B940031D6F9 /* DoubleFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleFormatter.swift; sourceTree = "<group>"; };
 		FAB1838422CF3EA600D9C98E /* StexSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = StexSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAB1838722CF3EA600D9C98E /* StexSDK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StexSDK.h; sourceTree = "<group>"; };
 		FAB1838822CF3EA600D9C98E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -264,6 +270,7 @@
 			isa = PBXGroup;
 			children = (
 				FA95C613231FC01C0031D6F9 /* SocketDataDecoder.swift */,
+				FA95C65023267B940031D6F9 /* DoubleFormatter.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -274,6 +281,7 @@
 				FA95C6372326346C0031D6F9 /* FeesRequest.swift */,
 				FA95C63F2326450E0031D6F9 /* OrdersRequest.swift */,
 				FA95C647232664C30031D6F9 /* CancelOrdersRequest.swift */,
+				FA95C64D2326724A0031D6F9 /* CreateOrderReqest.swift */,
 			);
 			path = Trading;
 			sourceTree = "<group>";
@@ -723,10 +731,12 @@
 				FAB183B222CF3FDC00D9C98E /* RxStexClient.swift in Sources */,
 				FACA3B7422F9D54D00E9970B /* OrderbookReqest.swift in Sources */,
 				FACA3B8723017D2800E9970B /* ProfileInfoRequest.swift in Sources */,
+				FA95C64E2326724A0031D6F9 /* CreateOrderReqest.swift in Sources */,
 				FACA3B7D22FAF5C800E9970B /* Candle.swift in Sources */,
 				FACA3B7A22FAD40C00E9970B /* ChartRequest.swift in Sources */,
 				FACA3B8A23017E4B00E9970B /* AccessTokenAdapter.swift in Sources */,
 				FAB183DC22CF6E6600D9C98E /* PairGroup.swift in Sources */,
+				FA95C65123267B940031D6F9 /* DoubleFormatter.swift in Sources */,
 				FAB183D022CF6A1C00D9C98E /* MarketsReqest.swift in Sources */,
 				FABDBF3F2305995600F9A12B /* Rate.swift in Sources */,
 				FAB183B622CF3FDC00D9C98E /* StexResponse.swift in Sources */,
@@ -765,7 +775,9 @@
 				FAB183E722CF8F0000D9C98E /* CurrencyPair.swift in Sources */,
 				FAF8995823019DDF00C18AA1 /* AccessTokenAdapter.swift in Sources */,
 				FACA3B842301783800E9970B /* StexTokensManager.swift in Sources */,
+				FA95C65223267B940031D6F9 /* DoubleFormatter.swift in Sources */,
 				FAB183CE22CF400000D9C98E /* StexCurrenciesTest.swift in Sources */,
+				FA95C64F2326724A0031D6F9 /* CreateOrderReqest.swift in Sources */,
 				FAB183D122CF6A1C00D9C98E /* MarketsReqest.swift in Sources */,
 				FACA3B7522F9D54D00E9970B /* OrderbookReqest.swift in Sources */,
 				FAB183D722CF6BC900D9C98E /* StexMarketTest.swift in Sources */,

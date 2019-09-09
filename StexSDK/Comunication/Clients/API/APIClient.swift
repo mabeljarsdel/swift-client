@@ -27,7 +27,7 @@ public class APIClient {
                                       encoding: req.encoding,
                                       headers: req.httpHeaders())
         
-        request.validate().responseDecodable { (response: DataResponse<StexResponse<T>>) in
+        request.responseDecodable { (response: DataResponse<StexResponse<T>>) in
             switch response.result {
             case .success(let data):
                 let result = StexResult(response: data)

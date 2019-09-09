@@ -55,4 +55,32 @@ class StexOrdersTest: StexPrivateClientTest {
         
         XCTAssertTrue(ordersCount != 0)
     }
+    
+    func testCreateOrder() {
+        let expectation = self.expectation(description: "Testing creating orders API")
+        
+        let pairId = 621
+        let type = OrderType.sell
+        let amount: Double = 0.1
+        let price: Double = 0.00001
+        
+        var orderId = 0
+        
+        stexClient.createOrder(with: pairId, type: type, amount: amount, price: price, triggerPrice: nil) { result in
+            switch result {
+            case .success(let data):
+                expectation.fulfill()
+                orderId = data.id
+                
+                print("Success !!! \nData: ", data.id)
+            case .error(let error):
+                print(error)
+                XCTFail(error.localizedDescription)
+            }
+        }
+        
+        waitForExpectations(timeout: timeout, handler: nil)
+        
+        XCTAssertTrue(orderId != 0)
+    }
 }

@@ -235,6 +235,30 @@ public extension RxStexClient {
     func cancelOrders(with pairId: Int) -> Observable<CanceledOrders> {
         return request(CancelOrdersRequest(pairId: pairId))
     }
+    
+    /// Create new order and put it to the orders processing queue
+    ///
+    /// - Parameters:
+    ///   - pairId: The `Int`. Currency pair id.
+    ///   - type: The `OrderType`. order type.
+    ///   - amount: The `Double`.
+    ///   - price: The `Double`.
+    ///   - triggerPrice: The `Double?`. Stop price for stop-limit orders. Required if the order is of type `.stopLimitBuy` or `.stopLimitSell`.
+    /// - Returns: The observable sequence with the specified implementation for the `subscribe` method.
+    func createOrder(with pairId: Int,
+                            type: OrderType,
+                            amount: Double,
+                            price: Double,
+                            triggerPrice: Double?) -> Observable<Order> {
+        
+        let req = CreateOrderReqest(pairId: pairId,
+                                    type: type,
+                                    amount: amount,
+                                    price: price,
+                                    triggerPrice: triggerPrice)
+        
+        return request(req)
+    }
 }
 
 //MARK: -

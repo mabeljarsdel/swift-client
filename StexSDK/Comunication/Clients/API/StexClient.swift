@@ -258,4 +258,29 @@ public class StexClient: APIClient {
     public func cancelOrders(with pairId: Int, completion: @escaping StexClientCompletion<CanceledOrders>) {
         request(CancelOrdersRequest(pairId: pairId), completion: completion)
     }
+    
+    /// Create new order and put it to the orders processing queue
+    ///
+    /// - Parameters:
+    ///   - pairId: The `Int`. Currency pair id.
+    ///   - type: The `OrderType`. order type.
+    ///   - amount: The `Double`.
+    ///   - price: The `Double`.
+    ///   - triggerPrice: The `Double?`. Stop price for stop-limit orders. Required if the order is of type `.stopLimitBuy` or `.stopLimitSell`.
+    ///   - completion: A closure to be executed once the request has finished.
+    public func createOrder(with pairId: Int,
+                            type: OrderType,
+                            amount: Double,
+                            price: Double,
+                            triggerPrice: Double?,
+                            completion: @escaping StexClientCompletion<Order>) {
+        
+        let req = CreateOrderReqest(pairId: pairId,
+                                    type: type,
+                                    amount: amount,
+                                    price: price,
+                                    triggerPrice: triggerPrice)
+        
+        request(req, completion: completion)
+    }
 }

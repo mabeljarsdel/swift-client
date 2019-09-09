@@ -27,4 +27,8 @@ class OrdersRequest: IRequest {
         
         return path
     }
+    
+    func parameters() -> Parameters? {
+        return nil
+    }
 }
