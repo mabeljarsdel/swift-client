@@ -170,6 +170,7 @@ public class StexClient: APIClient {
     ///
     /// Provides a list of candles for the chart. Candles are always ordered in descending order (the latest are first).
     ///
+    /// - Parameters:
     ///   - id: The `Int`. Currency pair id.
     ///   - candlesType: The `CandlesType`. Candle size oneMinute for 1 minute, fiveMinute - 5 minutes and so on.
     ///   - timeStart: The `Double`. Timestamp in second. Should be less then timeEnd.
@@ -201,8 +202,20 @@ public class StexClient: APIClient {
     ///
     /// Get general information about the current user
     ///
+    /// - Parameters:
     ///   - completion: A closure to be executed once the request has finished.
     public func fetchProfileInfo(completion: @escaping StexClientCompletion<User>) {
         request(ProfileInfoRequest(), completion: completion)
+    }
+    
+    //MARK: - Trading
+    
+    /// Returns the user's fees for a given currency pair
+    ///
+    /// - Parameters:
+    ///   - pairId: The `Int`. Currency pair id.
+    ///   - completion: A closure to be executed once the request has finished.
+    public func fetchFee(for pairId: Int, completion: @escaping StexClientCompletion<Fee>) {
+        request(FeesRequest(pairId: pairId), completion: completion)
     }
 }

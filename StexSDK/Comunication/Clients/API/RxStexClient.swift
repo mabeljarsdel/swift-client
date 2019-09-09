@@ -186,6 +186,17 @@ public extension RxStexClient {
     func fetchProfileInfo() -> Observable<User> {
         return request(ProfileInfoRequest())
     }
+    
+    //MARK: - Trading
+    
+    /// Returns the user's fees for a given currency pair
+    ///
+    /// - Parameters:
+    ///   - pairId: The `Int`. Currency pair id.
+    /// - Returns: The observable sequence with the specified implementation for the `subscribe` method.
+    func fetchFee(for pairId: Int) -> Observable<Fee> {
+        return request(FeesRequest(pairId: pairId))
+    }
 }
 
 //MARK: -
