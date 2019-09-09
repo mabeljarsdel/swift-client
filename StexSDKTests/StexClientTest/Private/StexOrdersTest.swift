@@ -32,4 +32,27 @@ class StexOrdersTest: StexPrivateClientTest {
         
         XCTAssertTrue(ordersCount != 0)
     }
+    
+    func testCancelOrders() {
+        let expectation = self.expectation(description: "Testing canceling orders API")
+        
+        var ordersCount = 0
+        
+        stexClient.cancelOrders { result in
+            switch result {
+            case .success(let data):
+                expectation.fulfill()
+                ordersCount = data.putIntoProcessingQueue.count
+                
+                print("Success !!! \nData: ", data.message ?? "")
+            case .error(let error):
+                print(error)
+                XCTFail(error.localizedDescription)
+            }
+        }
+        
+        waitForExpectations(timeout: timeout, handler: nil)
+        
+        XCTAssertTrue(ordersCount != 0)
+    }
 }

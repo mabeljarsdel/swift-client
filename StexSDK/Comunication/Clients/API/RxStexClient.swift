@@ -215,6 +215,26 @@ public extension RxStexClient {
     func fetchOrdersList(with pairId: Int) -> Observable<[Order]> {
         return request(OrdersRequest(pairId: pairId))
     }
+    
+    /// Cancel all active orders
+    ///
+    /// Puts an request to delete all active (processing or pending) orders to orders processing queue.
+    ///
+    /// - Returns: The observable sequence with the specified implementation for the `subscribe` method.
+    func cancelOrders() -> Observable<CanceledOrders> {
+        return request(CancelOrdersRequest())
+    }
+    
+    /// Cancel active orders for given currency pair
+    ///
+    /// Puts an request to delete all active (processing or pending) of the given currency pair orders to orders processing queue.
+    ///
+    /// - Parameters:
+    ///   - pairId: The `Int`. Currency pair id.
+    /// - Returns: The observable sequence with the specified implementation for the `subscribe` method.
+    func cancelOrders(with pairId: Int) -> Observable<CanceledOrders> {
+        return request(CancelOrdersRequest(pairId: pairId))
+    }
 }
 
 //MARK: -

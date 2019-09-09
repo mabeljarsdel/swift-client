@@ -237,4 +237,25 @@ public class StexClient: APIClient {
     public func fetchOrdersList(with pairId: Int, completion: @escaping StexClientCompletion<[Order]>) {
         request(OrdersRequest(pairId: pairId), completion: completion)
     }
+    
+    /// Cancel all active orders
+    ///
+    /// Puts an request to delete all active (processing or pending) orders to orders processing queue.
+    ///
+    /// - Parameters:
+    ///   - completion: A closure to be executed once the request has finished.
+    public func cancelOrders(completion: @escaping StexClientCompletion<CanceledOrders>) {
+        request(CancelOrdersRequest(), completion: completion)
+    }
+    
+    /// Cancel active orders for given currency pair
+    ///
+    /// Puts an request to delete all active (processing or pending) of the given currency pair orders to orders processing queue.
+    ///
+    /// - Parameters:
+    ///   - pairId: The `Int`. Currency pair id.
+    ///   - completion: A closure to be executed once the request has finished.
+    public func cancelOrders(with pairId: Int, completion: @escaping StexClientCompletion<CanceledOrders>) {
+        request(CancelOrdersRequest(pairId: pairId), completion: completion)
+    }
 }
