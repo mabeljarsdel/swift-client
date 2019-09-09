@@ -47,6 +47,7 @@ public struct ServerConstants {
         enum Trading: String {
             case fees
             case orders
+            case order
             
             var path: String {
                 return ServerConstants.baseUrl + Endpoints.trading + rawValue

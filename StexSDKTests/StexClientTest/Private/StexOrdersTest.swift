@@ -56,7 +56,7 @@ class StexOrdersTest: StexPrivateClientTest {
         XCTAssertTrue(ordersCount != 0)
     }
     
-    func testCreateOrder() {
+    func testCreateOrders() {
         let expectation = self.expectation(description: "Testing creating orders API")
         
         let pairId = 621
@@ -82,5 +82,53 @@ class StexOrdersTest: StexPrivateClientTest {
         waitForExpectations(timeout: timeout, handler: nil)
         
         XCTAssertTrue(orderId != 0)
+    }
+    
+    func testFetchOrder() {
+        let expectation = self.expectation(description: "Testing fetching order API")
+        
+        let expectedOrderId = 119149298
+        var orderId = 0
+        
+        stexClient.fetchOrder(with: expectedOrderId) { result in
+            switch result {
+            case .success(let data):
+                expectation.fulfill()
+                orderId = data.id
+                
+                print("Success !!! \nData: ", data.id)
+            case .error(let error):
+                print(error)
+                XCTFail(error.localizedDescription)
+            }
+        }
+        
+        waitForExpectations(timeout: timeout, handler: nil)
+        
+        XCTAssertTrue(expectedOrderId == orderId)
+    }
+    
+    func testCancelOrder() {
+        let expectation = self.expectation(description: "Testing canceling order API")
+        
+        let expectedOrderId = 119149298
+        var ordersCount = 0
+        
+        stexClient.cancelOrder(with: expectedOrderId) { result in
+            switch result {
+            case .success(let data):
+                expectation.fulfill()
+                ordersCount = data.putIntoProcessingQueue.count
+                
+                print("Success !!! \nData: ", data.message ?? "")
+            case .error(let error):
+                print(error)
+                XCTFail(error.localizedDescription)
+            }
+        }
+        
+        waitForExpectations(timeout: timeout, handler: nil)
+        
+        XCTAssertTrue(ordersCount != 0)
     }
 }

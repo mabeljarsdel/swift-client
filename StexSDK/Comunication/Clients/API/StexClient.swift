@@ -283,4 +283,24 @@ public class StexClient: APIClient {
         
         request(req, completion: completion)
     }
+    
+    /// Get a single order.
+    ///
+    /// Get information about the given order.
+    ///
+    /// - Parameters:
+    ///   - id: The `Int`. Order id.
+    ///   - completion: A closure to be executed once the request has finished.
+    public func fetchOrder(with id: Int, completion: @escaping StexClientCompletion<Order>) {
+        request(OrderRequest(orderId: id), completion: completion)
+    }
+    
+    /// Cancel order
+    ///
+    /// - Parameters:
+    ///   - id: The `Int`. Order id.
+    ///   - completion: A closure to be executed once the request has finished.
+    public func cancelOrder(with id: Int, completion: @escaping StexClientCompletion<CanceledOrders>) {
+        request(CancelOrderRequest(orderId: id), completion: completion)
+    }
 }

@@ -12,6 +12,10 @@
 		FA077D3922DDFC1E00CE9B8E /* TradesReqest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA077D3822DDFC1E00CE9B8E /* TradesReqest.swift */; };
 		FA8044B822D5EAB300B77EC5 /* CurrencyPairRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8044B722D5EAB300B77EC5 /* CurrencyPairRequest.swift */; };
 		FA8044B922D5ED1D00B77EC5 /* CurrencyPairRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8044B722D5EAB300B77EC5 /* CurrencyPairRequest.swift */; };
+		FA819C3423268D23008A3BED /* OrderRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA819C3323268D23008A3BED /* OrderRequest.swift */; };
+		FA819C3523268D23008A3BED /* OrderRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA819C3323268D23008A3BED /* OrderRequest.swift */; };
+		FA819C3723268E76008A3BED /* CancelOrderRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA819C3623268E76008A3BED /* CancelOrderRequest.swift */; };
+		FA819C3823268E76008A3BED /* CancelOrderRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA819C3623268E76008A3BED /* CancelOrderRequest.swift */; };
 		FA95C614231FC01C0031D6F9 /* SocketDataDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95C613231FC01C0031D6F9 /* SocketDataDecoder.swift */; };
 		FA95C615231FC01C0031D6F9 /* SocketDataDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95C613231FC01C0031D6F9 /* SocketDataDecoder.swift */; };
 		FA95C61C232131C50031D6F9 /* OrderCreated.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95C61B232131C50031D6F9 /* OrderCreated.swift */; };
@@ -153,6 +157,8 @@
 		E8ACF3AB611B0EEF83C6CBD7 /* Pods-StexSDK.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StexSDK.debug.xcconfig"; path = "Target Support Files/Pods-StexSDK/Pods-StexSDK.debug.xcconfig"; sourceTree = "<group>"; };
 		FA077D3822DDFC1E00CE9B8E /* TradesReqest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradesReqest.swift; sourceTree = "<group>"; };
 		FA8044B722D5EAB300B77EC5 /* CurrencyPairRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyPairRequest.swift; sourceTree = "<group>"; };
+		FA819C3323268D23008A3BED /* OrderRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderRequest.swift; sourceTree = "<group>"; };
+		FA819C3623268E76008A3BED /* CancelOrderRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelOrderRequest.swift; sourceTree = "<group>"; };
 		FA95C613231FC01C0031D6F9 /* SocketDataDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketDataDecoder.swift; sourceTree = "<group>"; };
 		FA95C61B232131C50031D6F9 /* OrderCreated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderCreated.swift; sourceTree = "<group>"; };
 		FA95C61E232151D70031D6F9 /* GlassTotalChanged.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlassTotalChanged.swift; sourceTree = "<group>"; };
@@ -282,6 +288,8 @@
 				FA95C63F2326450E0031D6F9 /* OrdersRequest.swift */,
 				FA95C647232664C30031D6F9 /* CancelOrdersRequest.swift */,
 				FA95C64D2326724A0031D6F9 /* CreateOrderReqest.swift */,
+				FA819C3323268D23008A3BED /* OrderRequest.swift */,
+				FA819C3623268E76008A3BED /* CancelOrderRequest.swift */,
 			);
 			path = Trading;
 			sourceTree = "<group>";
@@ -711,6 +719,7 @@
 				FA95C62223215B700031D6F9 /* GlassRowChanged.swift in Sources */,
 				FAB183BA22CF3FDC00D9C98E /* TickerRequest.swift in Sources */,
 				FAB183A022CF3FCD00D9C98E /* KeyedDecodingContainer+Extension.swift in Sources */,
+				FA819C3723268E76008A3BED /* CancelOrderRequest.swift in Sources */,
 				FAF8995623019C1B00C18AA1 /* User.swift in Sources */,
 				FA95C648232664C30031D6F9 /* CancelOrdersRequest.swift in Sources */,
 				FA95C634232294AD0031D6F9 /* UserOrderDeleted.swift in Sources */,
@@ -736,6 +745,7 @@
 				FACA3B7A22FAD40C00E9970B /* ChartRequest.swift in Sources */,
 				FACA3B8A23017E4B00E9970B /* AccessTokenAdapter.swift in Sources */,
 				FAB183DC22CF6E6600D9C98E /* PairGroup.swift in Sources */,
+				FA819C3423268D23008A3BED /* OrderRequest.swift in Sources */,
 				FA95C65123267B940031D6F9 /* DoubleFormatter.swift in Sources */,
 				FAB183D022CF6A1C00D9C98E /* MarketsReqest.swift in Sources */,
 				FABDBF3F2305995600F9A12B /* Rate.swift in Sources */,
@@ -772,6 +782,7 @@
 				FA95C61D232131C50031D6F9 /* OrderCreated.swift in Sources */,
 				FAB183A122CF3FCE00D9C98E /* KeyedDecodingContainer+Extension.swift in Sources */,
 				FAB183BD22CF3FDC00D9C98E /* IRequest.swift in Sources */,
+				FA819C3523268D23008A3BED /* OrderRequest.swift in Sources */,
 				FAB183E722CF8F0000D9C98E /* CurrencyPair.swift in Sources */,
 				FAF8995823019DDF00C18AA1 /* AccessTokenAdapter.swift in Sources */,
 				FACA3B842301783800E9970B /* StexTokensManager.swift in Sources */,
@@ -801,6 +812,7 @@
 				FAF8995F2302DE0200C18AA1 /* Tokens.swift in Sources */,
 				FACA3B6F22F9D16800E9970B /* OrderbookOrder.swift in Sources */,
 				FA95C620232151D80031D6F9 /* GlassTotalChanged.swift in Sources */,
+				FA819C3823268E76008A3BED /* CancelOrderRequest.swift in Sources */,
 				FA8044B922D5ED1D00B77EC5 /* CurrencyPairRequest.swift in Sources */,
 				FAB183DA22CF6D6A00D9C98E /* PairsGroupsReqest.swift in Sources */,
 				FACA3B7222F9D4A000E9970B /* Orderbook.swift in Sources */,

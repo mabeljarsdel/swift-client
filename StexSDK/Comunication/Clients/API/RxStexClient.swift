@@ -259,6 +259,26 @@ public extension RxStexClient {
         
         return request(req)
     }
+    
+    /// Get a single order.
+    ///
+    /// Get information about the given order.
+    ///
+    /// - Parameters:
+    ///   - id: The `Int`. Order id.
+    /// - Returns: The observable sequence with the specified implementation for the `subscribe` method.
+    func fetchOrder(with id: Int) -> Observable<Order> {
+        return request(OrderRequest(orderId: id))
+    }
+    
+    /// Cancel order
+    ///
+    /// - Parameters:
+    ///   - id: The `Int`. Order id.
+    /// - Returns: The observable sequence with the specified implementation for the `subscribe` method.
+    func cancelOrder(with id: Int) -> Observable<CanceledOrders> {
+        return request(CancelOrderRequest(orderId: id))
+    }
 }
 
 //MARK: -
