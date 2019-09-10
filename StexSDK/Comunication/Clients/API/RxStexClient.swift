@@ -187,6 +187,27 @@ public extension RxStexClient {
         return request(ProfileInfoRequest())
     }
     
+    //MARK: Wallet
+    
+    /// Get a list of user wallets.
+    ///
+    /// - Parameters:
+    ///   - sortDirection: The `SortKey`. Default value : `.desc`.
+    ///   - sortBy: The `WalletSortKey`. Default value : `.balance`.
+    /// - Returns: The observable sequence with the specified implementation for the `subscribe` method.
+    func fetchWalletsList(with sortDirection: SortKey? = .desc, sortBy: WalletSortKey? = .balance) -> Observable<[Wallet]> {
+        return request(WalletsRequest(with: sortDirection, sortBy: sortBy))
+    }
+    
+    /// Single wallet information.
+    ///
+    /// - Parameters:
+    ///   - walletId: The `Int`.
+    /// - Returns: The observable sequence with the specified implementation for the `subscribe` method.
+    func fetchWallet(with walletId: Int) -> Observable<WalletDetail> {
+        return request(WalletsRequest(with: walletId))
+    }
+    
     //MARK: - Trading
     
     /// Returns the user's fees for a given currency pair

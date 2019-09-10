@@ -208,6 +208,27 @@ public class StexClient: APIClient {
         request(ProfileInfoRequest(), completion: completion)
     }
     
+    //MARK: Wallet
+    
+    /// Get a list of user wallets.
+    ///
+    /// - Parameters:
+    ///   - sortDirection: The `SortKey`. Default value : `.desc`.
+    ///   - sortBy: The `WalletSortKey`. Default value : `.balance`.
+    ///   - completion: A closure to be executed once the request has finished.
+    public func fetchWalletsList(with sortDirection: SortKey? = .desc, sortBy: WalletSortKey? = .balance, completion: @escaping StexClientCompletion<[Wallet]>) {
+        request(WalletsRequest(with: sortDirection, sortBy: sortBy), completion: completion)
+    }
+    
+    /// Single wallet information.
+    ///
+    /// - Parameters:
+    ///   - walletId: The `Int`.
+    ///   - completion: A closure to be executed once the request has finished.
+    public func fetchWallet(with walletId: Int, completion: @escaping StexClientCompletion<WalletDetail>) {
+        request(WalletsRequest(with: walletId), completion: completion)
+    }
+    
     //MARK: - Trading
     
     /// Returns the user's fees for a given currency pair

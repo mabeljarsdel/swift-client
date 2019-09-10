@@ -40,6 +40,10 @@ public struct ServerConstants {
         
         enum Profile: String {
             case info
+            case wallets
+            case deposits
+            case withdrawals
+            case withdraw
             
             var path: String {
                 return ServerConstants.baseUrl + Endpoints.profile + rawValue
@@ -67,6 +71,7 @@ public struct ServerConstants {
     }
     
     static let sort = "sort"
+    static let sortBy = "sortBy"
     static let limit = "limit"
     static let from = "from"
     static let till = "till"
@@ -116,4 +121,11 @@ public enum OrderStatus: String, Codable {
     case pending = "PENDING"
     case finished = "FINISHED"
     case cancelled = "CANCELLED"
+}
+
+public enum WalletSortKey: String {
+    case balance
+    case frozen
+    case bonus
+    case total
 }
