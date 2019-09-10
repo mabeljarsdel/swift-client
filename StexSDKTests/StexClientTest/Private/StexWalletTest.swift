@@ -56,4 +56,28 @@ class StexWalletTest: StexPrivateClientTest {
         
         XCTAssertTrue(walletId == expectedWalletId)
     }
+    
+    func testCreateWallet() {
+        let expectation = self.expectation(description: "Testing creating wallet API")
+        
+        let pairId = 10
+        var walletAddress: String?
+        
+        stexClient.createWallet(with: pairId) { result in
+            switch result {
+            case .success(let data):
+                expectation.fulfill()
+                walletAddress = data.depositAddress.address
+                
+                print("Success !!! \nData: ", data.depositAddress.address ?? "Addres not creating")
+            case .error(let error):
+                print(error)
+                XCTFail(error.localizedDescription)
+            }
+        }
+        
+        waitForExpectations(timeout: timeout, handler: nil)
+        
+        XCTAssertTrue(walletAddress != "")
+    }
 }

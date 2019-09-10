@@ -229,6 +229,15 @@ public class StexClient: APIClient {
         request(WalletsRequest(with: walletId), completion: completion)
     }
     
+    /// Create a wallet for given currency
+    ///
+    /// - Parameters:
+    ///   - pairId: The `Int`. Currency pair id.
+    ///   - completion: A closure to be executed once the request has finished.
+    public func createWallet(with pairId: Int, completion: @escaping StexClientCompletion<WalletDetail>) {
+        request(CreateWalletRequest(with: pairId), completion: completion)
+    }
+    
     //MARK: - Trading
     
     /// Returns the user's fees for a given currency pair

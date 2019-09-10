@@ -208,6 +208,15 @@ public extension RxStexClient {
         return request(WalletsRequest(with: walletId))
     }
     
+    /// Create a wallet for given currency
+    ///
+    /// - Parameters:
+    ///   - pairId: The `Int`. Currency pair id.
+    /// - Returns: The observable sequence with the specified implementation for the `subscribe` method.
+    func createWallet(with pairId: Int) -> Observable<WalletDetail> {
+        return request(CreateWalletRequest(with: pairId))
+    }
+    
     //MARK: - Trading
     
     /// Returns the user's fees for a given currency pair
