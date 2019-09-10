@@ -11,6 +11,7 @@ import Foundation
 typealias PublicEndpoints = ServerConstants.Endpoints.Public
 typealias ProfileEndpoints = ServerConstants.Endpoints.Profile
 typealias TradingEndpoints = ServerConstants.Endpoints.Trading
+typealias TradingHistoryEndpoints = ServerConstants.Endpoints.TradingHistory
 
 public struct ServerConstants {
     
@@ -20,6 +21,7 @@ public struct ServerConstants {
         private static let `public` = "public/"
         private static let profile = "profile/"
         private static let trading = "trading/"
+        private static let tradingHistory = "reports/"
         
         enum Public: String {
             case ticker
@@ -53,6 +55,15 @@ public struct ServerConstants {
                 return ServerConstants.baseUrl + Endpoints.trading + rawValue
             }
         }
+        
+        enum TradingHistory: String {
+            case orders
+            case trades
+            
+            var path: String {
+                return ServerConstants.baseUrl + Endpoints.tradingHistory + rawValue
+            }
+        }
     }
     
     static let sort = "sort"
@@ -68,6 +79,8 @@ public struct ServerConstants {
     static let amount = "amount"
     static let price = "price"
     static let triggerPrice = "trigger_price"
+    static let pairId = "currencyPairId"
+    static let orderStatus = "orderStatus"
 }
 
 public enum SortKey: String {
@@ -98,6 +111,7 @@ public enum OrderType: String, Codable {
 }
 
 public enum OrderStatus: String, Codable {
+    case all = "ALL"
     case processing = "PROCESSING"
     case pending = "PENDING"
     case finished = "FINISHED"

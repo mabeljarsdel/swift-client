@@ -279,6 +279,44 @@ public extension RxStexClient {
     func cancelOrder(with id: Int) -> Observable<CanceledOrders> {
         return request(CancelOrderRequest(orderId: id))
     }
+    
+    //MARK: - Trading History
+    
+    /// Get past orders.
+    ///
+    /// Get the list of closed (finished, partial or cancelled) orders.
+    ///
+    /// - Parameters:
+    ///   - pairId: The `Int`. Currency pair id.
+    ///   - orderStatus: The `OrderStatus`. Default value : `.all`.
+    ///   - limit: The `Int`. Default value : `100`.
+    ///   - offset: The `Int`.
+    /// - Returns: The observable sequence with the specified implementation for the `subscribe` method.
+    func fetchTradingHistory(with pairId: Int? = nil,
+                                    orderStatus: OrderStatus = .all,
+                                    limit: Int = 100,
+                                    offset: Int? = nil) -> Observable<[Order]> {
+        
+        let req = TradingHistoryRequest(pairId: pairId,
+                                        orderStatus: orderStatus,
+                                        limit: limit,
+                                        offset: offset)
+        
+        return request(req)
+    }
+    
+    /// Get specified order details.
+    ///
+    /// Get trades and fees information for given order.
+    ///
+    /// - Parameters:
+    ///   - id: The `Int`. Order id.
+    /// - Returns: The observable sequence with the specified implementation for the `subscribe` method.
+    func fetchTradingHistory(with id: Int) -> Observable<OrderDetail> {
+        let req = TradingHistoryRequest(orderId: id)
+        
+        return request(req)
+    }
 }
 
 //MARK: -

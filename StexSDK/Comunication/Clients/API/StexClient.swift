@@ -303,4 +303,44 @@ public class StexClient: APIClient {
     public func cancelOrder(with id: Int, completion: @escaping StexClientCompletion<CanceledOrders>) {
         request(CancelOrderRequest(orderId: id), completion: completion)
     }
+    
+    //MARK: - Trading History
+    
+    /// Get past orders.
+    ///
+    /// Get the list of closed (finished, partial or cancelled) orders.
+    ///
+    /// - Parameters:
+    ///   - pairId: The `Int`. Currency pair id.
+    ///   - orderStatus: The `OrderStatus`. Default value : `.all`.
+    ///   - limit: The `Int`. Default value : `100`.
+    ///   - offset: The `Int`.
+    ///   - completion: A closure to be executed once the request has finished.
+    public func fetchTradingHistory(with pairId: Int? = nil,
+                                    orderStatus: OrderStatus = .all,
+                                    limit: Int = 100,
+                                    offset: Int? = nil,
+                                    completion: @escaping StexClientCompletion<[Order]>) {
+        
+        let req = TradingHistoryRequest(pairId: pairId,
+                                        orderStatus: orderStatus,
+                                        limit: limit,
+                                        offset: offset)
+        
+        request(req, completion: completion)
+    }
+    
+    /// Get specified order details.
+    ///
+    /// Get trades and fees information for given order.
+    ///
+    /// - Parameters:
+    ///   - id: The `Int`. Order id.
+    ///   - completion: A closure to be executed once the request has finished.
+    public func fetchTradingHistory(with id: Int, completion: @escaping StexClientCompletion<OrderDetail>) {
+        
+        let req = TradingHistoryRequest(orderId: id)
+        
+        request(req, completion: completion)
+    }
 }
