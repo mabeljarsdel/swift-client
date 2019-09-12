@@ -258,6 +258,50 @@ public class StexClient: APIClient {
         request(CreateWalletAddressRequest(with: walletId), completion: completion)
     }
     
+    //MARK: Deposits
+    
+    /// Get a list of deposits made by user.
+    ///
+    /// Returns a list of deposits the user has made to the exchange according to the filters and parameters passed in the request. Allows to filter deposits by currency, date range etc.
+    ///
+    /// - Parameters:
+    ///   - id: The `Int`. Currency pair id.
+    ///   - sortKey: The `SortKey`. Direction of the sort - ASCending (.asc) or DESCending (.desc) by trade timestamp.
+    ///   - timeStart: The `Double`. Timestamp in second. Should be less then timeEnd.
+    ///   - timeEnd: The `Double`. Timestamp in second. Should be greater then timeStart.
+    ///   - limit: The `Int`. Default value : 100.
+    ///   - offset: The `Int`.
+    ///   - completion: A closure to be executed once the request has finished.
+    public func fetchDepositsList(with pairId: Int? = nil,
+                                  sort: SortKey? = .desc,
+                                  timeStart: Double? = nil,
+                                  timeEnd: Double? = nil,
+                                  limit: Int? = 100,
+                                  offset: Int? = nil, completion: @escaping StexClientCompletion<[Deposit]>) {
+        
+        let req = DepositRequest(with: pairId,
+                                 sort: sort,
+                                 timeStart: timeStart,
+                                 timeEnd: timeEnd,
+                                 limit: limit,
+                                 offset: offset)
+        
+        request(req, completion: completion)
+    }
+    
+    /// Get deposit by id
+    ///
+    /// - Parameters:
+    ///   - id: The `Int`.
+    ///   - completion: A closure to be executed once the request has finished.
+    public func fetchDeposit(with depositId: Int, completion: @escaping StexClientCompletion<Deposit>) {
+        request(DepositRequest(with: depositId), completion: completion)
+    }
+    
+    //MARK: Withdrawals
+    
+    //MARK: Withdraw
+    
     //MARK: - Trading
     
     /// Returns the user's fees for a given currency pair

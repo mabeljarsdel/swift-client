@@ -131,3 +131,12 @@ public enum WalletSortKey: String {
     case bonus
     case total
 }
+
+public enum DepositStatus: String, Codable {
+    case processing = "PROCESSING"
+    case awatingApproval = "AWAITING APPROVAL"
+    case finished = "FINISHED"
+    case canceledByAdmin = "CANCELLED BY ADMIN"
+    case depositError = "DEPOSIT ERROR"
+    case hold = "HODL"
+}

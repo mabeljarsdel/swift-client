@@ -131,6 +131,11 @@
 		FABDBF392302F4BC00F9A12B /* ISocketEventListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABDBF372302F4BC00F9A12B /* ISocketEventListener.swift */; };
 		FABDBF3F2305995600F9A12B /* Rate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABDBF3E2305995600F9A12B /* Rate.swift */; };
 		FABDBF4323059F3100F9A12B /* Rate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABDBF3E2305995600F9A12B /* Rate.swift */; };
+		FAC46410232A497F005B9B1A /* Deposit.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC4640F232A497F005B9B1A /* Deposit.swift */; };
+		FAC46411232A497F005B9B1A /* Deposit.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC4640F232A497F005B9B1A /* Deposit.swift */; };
+		FAC46413232A6956005B9B1A /* DepositRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC46412232A6955005B9B1A /* DepositRequest.swift */; };
+		FAC46414232A6956005B9B1A /* DepositRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC46412232A6955005B9B1A /* DepositRequest.swift */; };
+		FAC46417232A6E11005B9B1A /* StexDepositTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC46415232A6E11005B9B1A /* StexDepositTest.swift */; };
 		FACA3B6822F9C30400E9970B /* Trade.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACA3B6722F9C30400E9970B /* Trade.swift */; };
 		FACA3B6A22F9C5AF00E9970B /* StexTradesTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACA3B6922F9C5AF00E9970B /* StexTradesTest.swift */; };
 		FACA3B6B22F9C72700E9970B /* TradesReqest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA077D3822DDFC1E00CE9B8E /* TradesReqest.swift */; };
@@ -250,6 +255,9 @@
 		FABDBF342302F3A700F9A12B /* SocketConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SocketConstants.swift; path = Clients/Socket/SocketConstants.swift; sourceTree = "<group>"; };
 		FABDBF372302F4BC00F9A12B /* ISocketEventListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ISocketEventListener.swift; sourceTree = "<group>"; };
 		FABDBF3E2305995600F9A12B /* Rate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rate.swift; sourceTree = "<group>"; };
+		FAC4640F232A497F005B9B1A /* Deposit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Deposit.swift; sourceTree = "<group>"; };
+		FAC46412232A6955005B9B1A /* DepositRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepositRequest.swift; sourceTree = "<group>"; };
+		FAC46415232A6E11005B9B1A /* StexDepositTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StexDepositTest.swift; sourceTree = "<group>"; };
 		FACA3B6722F9C30400E9970B /* Trade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trade.swift; sourceTree = "<group>"; };
 		FACA3B6922F9C5AF00E9970B /* StexTradesTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StexTradesTest.swift; sourceTree = "<group>"; };
 		FACA3B6D22F9D16800E9970B /* OrderbookOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderbookOrder.swift; sourceTree = "<group>"; };
@@ -470,6 +478,7 @@
 				FA95C63A232635540031D6F9 /* Fee.swift */,
 				FA819C4023278C43008A3BED /* Orders */,
 				FABB06C92327AB6F00F204F0 /* Wallet */,
+				FAC4640F232A497F005B9B1A /* Deposit.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -528,6 +537,7 @@
 				FA95C645232651810031D6F9 /* StexOrdersTest.swift */,
 				FA819C4723278E0D008A3BED /* StexTradingHistoryTest.swift */,
 				FABB06CD2327AC1000F204F0 /* StexWalletTest.swift */,
+				FAC46415232A6E11005B9B1A /* StexDepositTest.swift */,
 			);
 			path = Private;
 			sourceTree = "<group>";
@@ -584,6 +594,7 @@
 				FABB06D32327C8DE00F204F0 /* CreateWalletRequest.swift */,
 				FABB06D6232A323B00F204F0 /* WalletAddressRequest.swift */,
 				FABB06D9232A335900F204F0 /* CreateWalletAddressRequest.swift */,
+				FAC46412232A6955005B9B1A /* DepositRequest.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -775,6 +786,7 @@
 				FA95C62823225ABC0031D6F9 /* StexSocketEvent.swift in Sources */,
 				FABB06C42327A15C00F204F0 /* WalletsRequest.swift in Sources */,
 				FABDBF282302E81400F9A12B /* RefreshTokensRequest.swift in Sources */,
+				FAC46410232A497F005B9B1A /* Deposit.swift in Sources */,
 				FA95C62E23227C3F0031D6F9 /* BalanceChanged.swift in Sources */,
 				FA95C63B232635540031D6F9 /* Fee.swift in Sources */,
 				FA95C64B232666E60031D6F9 /* CanceledOrders.swift in Sources */,
@@ -826,6 +838,7 @@
 				FACA3B8723017D2800E9970B /* ProfileInfoRequest.swift in Sources */,
 				FA95C64E2326724A0031D6F9 /* CreateOrderReqest.swift in Sources */,
 				FACA3B7D22FAF5C800E9970B /* Candle.swift in Sources */,
+				FAC46413232A6956005B9B1A /* DepositRequest.swift in Sources */,
 				FACA3B7A22FAD40C00E9970B /* ChartRequest.swift in Sources */,
 				FACA3B8A23017E4B00E9970B /* AccessTokenAdapter.swift in Sources */,
 				FAB183DC22CF6E6600D9C98E /* PairGroup.swift in Sources */,
@@ -858,6 +871,7 @@
 				FAB183C422CF3FEA00D9C98E /* Ticker.swift in Sources */,
 				FA95C62F23227C3F0031D6F9 /* BalanceChanged.swift in Sources */,
 				FA819C4823278E0D008A3BED /* StexTradingHistoryTest.swift in Sources */,
+				FAC46417232A6E11005B9B1A /* StexDepositTest.swift in Sources */,
 				FAB183DD22CF6E6600D9C98E /* PairGroup.swift in Sources */,
 				FAB183E822CF8F0500D9C98E /* CurrencyPairsListReqest.swift in Sources */,
 				FACA3B7B22FAD40C00E9970B /* ChartRequest.swift in Sources */,
@@ -901,6 +915,7 @@
 				FAB183D422CF6AA000D9C98E /* Market.swift in Sources */,
 				FA95C644232646730031D6F9 /* Order.swift in Sources */,
 				FABDBF362302F3A700F9A12B /* SocketConstants.swift in Sources */,
+				FAC46414232A6956005B9B1A /* DepositRequest.swift in Sources */,
 				FA95C64C232666E60031D6F9 /* CanceledOrders.swift in Sources */,
 				FAF8995923019DE300C18AA1 /* User.swift in Sources */,
 				FAF8995F2302DE0200C18AA1 /* Tokens.swift in Sources */,
@@ -911,6 +926,7 @@
 				FA8044B922D5ED1D00B77EC5 /* CurrencyPairRequest.swift in Sources */,
 				FAB183DA22CF6D6A00D9C98E /* PairsGroupsReqest.swift in Sources */,
 				FACA3B7222F9D4A000E9970B /* Orderbook.swift in Sources */,
+				FAC46411232A497F005B9B1A /* Deposit.swift in Sources */,
 				FA95C632232288D20031D6F9 /* UserOrder.swift in Sources */,
 				FA95C62623215E6A0031D6F9 /* BestPriceChanged.swift in Sources */,
 				FA95C6392326346F0031D6F9 /* FeesRequest.swift in Sources */,
