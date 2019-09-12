@@ -292,13 +292,50 @@ public class StexClient: APIClient {
     /// Get deposit by id
     ///
     /// - Parameters:
-    ///   - id: The `Int`.
+    ///   - depositId: The `Int`.
     ///   - completion: A closure to be executed once the request has finished.
     public func fetchDeposit(with depositId: Int, completion: @escaping StexClientCompletion<Deposit>) {
         request(DepositRequest(with: depositId), completion: completion)
     }
     
     //MARK: Withdrawals
+    
+    /// Get a list of withdrawals made by user.
+    ///
+    /// - Parameters:
+    ///   - id: The `Int`. Currency pair id.
+    ///   - sortKey: The `SortKey`. Direction of the sort - ASCending (.asc) or DESCending (.desc) by trade timestamp.
+    ///   - timeStart: The `Double`. Timestamp in second. Should be less then timeEnd.
+    ///   - timeEnd: The `Double`. Timestamp in second. Should be greater then timeStart.
+    ///   - limit: The `Int`. Default value : 100.
+    ///   - offset: The `Int`.
+    ///   - completion: A closure to be executed once the request has finished.
+    public func fetchWithdrawalsList(with pairId: Int? = nil,
+                                     sort: SortKey? = .desc,
+                                     timeStart: Double? = nil,
+                                     timeEnd: Double? = nil,
+                                     limit: Int? = 100,
+                                     offset: Int? = nil,
+                                     completion: @escaping StexClientCompletion<[Withdrawal]>) {
+        
+        let req = WithdrawalsRequest(with: pairId,
+                                     sort: sort,
+                                     timeStart: timeStart,
+                                     timeEnd: timeEnd,
+                                     limit: limit,
+                                     offset: offset)
+        
+        request(req, completion: completion)
+    }
+    
+    /// Get withdrawal by id.
+    ///
+    /// - Parameters:
+    ///   - withdrawalId: The `Int`.
+    ///   - completion: A closure to be executed once the request has finished.
+    public func fetchWithdrawal(with withdrawalId: Int, completion: @escaping StexClientCompletion<Withdrawal>) {
+        request(WithdrawalsRequest(with: withdrawalId), completion: completion)
+    }
     
     //MARK: Withdraw
     

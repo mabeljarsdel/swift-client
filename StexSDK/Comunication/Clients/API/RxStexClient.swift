@@ -279,6 +279,42 @@ public extension RxStexClient {
     
     //MARK: Withdrawals
     
+    /// Get a list of withdrawals made by user.
+    ///
+    /// - Parameters:
+    ///   - id: The `Int`. Currency pair id.
+    ///   - sortKey: The `SortKey`. Direction of the sort - ASCending (.asc) or DESCending (.desc) by trade timestamp.
+    ///   - timeStart: The `Double`. Timestamp in second. Should be less then timeEnd.
+    ///   - timeEnd: The `Double`. Timestamp in second. Should be greater then timeStart.
+    ///   - limit: The `Int`. Default value : 100.
+    ///   - offset: The `Int`.
+    /// - Returns: The observable sequence with the specified implementation for the `subscribe` method.
+    func fetchWithdrawalsList(with pairId: Int? = nil,
+                                     sort: SortKey? = .desc,
+                                     timeStart: Double? = nil,
+                                     timeEnd: Double? = nil,
+                                     limit: Int? = 100,
+                                     offset: Int? = nil) -> Observable<[Withdrawal]> {
+        
+        let req = WithdrawalsRequest(with: pairId,
+                                     sort: sort,
+                                     timeStart: timeStart,
+                                     timeEnd: timeEnd,
+                                     limit: limit,
+                                     offset: offset)
+        
+        return request(req)
+    }
+    
+    /// Get withdrawal by id.
+    ///
+    /// - Parameters:
+    ///   - withdrawalId: The `Int`.
+    /// - Returns: The observable sequence with the specified implementation for the `subscribe` method.
+    func fetchWithdrawal(with withdrawalId: Int) -> Observable<Withdrawal> {
+        return request(WithdrawalsRequest(with: withdrawalId))
+    }
+    
     //MARK: Withdraw
     
     //MARK: - Trading

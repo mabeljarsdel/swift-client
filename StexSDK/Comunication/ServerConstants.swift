@@ -140,3 +140,15 @@ public enum DepositStatus: String, Codable {
     case depositError = "DEPOSIT ERROR"
     case hold = "HODL"
 }
+
+public enum WithdrawalStatus: String, Codable {
+    case notConfirmed = "Not Confirmed"
+    case cancelledByUser = "Cancelled by User"
+    case awatingApproval = "Awaiting Approval"
+    case approved = "Approved"
+    case processing = "Processing"
+    case finished = "Finished"
+    case withdrawalError = "Withdrawal Error"
+    case cancelledByAdmin = "Cancelled by Admin"
+    case awaiting = "Awaiting"
+}
