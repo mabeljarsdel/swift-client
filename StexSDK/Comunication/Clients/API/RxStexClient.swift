@@ -217,6 +217,26 @@ public extension RxStexClient {
         return request(CreateWalletRequest(with: pairId))
     }
     
+    /// Get deposit address for given wallet
+    ///
+    /// - Parameters:
+    ///   - walletId: The `Int`.
+    /// - Returns: The observable sequence with the specified implementation for the `subscribe` method.
+    func fetchWalletAddress(with walletId: Int) -> Observable<DepositAddress> {
+        return request(WalletAddressRequest(with: walletId))
+    }
+    
+    /// Create new deposit address
+    ///
+    /// This method allows to generate deposit address if no address was previously generated. It is also allowed to re-generate new address for some currencies.
+    ///
+    /// - Parameters:
+    ///   - walletId: The `Int`.
+    /// - Returns: The observable sequence with the specified implementation for the `subscribe` method.
+    func createWalletAddress(with walletId: Int) -> Observable<DepositAddress> {
+        return request(CreateWalletAddressRequest(with: walletId))
+    }
+    
     //MARK: - Trading
     
     /// Returns the user's fees for a given currency pair

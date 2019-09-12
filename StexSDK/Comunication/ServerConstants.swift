@@ -23,6 +23,8 @@ public struct ServerConstants {
         private static let trading = "trading/"
         private static let tradingHistory = "reports/"
         
+        static let address = "/address"
+        
         enum Public: String {
             case ticker
             case currencies

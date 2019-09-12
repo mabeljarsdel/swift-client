@@ -238,6 +238,26 @@ public class StexClient: APIClient {
         request(CreateWalletRequest(with: pairId), completion: completion)
     }
     
+    /// Get deposit address for given wallet
+    ///
+    /// - Parameters:
+    ///   - walletId: The `Int`.
+    ///   - completion: A closure to be executed once the request has finished.
+    public func fetchWalletAddress(with walletId: Int, completion: @escaping StexClientCompletion<DepositAddress>) {
+        request(WalletAddressRequest(with: walletId), completion: completion)
+    }
+    
+    /// Create new deposit address
+    ///
+    /// This method allows to generate deposit address if no address was previously generated. It is also allowed to re-generate new address for some currencies.
+    ///
+    /// - Parameters:
+    ///   - walletId: The `Int`.
+    ///   - completion: A closure to be executed once the request has finished.
+    public func createWalletAddress(with walletId: Int, completion: @escaping StexClientCompletion<DepositAddress>) {
+        request(CreateWalletAddressRequest(with: walletId), completion: completion)
+    }
+    
     //MARK: - Trading
     
     /// Returns the user's fees for a given currency pair
