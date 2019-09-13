@@ -88,6 +88,9 @@ public struct ServerConstants {
     static let triggerPrice = "trigger_price"
     static let pairId = "currencyPairId"
     static let orderStatus = "orderStatus"
+    static let currencyId = "currency_id"
+    static let address = "address"
+    static let additionalParameter = "additional_address_parameter"
 }
 
 public enum SortKey: String {

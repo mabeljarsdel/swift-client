@@ -28,6 +28,10 @@ public class APIClient {
                                       headers: req.httpHeaders())
         
         request.responseDecodable { (response: DataResponse<StexResponse<T>>) in
+            #if DEBUG
+            print("[\(req.httpMethod.rawValue.uppercased())] Responce from: \(req.endpoint), statusCode: \(response.response?.statusCode ?? 0)")
+            #endif
+            
             switch response.result {
             case .success(let data):
                 let result = StexResult(response: data)

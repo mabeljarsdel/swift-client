@@ -141,6 +141,11 @@
 		FAC4641C232A74B1005B9B1A /* WithdrawalsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC4641B232A74B1005B9B1A /* WithdrawalsRequest.swift */; };
 		FAC4641D232A74B1005B9B1A /* WithdrawalsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC4641B232A74B1005B9B1A /* WithdrawalsRequest.swift */; };
 		FAC4641F232A7641005B9B1A /* StexWithdrawalTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC4641E232A7641005B9B1A /* StexWithdrawalTest.swift */; };
+		FAC46421232A87E1005B9B1A /* CreateWithdrawRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC46420232A87E1005B9B1A /* CreateWithdrawRequest.swift */; };
+		FAC46422232A87E1005B9B1A /* CreateWithdrawRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC46420232A87E1005B9B1A /* CreateWithdrawRequest.swift */; };
+		FAC46425232A8B0A005B9B1A /* StexWithdrawTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC46423232A8B0A005B9B1A /* StexWithdrawTest.swift */; };
+		FAC46427232A9130005B9B1A /* CancelWithdrawRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC46426232A9130005B9B1A /* CancelWithdrawRequest.swift */; };
+		FAC46428232A9130005B9B1A /* CancelWithdrawRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC46426232A9130005B9B1A /* CancelWithdrawRequest.swift */; };
 		FACA3B6822F9C30400E9970B /* Trade.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACA3B6722F9C30400E9970B /* Trade.swift */; };
 		FACA3B6A22F9C5AF00E9970B /* StexTradesTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACA3B6922F9C5AF00E9970B /* StexTradesTest.swift */; };
 		FACA3B6B22F9C72700E9970B /* TradesReqest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA077D3822DDFC1E00CE9B8E /* TradesReqest.swift */; };
@@ -266,6 +271,9 @@
 		FAC46418232A720E005B9B1A /* Withdrawal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Withdrawal.swift; sourceTree = "<group>"; };
 		FAC4641B232A74B1005B9B1A /* WithdrawalsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithdrawalsRequest.swift; sourceTree = "<group>"; };
 		FAC4641E232A7641005B9B1A /* StexWithdrawalTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StexWithdrawalTest.swift; sourceTree = "<group>"; };
+		FAC46420232A87E1005B9B1A /* CreateWithdrawRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateWithdrawRequest.swift; sourceTree = "<group>"; };
+		FAC46423232A8B0A005B9B1A /* StexWithdrawTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StexWithdrawTest.swift; sourceTree = "<group>"; };
+		FAC46426232A9130005B9B1A /* CancelWithdrawRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelWithdrawRequest.swift; sourceTree = "<group>"; };
 		FACA3B6722F9C30400E9970B /* Trade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trade.swift; sourceTree = "<group>"; };
 		FACA3B6922F9C5AF00E9970B /* StexTradesTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StexTradesTest.swift; sourceTree = "<group>"; };
 		FACA3B6D22F9D16800E9970B /* OrderbookOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderbookOrder.swift; sourceTree = "<group>"; };
@@ -548,6 +556,7 @@
 				FABB06CD2327AC1000F204F0 /* StexWalletTest.swift */,
 				FAC46415232A6E11005B9B1A /* StexDepositTest.swift */,
 				FAC4641E232A7641005B9B1A /* StexWithdrawalTest.swift */,
+				FAC46423232A8B0A005B9B1A /* StexWithdrawTest.swift */,
 			);
 			path = Private;
 			sourceTree = "<group>";
@@ -606,6 +615,8 @@
 				FABB06D9232A335900F204F0 /* CreateWalletAddressRequest.swift */,
 				FAC46412232A6955005B9B1A /* DepositRequest.swift */,
 				FAC4641B232A74B1005B9B1A /* WithdrawalsRequest.swift */,
+				FAC46420232A87E1005B9B1A /* CreateWithdrawRequest.swift */,
+				FAC46426232A9130005B9B1A /* CancelWithdrawRequest.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -834,10 +845,12 @@
 				FA819C3B2326941A008A3BED /* TradingHistoryRequest.swift in Sources */,
 				FAB183D922CF6D6A00D9C98E /* PairsGroupsReqest.swift in Sources */,
 				FAB183AE22CF3FDC00D9C98E /* APIClient.swift in Sources */,
+				FAC46427232A9130005B9B1A /* CancelWithdrawRequest.swift in Sources */,
 				FAE59E4D22D5E82C00A55E19 /* CurrencyPairsGroupRequest.swift in Sources */,
 				FA95C62B23225D290031D6F9 /* CandleChanged.swift in Sources */,
 				FAB183B822CF3FDC00D9C98E /* CurrenciesRequest.swift in Sources */,
 				FACA3B832301783800E9970B /* StexTokensManager.swift in Sources */,
+				FAC46421232A87E1005B9B1A /* CreateWithdrawRequest.swift in Sources */,
 				FAB183E122CF819C00D9C98E /* CurrencyPair.swift in Sources */,
 				FAB183C322CF3FEA00D9C98E /* Ticker.swift in Sources */,
 				FAB183E422CF893600D9C98E /* CurrencyPairsListReqest.swift in Sources */,
@@ -872,6 +885,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FACA3B7E22FAF5C800E9970B /* Candle.swift in Sources */,
+				FAC46428232A9130005B9B1A /* CancelWithdrawRequest.swift in Sources */,
 				FACA3B6A22F9C5AF00E9970B /* StexTradesTest.swift in Sources */,
 				FAC4641A232A720E005B9B1A /* Withdrawal.swift in Sources */,
 				FA95C646232651810031D6F9 /* StexOrdersTest.swift in Sources */,
@@ -884,6 +898,7 @@
 				FABDBF312302F30400F9A12B /* StexSocketClient.swift in Sources */,
 				FAB183C422CF3FEA00D9C98E /* Ticker.swift in Sources */,
 				FA95C62F23227C3F0031D6F9 /* BalanceChanged.swift in Sources */,
+				FAC46422232A87E1005B9B1A /* CreateWithdrawRequest.swift in Sources */,
 				FA819C4823278E0D008A3BED /* StexTradingHistoryTest.swift in Sources */,
 				FAC46417232A6E11005B9B1A /* StexDepositTest.swift in Sources */,
 				FAB183DD22CF6E6600D9C98E /* PairGroup.swift in Sources */,
@@ -959,6 +974,7 @@
 				FACA3B7822F9D6CE00E9970B /* StexOrderbookTest.swift in Sources */,
 				FAB183B922CF3FDC00D9C98E /* CurrenciesRequest.swift in Sources */,
 				FAB183B322CF3FDC00D9C98E /* RxStexClient.swift in Sources */,
+				FAC46425232A8B0A005B9B1A /* StexWithdrawTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

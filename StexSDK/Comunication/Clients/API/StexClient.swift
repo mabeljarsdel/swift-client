@@ -339,6 +339,37 @@ public class StexClient: APIClient {
     
     //MARK: Withdraw
     
+    /// Create withdrawal request.
+    ///
+    /// - Parameters:
+    ///   - currencyId: The `Int`. Currency id.
+    ///   - amount: The `Double`.
+    ///   - address: The `String`. Address to send currency.
+    ///   - additionalParameter: The `String?`. If withdrawal address requires the payment ID or some key or destination tag etc pass it here.
+    ///   - completion: A closure to be executed once the request has finished.
+    public func createWithdraw(with currencyId: Int,
+                               amount: Double,
+                               address: String,
+                               additionalParameter: String?,
+                               completion: @escaping StexClientCompletion<Withdrawal>) {
+        
+        let req = CreateWithdrawRequest(with: currencyId,
+                                        amount: amount,
+                                        address: address,
+                                        additionalParameter: additionalParameter)
+        
+        request(req, completion: completion)
+    }
+    
+    /// Cancel unconfirmed withdrawal
+    ///
+    /// - Parameters:
+    ///   - withdrawalId: The `Int`. Withdrawal id.
+    ///   - completion: A closure to be executed once the request has finished.
+    public func cancelWithdraw(with withdrawalId: Int, completion: @escaping StexClientCompletion<Withdrawal>) {
+        request(CancelWithdrawRequest(with: withdrawalId), completion: completion)
+    }
+    
     //MARK: - Trading
     
     /// Returns the user's fees for a given currency pair

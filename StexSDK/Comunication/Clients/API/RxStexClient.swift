@@ -317,6 +317,36 @@ public extension RxStexClient {
     
     //MARK: Withdraw
     
+    /// Create withdrawal request.
+    ///
+    /// - Parameters:
+    ///   - currencyId: The `Int`. Currency id.
+    ///   - amount: The `Double`.
+    ///   - address: The `String`. Address to send currency.
+    ///   - additionalParameter: The `String?`. If withdrawal address requires the payment ID or some key or destination tag etc pass it here.
+    /// - Returns: The observable sequence with the specified implementation for the `subscribe` method.
+    func createWithdraw(with currencyId: Int,
+                               amount: Double,
+                               address: String,
+                               additionalParameter: String?) -> Observable<Withdrawal> {
+        
+        let req = CreateWithdrawRequest(with: currencyId,
+                                        amount: amount,
+                                        address: address,
+                                        additionalParameter: additionalParameter)
+        
+        return request(req)
+    }
+    
+    /// Cancel unconfirmed withdrawal
+    ///
+    /// - Parameters:
+    ///   - withdrawalId: The `Int`. Withdrawal id.
+    /// - Returns: The observable sequence with the specified implementation for the `subscribe` method.
+    func cancelWithdraw(with withdrawalId: Int) -> Observable<Withdrawal> {
+        return request(CancelWithdrawRequest(with: withdrawalId))
+    }
+    
     //MARK: - Trading
     
     /// Returns the user's fees for a given currency pair
