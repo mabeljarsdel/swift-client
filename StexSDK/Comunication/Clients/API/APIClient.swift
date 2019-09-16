@@ -21,11 +21,17 @@ public class APIClient {
     @discardableResult
     func request<T: Codable> (_ req: IRequest, completion: @escaping (StexResult<T>) -> ()) -> DataRequest {
         
-        let request = session.request(req.endpoint,
-                                      method: req.httpMethod,
-                                      parameters: req.parameters(),
-                                      encoding: req.encoding,
-                                      headers: req.httpHeaders())
+        let request: DataRequest
+        
+        if let urlRequest = req.urlRequest() {
+            request = session.request(urlRequest)
+        } else {
+            request = session.request(req.endpoint,
+                                          method: req.httpMethod,
+                                          parameters: req.parameters(),
+                                          encoding: req.encoding,
+                                          headers: req.httpHeaders())
+        }
         
         request.responseDecodable { (response: DataResponse<StexResponse<T>>) in
             #if DEBUG

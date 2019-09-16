@@ -505,4 +505,51 @@ public class StexClient: APIClient {
         
         request(req, completion: completion)
     }
+    
+    //MARK: - Settings
+    
+    //MARK: Notification
+    
+    /// User event notification settings
+    ///
+    /// Provides a list of notifications the user is subscribed to and the channels these notifications are delivered through
+    ///
+    /// - Parameters:
+    ///   - completion: A closure to be executed once the request has finished.
+    public func fetchNotificationsSettingsList(completion: @escaping StexClientCompletion<[Notification]>) {
+        request(NotificationsRequest(), completion: completion)
+    }
+    
+    /// User event notification settings
+    ///
+    /// Provides a list of notifications the user is subscribed to and the channels these notifications are delivered through
+    ///
+    /// - Parameters:
+    ///   - event: An event name you want to check the subscription status of.
+    ///   - completion: A closure to be executed once the request has finished.
+    public func fetchNotificationSettings(with event: String, completion: @escaping StexClientCompletion<Notification>) {
+        request(NotificationsRequest(with: event), completion: completion)
+    }
+    
+    /// Set notification settings
+    ///
+    /// Enable or disable notifications in specific channel for the user
+    ///
+    /// - Parameters:
+    ///   - params: Params for update settings.
+    ///   - completion: A closure to be executed once the request has finished.
+    public func updateNotificationSettings(with params: NotificationParameters, completion: @escaping StexClientCompletion<Notification>) {
+        request(UpdateNotificationSettingsRequest(with: params), completion: completion)
+    }
+    
+    /// Set notification settings
+    ///
+    /// Enable or disable notifications in many channels for the user at one request
+    ///
+    /// - Parameters:
+    ///   - params: Array params for update settings.
+    ///   - completion: A closure to be executed once the request has finished.
+    public func updateNotificationsSettings(with params: [NotificationParameters], completion: @escaping StexClientCompletion<[Notification]>) {
+        request(UpdateNotificationSettingsRequest(with: params), completion: completion)
+    }
 }

@@ -477,6 +477,53 @@ public extension RxStexClient {
         
         return request(req)
     }
+    
+    //MARK: - Settings
+    
+    //MARK: Notification
+    
+    /// User event notification settings
+    ///
+    /// Provides a list of notifications the user is subscribed to and the channels these notifications are delivered through
+    ///
+    /// - Parameters:
+    /// - Returns: The observable sequence with the specified implementation for the `subscribe` method.
+    func fetchNotificationsSettingsList() -> Observable<[Notification]> {
+        return request(NotificationsRequest())
+    }
+    
+    /// User event notification settings
+    ///
+    /// Provides a list of notifications the user is subscribed to and the channels these notifications are delivered through
+    ///
+    /// - Parameters:
+    ///   - event: An event name you want to check the subscription status of.
+    /// - Returns: The observable sequence with the specified implementation for the `subscribe` method.
+    func fetchNotificationSettings(with event: String) -> Observable<Notification> {
+        return request(NotificationsRequest(with: event))
+    }
+    
+    /// Set notification settings
+    ///
+    /// Enable or disable notifications in specific channel for the user
+    ///
+    /// - Parameters:
+    ///   - params: Params for update settings.
+    /// - Returns: The observable sequence with the specified implementation for the `subscribe` method.
+    func updateNotificationSettings(with params: NotificationParameters) -> Observable<Notification> {
+        return request(UpdateNotificationSettingsRequest(with: params))
+    }
+    
+    /// Set notification settings
+    ///
+    /// Enable or disable notifications in many channels for the user at one request
+    ///
+    /// - Parameters:
+    ///   - params: Array params for update settings.
+    /// - Returns: The observable sequence with the specified implementation for the `subscribe` method.
+    func updateNotificationsSettings(with params: [NotificationParameters]) -> Observable<[Notification]> {
+        return request(UpdateNotificationSettingsRequest(with: params))
+    }
 }
 
 //MARK: -

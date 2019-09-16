@@ -12,6 +12,7 @@ typealias PublicEndpoints = ServerConstants.Endpoints.Public
 typealias ProfileEndpoints = ServerConstants.Endpoints.Profile
 typealias TradingEndpoints = ServerConstants.Endpoints.Trading
 typealias TradingHistoryEndpoints = ServerConstants.Endpoints.TradingHistory
+typealias SettingsEndpoints = ServerConstants.Endpoints.Settings
 
 public struct ServerConstants {
     
@@ -22,6 +23,7 @@ public struct ServerConstants {
         private static let profile = "profile/"
         private static let trading = "trading/"
         private static let tradingHistory = "reports/"
+        private static let settings = "settings/"
         
         static let address = "/address"
         
@@ -70,6 +72,14 @@ public struct ServerConstants {
                 return ServerConstants.baseUrl + Endpoints.tradingHistory + rawValue
             }
         }
+        
+        enum Settings: String {
+            case notifications
+            
+            var path: String {
+                return ServerConstants.baseUrl + Endpoints.settings + rawValue
+            }
+        }
     }
     
     static let sort = "sort"
@@ -91,6 +101,9 @@ public struct ServerConstants {
     static let currencyId = "currency_id"
     static let address = "address"
     static let additionalParameter = "additional_address_parameter"
+    static let event = "event"
+    static let channel = "channel"
+    static let value = "value"
 }
 
 public enum SortKey: String {
