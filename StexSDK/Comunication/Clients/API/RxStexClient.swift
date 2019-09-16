@@ -186,6 +186,344 @@ public extension RxStexClient {
     func fetchProfileInfo() -> Observable<User> {
         return request(ProfileInfoRequest())
     }
+    
+    //MARK: Wallet
+    
+    /// Get a list of user wallets.
+    ///
+    /// - Parameters:
+    ///   - sortDirection: The `SortKey`. Default value : `.desc`.
+    ///   - sortBy: The `WalletSortKey`. Default value : `.balance`.
+    /// - Returns: The observable sequence with the specified implementation for the `subscribe` method.
+    func fetchWalletsList(with sortDirection: SortKey? = .desc, sortBy: WalletSortKey? = .balance) -> Observable<[Wallet]> {
+        return request(WalletsRequest(with: sortDirection, sortBy: sortBy))
+    }
+    
+    /// Single wallet information.
+    ///
+    /// - Parameters:
+    ///   - walletId: The `Int`.
+    /// - Returns: The observable sequence with the specified implementation for the `subscribe` method.
+    func fetchWallet(with walletId: Int) -> Observable<WalletDetail> {
+        return request(WalletsRequest(with: walletId))
+    }
+    
+    /// Create a wallet for given currency
+    ///
+    /// - Parameters:
+    ///   - pairId: The `Int`. Currency pair id.
+    /// - Returns: The observable sequence with the specified implementation for the `subscribe` method.
+    func createWallet(with pairId: Int) -> Observable<WalletDetail> {
+        return request(CreateWalletRequest(with: pairId))
+    }
+    
+    /// Get deposit address for given wallet
+    ///
+    /// - Parameters:
+    ///   - walletId: The `Int`.
+    /// - Returns: The observable sequence with the specified implementation for the `subscribe` method.
+    func fetchWalletAddress(with walletId: Int) -> Observable<DepositAddress> {
+        return request(WalletAddressRequest(with: walletId))
+    }
+    
+    /// Create new deposit address
+    ///
+    /// This method allows to generate deposit address if no address was previously generated. It is also allowed to re-generate new address for some currencies.
+    ///
+    /// - Parameters:
+    ///   - walletId: The `Int`.
+    /// - Returns: The observable sequence with the specified implementation for the `subscribe` method.
+    func createWalletAddress(with walletId: Int) -> Observable<DepositAddress> {
+        return request(CreateWalletAddressRequest(with: walletId))
+    }
+    
+    //MARK: Deposits
+    
+    /// Get a list of deposits made by user.
+    ///
+    /// Returns a list of deposits the user has made to the exchange according to the filters and parameters passed in the request. Allows to filter deposits by currency, date range etc.
+    ///
+    /// - Parameters:
+    ///   - id: The `Int`. Currency pair id.
+    ///   - sortKey: The `SortKey`. Direction of the sort - ASCending (.asc) or DESCending (.desc) by trade timestamp.
+    ///   - timeStart: The `Double`. Timestamp in second. Should be less then timeEnd.
+    ///   - timeEnd: The `Double`. Timestamp in second. Should be greater then timeStart.
+    ///   - limit: The `Int`. Default value : 100.
+    ///   - offset: The `Int`.
+    /// - Returns: The observable sequence with the specified implementation for the `subscribe` method.
+    func fetchDepositsList(with pairId: Int? = nil,
+                                  sort: SortKey? = .desc,
+                                  timeStart: Double? = nil,
+                                  timeEnd: Double? = nil,
+                                  limit: Int? = 100,
+                                  offset: Int? = nil) -> Observable<[Deposit]> {
+        
+        let req = DepositRequest(with: pairId,
+                                 sort: sort,
+                                 timeStart: timeStart,
+                                 timeEnd: timeEnd,
+                                 limit: limit,
+                                 offset: offset)
+        
+        return request(req)
+    }
+    
+    /// Get deposit by id
+    ///
+    /// - Parameters:
+    ///   - id: The `Int`.
+    /// - Returns: The observable sequence with the specified implementation for the `subscribe` method.
+    func fetchDeposit(with depositId: Int) -> Observable<Deposit> {
+        return request(DepositRequest(with: depositId))
+    }
+    
+    //MARK: Withdrawals
+    
+    /// Get a list of withdrawals made by user.
+    ///
+    /// - Parameters:
+    ///   - id: The `Int`. Currency pair id.
+    ///   - sortKey: The `SortKey`. Direction of the sort - ASCending (.asc) or DESCending (.desc) by trade timestamp.
+    ///   - timeStart: The `Double`. Timestamp in second. Should be less then timeEnd.
+    ///   - timeEnd: The `Double`. Timestamp in second. Should be greater then timeStart.
+    ///   - limit: The `Int`. Default value : 100.
+    ///   - offset: The `Int`.
+    /// - Returns: The observable sequence with the specified implementation for the `subscribe` method.
+    func fetchWithdrawalsList(with pairId: Int? = nil,
+                                     sort: SortKey? = .desc,
+                                     timeStart: Double? = nil,
+                                     timeEnd: Double? = nil,
+                                     limit: Int? = 100,
+                                     offset: Int? = nil) -> Observable<[Withdrawal]> {
+        
+        let req = WithdrawalsRequest(with: pairId,
+                                     sort: sort,
+                                     timeStart: timeStart,
+                                     timeEnd: timeEnd,
+                                     limit: limit,
+                                     offset: offset)
+        
+        return request(req)
+    }
+    
+    /// Get withdrawal by id.
+    ///
+    /// - Parameters:
+    ///   - withdrawalId: The `Int`.
+    /// - Returns: The observable sequence with the specified implementation for the `subscribe` method.
+    func fetchWithdrawal(with withdrawalId: Int) -> Observable<Withdrawal> {
+        return request(WithdrawalsRequest(with: withdrawalId))
+    }
+    
+    //MARK: Withdraw
+    
+    /// Create withdrawal request.
+    ///
+    /// - Parameters:
+    ///   - currencyId: The `Int`. Currency id.
+    ///   - amount: The `Double`.
+    ///   - address: The `String`. Address to send currency.
+    ///   - additionalParameter: The `String?`. If withdrawal address requires the payment ID or some key or destination tag etc pass it here.
+    /// - Returns: The observable sequence with the specified implementation for the `subscribe` method.
+    func createWithdraw(with currencyId: Int,
+                               amount: Double,
+                               address: String,
+                               additionalParameter: String?) -> Observable<Withdrawal> {
+        
+        let req = CreateWithdrawRequest(with: currencyId,
+                                        amount: amount,
+                                        address: address,
+                                        additionalParameter: additionalParameter)
+        
+        return request(req)
+    }
+    
+    /// Cancel unconfirmed withdrawal
+    ///
+    /// - Parameters:
+    ///   - withdrawalId: The `Int`. Withdrawal id.
+    /// - Returns: The observable sequence with the specified implementation for the `subscribe` method.
+    func cancelWithdraw(with withdrawalId: Int) -> Observable<Withdrawal> {
+        return request(CancelWithdrawRequest(with: withdrawalId))
+    }
+    
+    //MARK: - Trading
+    
+    /// Returns the user's fees for a given currency pair
+    ///
+    /// - Parameters:
+    ///   - pairId: The `Int`. Currency pair id.
+    /// - Returns: The observable sequence with the specified implementation for the `subscribe` method.
+    func fetchFee(for pairId: Int) -> Observable<Fee> {
+        return request(FeesRequest(pairId: pairId))
+    }
+    
+    //MARK: Orders
+    
+    /// List of your currently open orders.
+    ///
+    /// - Returns: The observable sequence with the specified implementation for the `subscribe` method.
+    func fetchOrdersList() -> Observable<[Order]> {
+        return request(OrdersRequest())
+    }
+    
+    /// List of your currently open orders for certain currency pair.
+    ///
+    /// - Parameters:
+    ///   - pairId: The `Int`. Currency pair id.
+    /// - Returns: The observable sequence with the specified implementation for the `subscribe` method.
+    func fetchOrdersList(with pairId: Int) -> Observable<[Order]> {
+        return request(OrdersRequest(pairId: pairId))
+    }
+    
+    /// Cancel all active orders
+    ///
+    /// Puts an request to delete all active (processing or pending) orders to orders processing queue.
+    ///
+    /// - Returns: The observable sequence with the specified implementation for the `subscribe` method.
+    func cancelOrders() -> Observable<CanceledOrders> {
+        return request(CancelOrdersRequest())
+    }
+    
+    /// Cancel active orders for given currency pair
+    ///
+    /// Puts an request to delete all active (processing or pending) of the given currency pair orders to orders processing queue.
+    ///
+    /// - Parameters:
+    ///   - pairId: The `Int`. Currency pair id.
+    /// - Returns: The observable sequence with the specified implementation for the `subscribe` method.
+    func cancelOrders(with pairId: Int) -> Observable<CanceledOrders> {
+        return request(CancelOrdersRequest(pairId: pairId))
+    }
+    
+    /// Create new order and put it to the orders processing queue
+    ///
+    /// - Parameters:
+    ///   - pairId: The `Int`. Currency pair id.
+    ///   - type: The `OrderType`. order type.
+    ///   - amount: The `Double`.
+    ///   - price: The `Double`.
+    ///   - triggerPrice: The `Double?`. Stop price for stop-limit orders. Required if the order is of type `.stopLimitBuy` or `.stopLimitSell`.
+    /// - Returns: The observable sequence with the specified implementation for the `subscribe` method.
+    func createOrder(with pairId: Int,
+                            type: OrderType,
+                            amount: Double,
+                            price: Double,
+                            triggerPrice: Double?) -> Observable<Order> {
+        
+        let req = CreateOrderReqest(pairId: pairId,
+                                    type: type,
+                                    amount: amount,
+                                    price: price,
+                                    triggerPrice: triggerPrice)
+        
+        return request(req)
+    }
+    
+    /// Get a single order.
+    ///
+    /// Get information about the given order.
+    ///
+    /// - Parameters:
+    ///   - id: The `Int`. Order id.
+    /// - Returns: The observable sequence with the specified implementation for the `subscribe` method.
+    func fetchOrder(with id: Int) -> Observable<Order> {
+        return request(OrderRequest(orderId: id))
+    }
+    
+    /// Cancel order
+    ///
+    /// - Parameters:
+    ///   - id: The `Int`. Order id.
+    /// - Returns: The observable sequence with the specified implementation for the `subscribe` method.
+    func cancelOrder(with id: Int) -> Observable<CanceledOrders> {
+        return request(CancelOrderRequest(orderId: id))
+    }
+    
+    //MARK: - Trading History
+    
+    /// Get past orders.
+    ///
+    /// Get the list of closed (finished, partial or cancelled) orders.
+    ///
+    /// - Parameters:
+    ///   - pairId: The `Int`. Currency pair id.
+    ///   - orderStatus: The `OrderStatus`. Default value : `.all`.
+    ///   - limit: The `Int`. Default value : `100`.
+    ///   - offset: The `Int`.
+    /// - Returns: The observable sequence with the specified implementation for the `subscribe` method.
+    func fetchTradingHistory(with pairId: Int? = nil,
+                                    orderStatus: OrderStatus = .all,
+                                    limit: Int = 100,
+                                    offset: Int? = nil) -> Observable<[Order]> {
+        
+        let req = TradingHistoryRequest(pairId: pairId,
+                                        orderStatus: orderStatus,
+                                        limit: limit,
+                                        offset: offset)
+        
+        return request(req)
+    }
+    
+    /// Get specified order details.
+    ///
+    /// Get trades and fees information for given order.
+    ///
+    /// - Parameters:
+    ///   - id: The `Int`. Order id.
+    /// - Returns: The observable sequence with the specified implementation for the `subscribe` method.
+    func fetchTradingHistory(with id: Int) -> Observable<OrderDetail> {
+        let req = TradingHistoryRequest(orderId: id)
+        
+        return request(req)
+    }
+    
+    //MARK: - Settings
+    
+    //MARK: Notification
+    
+    /// User event notification settings
+    ///
+    /// Provides a list of notifications the user is subscribed to and the channels these notifications are delivered through
+    ///
+    /// - Parameters:
+    /// - Returns: The observable sequence with the specified implementation for the `subscribe` method.
+    func fetchNotificationsSettingsList() -> Observable<[Notification]> {
+        return request(NotificationsRequest())
+    }
+    
+    /// User event notification settings
+    ///
+    /// Provides a list of notifications the user is subscribed to and the channels these notifications are delivered through
+    ///
+    /// - Parameters:
+    ///   - event: An event name you want to check the subscription status of.
+    /// - Returns: The observable sequence with the specified implementation for the `subscribe` method.
+    func fetchNotificationSettings(with event: String) -> Observable<Notification> {
+        return request(NotificationsRequest(with: event))
+    }
+    
+    /// Set notification settings
+    ///
+    /// Enable or disable notifications in specific channel for the user
+    ///
+    /// - Parameters:
+    ///   - params: Params for update settings.
+    /// - Returns: The observable sequence with the specified implementation for the `subscribe` method.
+    func updateNotificationSettings(with params: NotificationParameters) -> Observable<Notification> {
+        return request(UpdateNotificationSettingsRequest(with: params))
+    }
+    
+    /// Set notification settings
+    ///
+    /// Enable or disable notifications in many channels for the user at one request
+    ///
+    /// - Parameters:
+    ///   - params: Array params for update settings.
+    /// - Returns: The observable sequence with the specified implementation for the `subscribe` method.
+    func updateNotificationsSettings(with params: [NotificationParameters]) -> Observable<[Notification]> {
+        return request(UpdateNotificationSettingsRequest(with: params))
+    }
 }
 
 //MARK: -

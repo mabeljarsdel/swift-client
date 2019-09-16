@@ -21,13 +21,23 @@ public class APIClient {
     @discardableResult
     func request<T: Codable> (_ req: IRequest, completion: @escaping (StexResult<T>) -> ()) -> DataRequest {
         
-        let request = session.request(req.endpoint,
-                                      method: req.httpMethod,
-                                      parameters: req.parameters(),
-                                      encoding: req.encoding,
-                                      headers: req.httpHeaders())
+        let request: DataRequest
         
-        request.validate().responseDecodable { (response: DataResponse<StexResponse<T>>) in
+        if let urlRequest = req.urlRequest() {
+            request = session.request(urlRequest)
+        } else {
+            request = session.request(req.endpoint,
+                                          method: req.httpMethod,
+                                          parameters: req.parameters(),
+                                          encoding: req.encoding,
+                                          headers: req.httpHeaders())
+        }
+        
+        request.responseDecodable { (response: DataResponse<StexResponse<T>>) in
+            #if DEBUG
+            print("[\(req.httpMethod.rawValue.uppercased())] Responce from: \(req.endpoint), statusCode: \(response.response?.statusCode ?? 0)")
+            #endif
+            
             switch response.result {
             case .success(let data):
                 let result = StexResult(response: data)
