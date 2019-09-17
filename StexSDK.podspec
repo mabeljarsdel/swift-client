@@ -24,7 +24,7 @@ Pod::Spec.new do |spec|
 
   spec.frameworks = 'UIKit'
 
-  spec.dependency 'Alamofire'
+  spec.dependency 'Alamofire', '~> 5.0.0.beta.1'
   spec.dependency 'Socket.IO-Client-Swift'
   spec.dependency 'Locksmith'
   spec.dependency 'RxSwift'
