@@ -12,8 +12,8 @@ public class APIClient {
     
     private var session: Session
     
-    public init() {
-        let adapter = AccessTokenAdapter()
+    public init(userAgent: String? = nil) {
+        let adapter = AccessTokenAdapter(userAgent: userAgent)
         
         session = Session(adapter: adapter, retrier: adapter)
     }

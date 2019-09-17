@@ -10,13 +10,22 @@ import Alamofire
 
 class AccessTokenAdapter: RequestAdapter, RequestRetrier {
     
+    private var userAgent: String?
     private var apiClient: APIClient?
+    
+    init(userAgent: String?) {
+        self.userAgent = userAgent
+    }
     
     func adapt(_ urlRequest: URLRequest, completion: @escaping (Result<URLRequest>) -> Void) {
         var urlRequest = urlRequest
         
         if let accessToken = StexTokensManager.sharded.accessToken {
             urlRequest.setValue("Bearer " + accessToken, forHTTPHeaderField: "Authorization")
+        }
+        
+        if let userAgent = userAgent {
+            urlRequest.setValue(userAgent, forHTTPHeaderField: "User-Agent")
         }
         
         completion(.success(urlRequest))
@@ -29,7 +38,7 @@ class AccessTokenAdapter: RequestAdapter, RequestRetrier {
             return
         }
         
-        apiClient = APIClient()
+        apiClient = APIClient(userAgent: userAgent)
         
         apiClient?.refreshToken { [weak self] result in
             guard let self = self else { return }
