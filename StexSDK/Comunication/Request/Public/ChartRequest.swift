@@ -36,13 +36,13 @@ class ChartRequest: IRequest {
     
     func parameters() -> Parameters? {
         var param: Parameters = [
-            ServerConstants.timeStart: timeStart,
-            ServerConstants.timeEnd: timeEnd,
-            ServerConstants.limit: limit
+            StexServerConstants.timeStart: timeStart,
+            StexServerConstants.timeEnd: timeEnd,
+            StexServerConstants.limit: limit
         ]
         
         if let offset = offset {
-            param[ServerConstants.offset] = offset
+            param[StexServerConstants.offset] = offset
         }
         
         return param

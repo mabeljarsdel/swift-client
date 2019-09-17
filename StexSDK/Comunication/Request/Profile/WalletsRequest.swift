@@ -47,11 +47,11 @@ class WalletsRequest: IRequest {
         var params: Parameters = [:]
         
         if let sortDirection = sortDirection {
-            params[ServerConstants.sort] = sortDirection.rawValue.uppercased()
+            params[StexServerConstants.sort] = sortDirection.rawValue.uppercased()
         }
         
         if let sortBy = sortBy {
-            params[ServerConstants.sortBy] = sortBy.rawValue.uppercased()
+            params[StexServerConstants.sortBy] = sortBy.rawValue.uppercased()
         }
         
         return params

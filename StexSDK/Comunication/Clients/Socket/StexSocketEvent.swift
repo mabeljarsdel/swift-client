@@ -70,31 +70,31 @@ public enum StexSocketEvent {
     var channel: String {
         switch self {
         case .rate:
-            return SocketConstants.Channels.rate
+            return StexSocketConstants.Channels.rate
         case .tradeCreated(let pairId):
-            return SocketConstants.Channels.tradeCreated + "\(pairId)"
+            return StexSocketConstants.Channels.tradeCreated + "\(pairId)"
         case .sellGlassTotalChanged(let pairId):
-            return SocketConstants.Channels.sellGlassTotalChanget + "\(pairId)"
+            return StexSocketConstants.Channels.sellGlassTotalChanget + "\(pairId)"
         case .buyGlassTotalChanged(let pairId):
-            return SocketConstants.Channels.buyGlassTotalChanget + "\(pairId)"
+            return StexSocketConstants.Channels.buyGlassTotalChanget + "\(pairId)"
         case .sellGlassRowChanget(let pairId):
-            return SocketConstants.Channels.sellGlassRowChanget + "\(pairId)"
+            return StexSocketConstants.Channels.sellGlassRowChanget + "\(pairId)"
         case .buyGlassRowChanget(let pairId):
-            return SocketConstants.Channels.buyGlassRowChanget + "\(pairId)"
+            return StexSocketConstants.Channels.buyGlassRowChanget + "\(pairId)"
         case .bidBestPriceChanged(let pairId):
-            return SocketConstants.Channels.bidBestPriceChanged + "\(pairId)"
+            return StexSocketConstants.Channels.bidBestPriceChanged + "\(pairId)"
         case .askBestPriceChanged(let pairId):
-            return SocketConstants.Channels.askBestPriceChanged + "\(pairId)"
+            return StexSocketConstants.Channels.askBestPriceChanged + "\(pairId)"
         case .candleChanged(let type, let pairId):
-            return String(format: SocketConstants.Channels.candleChanged, type.rawValue, "\(pairId)")
+            return String(format: StexSocketConstants.Channels.candleChanged, type.rawValue, "\(pairId)")
         case .balanceChanged(let walletId):
-            return SocketConstants.Channels.balanceChanged + "\(walletId)"
+            return StexSocketConstants.Channels.balanceChanged + "\(walletId)"
         case .sellUserOrder(let userId, let pairId):
-            return String(format: SocketConstants.Channels.sellUserOrder, "\(userId)", "\(pairId)")
+            return String(format: StexSocketConstants.Channels.sellUserOrder, "\(userId)", "\(pairId)")
         case .buyUserOrder(let userId, let pairId):
-            return String(format: SocketConstants.Channels.buyUserOrder, "\(userId)", "\(pairId)")
+            return String(format: StexSocketConstants.Channels.buyUserOrder, "\(userId)", "\(pairId)")
         case .userOrderDeleted(let userId, let pairId):
-            return String(format: SocketConstants.Channels.delUserOrder, "\(userId)", "\(pairId)")
+            return String(format: StexSocketConstants.Channels.delUserOrder, "\(userId)", "\(pairId)")
         }
     }
     

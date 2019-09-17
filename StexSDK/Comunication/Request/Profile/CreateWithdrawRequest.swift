@@ -32,13 +32,13 @@ class CreateWithdrawRequest: IRequest {
     
     func parameters() -> Parameters? {
         var params: Parameters = [
-            ServerConstants.currencyId: currencyId,
-            ServerConstants.amount: amount,
-            ServerConstants.address: address
+            StexServerConstants.currencyId: currencyId,
+            StexServerConstants.amount: amount,
+            StexServerConstants.address: address
         ]
         
         if let additionalParameter = additionalParameter {
-            params[ServerConstants.additionalParameter] = additionalParameter
+            params[StexServerConstants.additionalParameter] = additionalParameter
         }
         
         return params

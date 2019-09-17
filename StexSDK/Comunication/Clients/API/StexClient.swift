@@ -19,7 +19,7 @@ public class StexClient: APIClient {
     ///
     /// - Parameters:
     ///   - completion: A closure to be executed once the request has finished.
-    public func fetchAllTicker(completion: @escaping StexClientCompletion<[Ticker]>) {
+    public func fetchAllTicker(completion: @escaping StexClientCompletion<[StexTicker]>) {
         request(TickerRequest(), completion: completion)
     }
     
@@ -30,7 +30,7 @@ public class StexClient: APIClient {
     /// - Parameters:
     ///   - id:         Ticker id.
     ///   - completion: A closure to be executed once the request has finished.
-    public func fetchTicker(with id: Int, completion: @escaping StexClientCompletion<Ticker>) {
+    public func fetchTicker(with id: Int, completion: @escaping StexClientCompletion<StexTicker>) {
         request(TickerRequest(with: id), completion: completion)
     }
     
@@ -42,7 +42,7 @@ public class StexClient: APIClient {
     ///
     /// - Parameters:
     ///   - completion: A closure to be executed once the request has finished.
-    public func fetchAllCurrencies(completion: @escaping StexClientCompletion<[Currency]>) {
+    public func fetchAllCurrencies(completion: @escaping StexClientCompletion<[StexCurrency]>) {
         request(CurrenciesRequest(), completion: completion)
     }
     
@@ -51,7 +51,7 @@ public class StexClient: APIClient {
     /// - Parameters:
     ///   - id:         Currency id.
     ///   - completion: A closure to be executed once the request has finished.
-    public func fetchCurrency(with id: Int, completion: @escaping StexClientCompletion<Currency>) {
+    public func fetchCurrency(with id: Int, completion: @escaping StexClientCompletion<StexCurrency>) {
         request(CurrenciesRequest(with: id), completion: completion)
     }
     
@@ -63,7 +63,7 @@ public class StexClient: APIClient {
     ///
     /// - Parameters:
     ///   - completion: A closure to be executed once the request has finished.
-    public func fetchAllMarkets(completion: @escaping StexClientCompletion<[Market]>) {
+    public func fetchAllMarkets(completion: @escaping StexClientCompletion<[StexMarket]>) {
         request(MarketsRequest(), completion: completion)
     }
     
@@ -75,7 +75,7 @@ public class StexClient: APIClient {
     ///
     /// - Parameters:
     ///   - completion: A closure to be executed once the request has finished.
-    public func fetchAllPairsGroups(completion: @escaping StexClientCompletion<[PairGroup]>) {
+    public func fetchAllPairsGroups(completion: @escaping StexClientCompletion<[StexPairGroup]>) {
         request(PairsGroupsRequest(), completion: completion)
     }
     
@@ -89,7 +89,7 @@ public class StexClient: APIClient {
     /// - Parameters:
     ///   - code: The `String`. Available values: `ALL, BTC`
     ///   - completion: A closure to be executed once the request has finished.
-    public func fetchCurrencyPairsList(with code: String = "ALL", completion: @escaping StexClientCompletion<[CurrencyPair]>) {
+    public func fetchCurrencyPairsList(with code: String = "ALL", completion: @escaping StexClientCompletion<[StexCurrencyPair]>) {
         request(CurrencyPairsListRequest(with: code), completion: completion)
     }
     
@@ -100,7 +100,7 @@ public class StexClient: APIClient {
     /// - Parameters:
     ///   - groupId: The `Int`. Group ID.
     ///   - completion: A closure to be executed once the request has finished.
-    public func fetchCurrencyPairs(with groupId: Int, completion: @escaping StexClientCompletion<[CurrencyPair]>) {
+    public func fetchCurrencyPairs(with groupId: Int, completion: @escaping StexClientCompletion<[StexCurrencyPair]>) {
         request(CurrencyPairsGroupRequest(with: groupId), completion: completion)
     }
     
@@ -111,7 +111,7 @@ public class StexClient: APIClient {
     /// - Parameters:
     ///   - id: The `Int`. Currency pair id.
     ///   - completion: A closure to be executed once the request has finished.
-    public func fetchCurrencyPair(with id: Int, completion: @escaping StexClientCompletion<CurrencyPair>) {
+    public func fetchCurrencyPair(with id: Int, completion: @escaping StexClientCompletion<StexCurrencyPair>) {
         request(CurrencyPairRequest(with: id), completion: completion)
     }
     
@@ -133,7 +133,7 @@ public class StexClient: APIClient {
                             till: Double?,
                             limit: Int = 100,
                             offset: Int?,
-                            completion: @escaping StexClientCompletion<[Trade]>) {
+                            completion: @escaping StexClientCompletion<[StexTrade]>) {
         
         request(TradesRequest(with: id,
                              sortKey: sortKey,
@@ -156,7 +156,7 @@ public class StexClient: APIClient {
     public func fetchOrderbook(with id: Int,
                                limitBids: Int = 100,
                                limitAsks: Int = 100,
-                               completion: @escaping StexClientCompletion<Orderbook>) {
+                               completion: @escaping StexClientCompletion<StexOrderbook>) {
         
         request(OrderbookRequest(with: id,
                                 limitBids: limitBids,
@@ -184,7 +184,7 @@ public class StexClient: APIClient {
                                timeEnd: Double,
                                limit: Int = 100,
                                offset: Int? = nil,
-                               completion: @escaping StexClientCompletion<[Candle]>) {
+                               completion: @escaping StexClientCompletion<[StexCandle]>) {
         
         let req = ChartRequest(with: id,
                                candlesType: candlesType,
@@ -204,7 +204,7 @@ public class StexClient: APIClient {
     ///
     /// - Parameters:
     ///   - completion: A closure to be executed once the request has finished.
-    public func fetchProfileInfo(completion: @escaping StexClientCompletion<User>) {
+    public func fetchProfileInfo(completion: @escaping StexClientCompletion<StexUser>) {
         request(ProfileInfoRequest(), completion: completion)
     }
     
@@ -216,7 +216,7 @@ public class StexClient: APIClient {
     ///   - sortDirection: The `SortKey`. Default value : `.desc`.
     ///   - sortBy: The `WalletSortKey`. Default value : `.balance`.
     ///   - completion: A closure to be executed once the request has finished.
-    public func fetchWalletsList(with sortDirection: SortKey? = .desc, sortBy: WalletSortKey? = .balance, completion: @escaping StexClientCompletion<[Wallet]>) {
+    public func fetchWalletsList(with sortDirection: SortKey? = .desc, sortBy: WalletSortKey? = .balance, completion: @escaping StexClientCompletion<[StexWallet]>) {
         request(WalletsRequest(with: sortDirection, sortBy: sortBy), completion: completion)
     }
     
@@ -225,7 +225,7 @@ public class StexClient: APIClient {
     /// - Parameters:
     ///   - walletId: The `Int`.
     ///   - completion: A closure to be executed once the request has finished.
-    public func fetchWallet(with walletId: Int, completion: @escaping StexClientCompletion<WalletDetail>) {
+    public func fetchWallet(with walletId: Int, completion: @escaping StexClientCompletion<StexWalletDetail>) {
         request(WalletsRequest(with: walletId), completion: completion)
     }
     
@@ -234,7 +234,7 @@ public class StexClient: APIClient {
     /// - Parameters:
     ///   - pairId: The `Int`. Currency pair id.
     ///   - completion: A closure to be executed once the request has finished.
-    public func createWallet(with pairId: Int, completion: @escaping StexClientCompletion<WalletDetail>) {
+    public func createWallet(with pairId: Int, completion: @escaping StexClientCompletion<StexWalletDetail>) {
         request(CreateWalletRequest(with: pairId), completion: completion)
     }
     
@@ -243,7 +243,7 @@ public class StexClient: APIClient {
     /// - Parameters:
     ///   - walletId: The `Int`.
     ///   - completion: A closure to be executed once the request has finished.
-    public func fetchWalletAddress(with walletId: Int, completion: @escaping StexClientCompletion<DepositAddress>) {
+    public func fetchWalletAddress(with walletId: Int, completion: @escaping StexClientCompletion<StexDepositAddress>) {
         request(WalletAddressRequest(with: walletId), completion: completion)
     }
     
@@ -254,7 +254,7 @@ public class StexClient: APIClient {
     /// - Parameters:
     ///   - walletId: The `Int`.
     ///   - completion: A closure to be executed once the request has finished.
-    public func createWalletAddress(with walletId: Int, completion: @escaping StexClientCompletion<DepositAddress>) {
+    public func createWalletAddress(with walletId: Int, completion: @escaping StexClientCompletion<StexDepositAddress>) {
         request(CreateWalletAddressRequest(with: walletId), completion: completion)
     }
     
@@ -277,7 +277,7 @@ public class StexClient: APIClient {
                                   timeStart: Double? = nil,
                                   timeEnd: Double? = nil,
                                   limit: Int? = 100,
-                                  offset: Int? = nil, completion: @escaping StexClientCompletion<[Deposit]>) {
+                                  offset: Int? = nil, completion: @escaping StexClientCompletion<[StexDeposit]>) {
         
         let req = DepositRequest(with: pairId,
                                  sort: sort,
@@ -294,7 +294,7 @@ public class StexClient: APIClient {
     /// - Parameters:
     ///   - depositId: The `Int`.
     ///   - completion: A closure to be executed once the request has finished.
-    public func fetchDeposit(with depositId: Int, completion: @escaping StexClientCompletion<Deposit>) {
+    public func fetchDeposit(with depositId: Int, completion: @escaping StexClientCompletion<StexDeposit>) {
         request(DepositRequest(with: depositId), completion: completion)
     }
     
@@ -316,7 +316,7 @@ public class StexClient: APIClient {
                                      timeEnd: Double? = nil,
                                      limit: Int? = 100,
                                      offset: Int? = nil,
-                                     completion: @escaping StexClientCompletion<[Withdrawal]>) {
+                                     completion: @escaping StexClientCompletion<[StexWithdrawal]>) {
         
         let req = WithdrawalsRequest(with: pairId,
                                      sort: sort,
@@ -333,7 +333,7 @@ public class StexClient: APIClient {
     /// - Parameters:
     ///   - withdrawalId: The `Int`.
     ///   - completion: A closure to be executed once the request has finished.
-    public func fetchWithdrawal(with withdrawalId: Int, completion: @escaping StexClientCompletion<Withdrawal>) {
+    public func fetchWithdrawal(with withdrawalId: Int, completion: @escaping StexClientCompletion<StexWithdrawal>) {
         request(WithdrawalsRequest(with: withdrawalId), completion: completion)
     }
     
@@ -351,7 +351,7 @@ public class StexClient: APIClient {
                                amount: Double,
                                address: String,
                                additionalParameter: String?,
-                               completion: @escaping StexClientCompletion<Withdrawal>) {
+                               completion: @escaping StexClientCompletion<StexWithdrawal>) {
         
         let req = CreateWithdrawRequest(with: currencyId,
                                         amount: amount,
@@ -366,7 +366,7 @@ public class StexClient: APIClient {
     /// - Parameters:
     ///   - withdrawalId: The `Int`. Withdrawal id.
     ///   - completion: A closure to be executed once the request has finished.
-    public func cancelWithdraw(with withdrawalId: Int, completion: @escaping StexClientCompletion<Withdrawal>) {
+    public func cancelWithdraw(with withdrawalId: Int, completion: @escaping StexClientCompletion<StexWithdrawal>) {
         request(CancelWithdrawRequest(with: withdrawalId), completion: completion)
     }
     
@@ -377,7 +377,7 @@ public class StexClient: APIClient {
     /// - Parameters:
     ///   - pairId: The `Int`. Currency pair id.
     ///   - completion: A closure to be executed once the request has finished.
-    public func fetchFee(for pairId: Int, completion: @escaping StexClientCompletion<Fee>) {
+    public func fetchFee(for pairId: Int, completion: @escaping StexClientCompletion<StexFee>) {
         request(FeesRequest(pairId: pairId), completion: completion)
     }
     
@@ -387,7 +387,7 @@ public class StexClient: APIClient {
     ///
     /// - Parameters:
     ///   - completion: A closure to be executed once the request has finished.
-    public func fetchOrdersList(completion: @escaping StexClientCompletion<[Order]>) {
+    public func fetchOrdersList(completion: @escaping StexClientCompletion<[StexOrder]>) {
         request(OrdersRequest(), completion: completion)
     }
     
@@ -396,7 +396,7 @@ public class StexClient: APIClient {
     /// - Parameters:
     ///   - pairId: The `Int`. Currency pair id.
     ///   - completion: A closure to be executed once the request has finished.
-    public func fetchOrdersList(with pairId: Int, completion: @escaping StexClientCompletion<[Order]>) {
+    public func fetchOrdersList(with pairId: Int, completion: @escaping StexClientCompletion<[StexOrder]>) {
         request(OrdersRequest(pairId: pairId), completion: completion)
     }
     
@@ -406,7 +406,7 @@ public class StexClient: APIClient {
     ///
     /// - Parameters:
     ///   - completion: A closure to be executed once the request has finished.
-    public func cancelOrders(completion: @escaping StexClientCompletion<CanceledOrders>) {
+    public func cancelOrders(completion: @escaping StexClientCompletion<StexCanceledOrders>) {
         request(CancelOrdersRequest(), completion: completion)
     }
     
@@ -417,7 +417,7 @@ public class StexClient: APIClient {
     /// - Parameters:
     ///   - pairId: The `Int`. Currency pair id.
     ///   - completion: A closure to be executed once the request has finished.
-    public func cancelOrders(with pairId: Int, completion: @escaping StexClientCompletion<CanceledOrders>) {
+    public func cancelOrders(with pairId: Int, completion: @escaping StexClientCompletion<StexCanceledOrders>) {
         request(CancelOrdersRequest(pairId: pairId), completion: completion)
     }
     
@@ -435,7 +435,7 @@ public class StexClient: APIClient {
                             amount: Double,
                             price: Double,
                             triggerPrice: Double?,
-                            completion: @escaping StexClientCompletion<Order>) {
+                            completion: @escaping StexClientCompletion<StexOrder>) {
         
         let req = CreateOrderReqest(pairId: pairId,
                                     type: type,
@@ -453,7 +453,7 @@ public class StexClient: APIClient {
     /// - Parameters:
     ///   - id: The `Int`. Order id.
     ///   - completion: A closure to be executed once the request has finished.
-    public func fetchOrder(with id: Int, completion: @escaping StexClientCompletion<Order>) {
+    public func fetchOrder(with id: Int, completion: @escaping StexClientCompletion<StexOrder>) {
         request(OrderRequest(orderId: id), completion: completion)
     }
     
@@ -462,7 +462,7 @@ public class StexClient: APIClient {
     /// - Parameters:
     ///   - id: The `Int`. Order id.
     ///   - completion: A closure to be executed once the request has finished.
-    public func cancelOrder(with id: Int, completion: @escaping StexClientCompletion<CanceledOrders>) {
+    public func cancelOrder(with id: Int, completion: @escaping StexClientCompletion<StexCanceledOrders>) {
         request(CancelOrderRequest(orderId: id), completion: completion)
     }
     
@@ -482,7 +482,7 @@ public class StexClient: APIClient {
                                     orderStatus: OrderStatus = .all,
                                     limit: Int = 100,
                                     offset: Int? = nil,
-                                    completion: @escaping StexClientCompletion<[Order]>) {
+                                    completion: @escaping StexClientCompletion<[StexOrder]>) {
         
         let req = TradingHistoryRequest(pairId: pairId,
                                         orderStatus: orderStatus,
@@ -499,7 +499,7 @@ public class StexClient: APIClient {
     /// - Parameters:
     ///   - id: The `Int`. Order id.
     ///   - completion: A closure to be executed once the request has finished.
-    public func fetchTradingHistory(with id: Int, completion: @escaping StexClientCompletion<OrderDetail>) {
+    public func fetchTradingHistory(with id: Int, completion: @escaping StexClientCompletion<StexOrderDetail>) {
         
         let req = TradingHistoryRequest(orderId: id)
         
@@ -516,7 +516,7 @@ public class StexClient: APIClient {
     ///
     /// - Parameters:
     ///   - completion: A closure to be executed once the request has finished.
-    public func fetchNotificationsSettingsList(completion: @escaping StexClientCompletion<[Notification]>) {
+    public func fetchNotificationsSettingsList(completion: @escaping StexClientCompletion<[StexNotification]>) {
         request(NotificationsRequest(), completion: completion)
     }
     
@@ -527,7 +527,7 @@ public class StexClient: APIClient {
     /// - Parameters:
     ///   - event: An event name you want to check the subscription status of.
     ///   - completion: A closure to be executed once the request has finished.
-    public func fetchNotificationSettings(with event: String, completion: @escaping StexClientCompletion<Notification>) {
+    public func fetchNotificationSettings(with event: String, completion: @escaping StexClientCompletion<StexNotification>) {
         request(NotificationsRequest(with: event), completion: completion)
     }
     
@@ -538,7 +538,7 @@ public class StexClient: APIClient {
     /// - Parameters:
     ///   - params: Params for update settings.
     ///   - completion: A closure to be executed once the request has finished.
-    public func updateNotificationSettings(with params: NotificationParameters, completion: @escaping StexClientCompletion<Notification>) {
+    public func updateNotificationSettings(with params: NotificationParameters, completion: @escaping StexClientCompletion<StexNotification>) {
         request(UpdateNotificationSettingsRequest(with: params), completion: completion)
     }
     
@@ -549,7 +549,7 @@ public class StexClient: APIClient {
     /// - Parameters:
     ///   - params: Array params for update settings.
     ///   - completion: A closure to be executed once the request has finished.
-    public func updateNotificationsSettings(with params: [NotificationParameters], completion: @escaping StexClientCompletion<[Notification]>) {
+    public func updateNotificationsSettings(with params: [NotificationParameters], completion: @escaping StexClientCompletion<[StexNotification]>) {
         request(UpdateNotificationSettingsRequest(with: params), completion: completion)
     }
 }

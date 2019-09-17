@@ -21,7 +21,7 @@ public class StexSocketClient {
     //MARK: - Initialization
     
     public init() {
-        manager = SocketManager(socketURL: URL(string: SocketConstants.socketURL)!,
+        manager = SocketManager(socketURL: URL(string: StexSocketConstants.socketURL)!,
                                 config: [.log(true)])
         socket = manager.defaultSocket
     }
@@ -48,17 +48,17 @@ public class StexSocketClient {
         let token: String? = event.isPrivate ? StexTokensManager.sharded.accessToken : nil
         let params = buildParams(channel: event.channel, token: token)
         
-        socket?.emit(SocketConstants.Event.subscribe, params)
+        socket?.emit(StexSocketConstants.Event.subscribe, params)
     }
     
     //MARK: - Private
     
     private func buildParams(channel: String, token: String? = nil) -> [String: AnyHashable] {
-        var param: [String: AnyHashable] = [SocketConstants.Param.channel: channel]
+        var param: [String: AnyHashable] = [StexSocketConstants.Param.channel: channel]
         
         if let token = token {
-            let headers = [SocketConstants.Param.authorization: SocketConstants.Param.bearer + " " + token]
-            param[SocketConstants.Param.auth] = [SocketConstants.Param.headers : headers]
+            let headers = [StexSocketConstants.Param.authorization: StexSocketConstants.Param.bearer + " " + token]
+            param[StexSocketConstants.Param.auth] = [StexSocketConstants.Param.headers : headers]
         }
         
         return param
@@ -68,67 +68,67 @@ public class StexSocketClient {
         
         socket?.removeAllHandlers()
         
-        socket?.on(SocketConstants.Event.connect) { [weak self] data, ack in
+        socket?.on(StexSocketConstants.Event.connect) { [weak self] data, ack in
             guard let self = self else { return }
             self.eventListener?.socket(self, connectWith: data)
         }
         
-        socket?.on(SocketConstants.Event.disconnect) { [weak self] data, ack in
+        socket?.on(StexSocketConstants.Event.disconnect) { [weak self] data, ack in
             guard let self = self else { return }
             self.eventListener?.socket(self, disconnectWith: data)
         }
         
-        socket?.on(SocketConstants.Event.ticker) { [weak self] data, ack in
+        socket?.on(StexSocketConstants.Event.ticker) { [weak self] data, ack in
             guard let self = self else { return }
-            let rates: [Rate] = data.compactMap { SocketDataDecoder().decode(withJSONObject: $0) }
+            let rates: [StexRate] = data.compactMap { SocketDataDecoder().decode(withJSONObject: $0) }
             self.eventListener?.socket(self, receiveRatesWith: rates)
         }
         
-        socket?.on(SocketConstants.Event.tradeCreated) { [weak self] data, ack in
+        socket?.on(StexSocketConstants.Event.tradeCreated) { [weak self] data, ack in
             guard let self = self else { return }
-            let orders: [OrderCreated] = data.compactMap { SocketDataDecoder().decode(withJSONObject: $0) }
+            let orders: [StexOrderCreated] = data.compactMap { SocketDataDecoder().decode(withJSONObject: $0) }
             self.eventListener?.socket(self, receiveTradesCreatedWith: orders)
         }
         
-        socket?.on(SocketConstants.Event.glassTotalChanget) { [weak self] data, ack in
+        socket?.on(StexSocketConstants.Event.glassTotalChanget) { [weak self] data, ack in
             guard let self = self else { return }
-            let totals: [GlassTotalChanged] = data.compactMap { SocketDataDecoder().decode(withJSONObject: $0) }
+            let totals: [StexGlassTotalChanged] = data.compactMap { SocketDataDecoder().decode(withJSONObject: $0) }
             self.eventListener?.socket(self, receiveGlassTotalChangedWith: totals)
         }
         
-        socket?.on(SocketConstants.Event.glassRowChanget) { [weak self] data, ack in
+        socket?.on(StexSocketConstants.Event.glassRowChanget) { [weak self] data, ack in
             guard let self = self else { return }
-            let rows: [GlassRowChanged] = data.compactMap { SocketDataDecoder().decode(withJSONObject: $0) }
+            let rows: [StexGlassRowChanged] = data.compactMap { SocketDataDecoder().decode(withJSONObject: $0) }
             self.eventListener?.socket(self, receiveGlassRowChangedWith: rows)
         }
         
-        socket?.on(SocketConstants.Event.bestPriceChanged) { [weak self] data, ack in
+        socket?.on(StexSocketConstants.Event.bestPriceChanged) { [weak self] data, ack in
             guard let self = self else { return }
-            let prices: [BestPriceChanged] = data.compactMap { SocketDataDecoder().decode(withJSONObject: $0) }
+            let prices: [StexBestPriceChanged] = data.compactMap { SocketDataDecoder().decode(withJSONObject: $0) }
             self.eventListener?.socket(self, receiveBestPriceChangedWith: prices)
         }
         
-        socket?.on(SocketConstants.Event.candleChanged) { [weak self] data, ack in
+        socket?.on(StexSocketConstants.Event.candleChanged) { [weak self] data, ack in
             guard let self = self else { return }
-            let candles: [CandleChanged] = data.compactMap { SocketDataDecoder().decode(withJSONObject: $0) }
+            let candles: [StexCandleChanged] = data.compactMap { SocketDataDecoder().decode(withJSONObject: $0) }
             self.eventListener?.socket(self, receiveCandleChangedWith: candles)
         }
         
-        socket?.on(SocketConstants.Event.balanceChanged) { [weak self] data, ack in
+        socket?.on(StexSocketConstants.Event.balanceChanged) { [weak self] data, ack in
             guard let self = self else { return }
-            let balances: [BalanceChanged] = data.compactMap { SocketDataDecoder().decode(withJSONObject: $0) }
+            let balances: [StexBalanceChanged] = data.compactMap { SocketDataDecoder().decode(withJSONObject: $0) }
             self.eventListener?.socket(self, receiveBalanceChangedWith: balances)
         }
         
-        socket?.on(SocketConstants.Event.userOrder) { [weak self] data, ack in
+        socket?.on(StexSocketConstants.Event.userOrder) { [weak self] data, ack in
             guard let self = self else { return }
-            let orders: [UserOrder] = data.compactMap { SocketDataDecoder().decode(withJSONObject: $0) }
+            let orders: [StexUserOrder] = data.compactMap { SocketDataDecoder().decode(withJSONObject: $0) }
             self.eventListener?.socket(self, receiveUserOrdersWith: orders)
         }
         
-        socket?.on(SocketConstants.Event.userOrderDeleted) { [weak self] data, ack in
+        socket?.on(StexSocketConstants.Event.userOrderDeleted) { [weak self] data, ack in
             guard let self = self else { return }
-            let orders: [UserOrderDeleted] = data.compactMap { SocketDataDecoder().decode(withJSONObject: $0) }
+            let orders: [StexUserOrderDeleted] = data.compactMap { SocketDataDecoder().decode(withJSONObject: $0) }
             self.eventListener?.socket(self, receiveUserOrdersDeletedWith: orders)
         }
     }

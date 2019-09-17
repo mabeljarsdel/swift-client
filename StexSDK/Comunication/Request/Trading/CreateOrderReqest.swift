@@ -30,13 +30,13 @@ class CreateOrderReqest: OrdersRequest {
     
     override func parameters() -> Parameters? {
         var params: Parameters = [
-            ServerConstants.type: type.rawValue,
-            ServerConstants.amount: DoubleFormatter.formatServer(value: amount),
-            ServerConstants.price: DoubleFormatter.formatServer(value: price)
+            StexServerConstants.type: type.rawValue,
+            StexServerConstants.amount: DoubleFormatter.formatServer(value: amount),
+            StexServerConstants.price: DoubleFormatter.formatServer(value: price)
         ]
         
         if let triggerPrice = triggerPrice {
-            params[ServerConstants.triggerPrice] = triggerPrice
+            params[StexServerConstants.triggerPrice] = triggerPrice
         }
         
         return params
