@@ -8,13 +8,29 @@
 
 import Foundation
 
-public enum StexResultError: Error {
-    case serverError(String)
+public struct StexResultError: Error {
     
-    var localizedDescription: String {
-        switch self {
-        case .serverError(let message):
-            return message
+    public private(set) var statusCode: Int
+    public private(set) var message: String
+    public private(set) var error: Error?
+    
+    public var localizedDescription: String {
+        return error?.localizedDescription ?? message
+    }
+    
+    static var unauthorized: StexResultError {
+        return StexResultError(statusCode: 401, message: "401 Unauthorized", error: nil)
+    }
+    
+    static func undefinedError(statusCode: Int, error: Error? = nil) -> StexResultError {
+        return StexResultError(statusCode: statusCode, message: "Oops! Something went wrong.", error: error)
+    }
+    
+    static func serverMessage(statusCode: Int, message: String?) -> StexResultError {
+        if let message = message {
+            return StexResultError(statusCode: statusCode, message: message, error: nil)
+        } else {
+            return undefinedError(statusCode: statusCode)
         }
     }
 }
@@ -34,14 +50,13 @@ public struct StexResponse<T: Codable>: Codable {
 public enum StexResult<Value: Codable> {
     
     case success(Value)
-    case error(Error)
+    case error(StexResultError)
     
-    init(response: StexResponse<Value>) {
+    init(response: StexResponse<Value>, statusCode: Int = 400) {
         if response.isSuccess, let data = response.data {
             self = .success(data)
         } else {
-            let message = response.message ?? "Oops! Something went wrong."
-            self = .error(StexResultError.serverError(message))
+            self = .error(StexResultError.serverMessage(statusCode: statusCode, message: response.message))
         }
     }
     
@@ -56,7 +71,7 @@ public enum StexResult<Value: Codable> {
     }
     
     /// Returns the associated error value if the result is a failure, `nil` otherwise.
-    public var error: Error? {
+    public var error: StexResultError? {
         switch self {
         case .success:
             return nil
