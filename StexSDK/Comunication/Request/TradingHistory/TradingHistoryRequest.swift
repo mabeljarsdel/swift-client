@@ -53,19 +53,19 @@ class TradingHistoryRequest: IRequest {
         var param: Parameters = [:]
         
         if let pairId = pairId {
-            param[ServerConstants.pairId] = pairId
+            param[StexServerConstants.pairId] = pairId
         }
         
         if let orderStatus = orderStatus {
-            param[ServerConstants.orderStatus] = orderStatus.rawValue
+            param[StexServerConstants.orderStatus] = orderStatus.rawValue
         }
         
         if let limit = limit {
-            param[ServerConstants.limit] = limit
+            param[StexServerConstants.limit] = limit
         }
         
         if let offset = offset {
-            param[ServerConstants.offset] = offset
+            param[StexServerConstants.offset] = offset
         }
         
         return param

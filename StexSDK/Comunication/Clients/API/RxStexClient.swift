@@ -18,7 +18,7 @@ public extension RxStexClient {
     /// Last 24H information about every currency pair.
     ///
     /// - Returns: The observable sequence with the specified implementation for the `subscribe` method.
-    func fetchAllTicker() -> Observable<[Ticker]> {
+    func fetchAllTicker() -> Observable<[StexTicker]> {
         return request(TickerRequest())
     }
     
@@ -29,7 +29,7 @@ public extension RxStexClient {
     /// - Parameters:
     ///   - id:         Ticker id.
     /// - Returns: The observable sequence with the specified implementation for the `subscribe` method.
-    func fetchTiker(with id: Int) -> Observable<Ticker> {
+    func fetchTiker(with id: Int) -> Observable<StexTicker> {
         return request(TickerRequest(with: id))
     }
     
@@ -40,7 +40,7 @@ public extension RxStexClient {
     /// Get list of avialable currencies.
     ///
     /// - Returns: The observable sequence with the specified implementation for the `subscribe` method.
-    func fetchAllCurrencies() -> Observable<[Currency]> {
+    func fetchAllCurrencies() -> Observable<[StexCurrency]> {
         return request(CurrenciesRequest())
     }
     
@@ -49,7 +49,7 @@ public extension RxStexClient {
     /// - Parameters:
     ///   - id:         Currency id.
     /// - Returns: The observable sequence with the specified implementation for the `subscribe` method.
-    func fetchCurrency(with id: Int) -> Observable<Currency> {
+    func fetchCurrency(with id: Int) -> Observable<StexCurrency> {
         return request(CurrenciesRequest(with: id))
     }
     
@@ -60,7 +60,7 @@ public extension RxStexClient {
     /// Get list of all avialable markets.
     ///
     /// - Returns: The observable sequence with the specified implementation for the `subscribe` method.
-    func fetchAllMarkets() -> Observable<[Market]> {
+    func fetchAllMarkets() -> Observable<[StexMarket]> {
         return request(MarketsRequest())
     }
     
@@ -71,7 +71,7 @@ public extension RxStexClient {
     /// Get list of all avialable currency pairs groups.
     ///
     /// - Returns: The observable sequence with the specified implementation for the `subscribe` method.
-    func fetchAllPairsGroups() -> Observable<[PairGroup]> {
+    func fetchAllPairsGroups() -> Observable<[StexPairGroup]> {
         return request(PairsGroupsRequest())
     }
     
@@ -85,7 +85,7 @@ public extension RxStexClient {
     /// - Parameters:
     ///   - code: The `String`. Available values: `ALL, BTC`
     /// - Returns: The observable sequence with the specified implementation for the `subscribe` method.
-    func fetchCurrencyPairsList(with code: String = "ALL") -> Observable<[CurrencyPair]> {
+    func fetchCurrencyPairsList(with code: String = "ALL") -> Observable<[StexCurrencyPair]> {
         return request(CurrencyPairsListRequest(with: code))
     }
     
@@ -96,7 +96,7 @@ public extension RxStexClient {
     /// - Parameters:
     ///   - groupId: The `Int`. Group ID.
     /// - Returns: The observable sequence with the specified implementation for the `subscribe` method.
-    func fetchCurrencyPairs(with groupId: Int) -> Observable<[CurrencyPair]> {
+    func fetchCurrencyPairs(with groupId: Int) -> Observable<[StexCurrencyPair]> {
         return request(CurrencyPairsGroupRequest(with: groupId))
     }
     
@@ -107,7 +107,7 @@ public extension RxStexClient {
     /// - Parameters:
     ///   - id: The `Int`. Currency pair id.
     /// - Returns: The observable sequence with the specified implementation for the `subscribe` method.
-    func fetchCurrencyPair(with id: Int) -> Observable<CurrencyPair> {
+    func fetchCurrencyPair(with id: Int) -> Observable<StexCurrencyPair> {
         return request(CurrencyPairRequest(with: id))
     }
     
@@ -123,7 +123,7 @@ public extension RxStexClient {
     ///   - limit: The `Int`. Default value : 100
     ///   - offset: The `Int`
     /// - Returns: The observable sequence with the specified implementation for the `subscribe` method.
-    func fetchTrades(with id: Int, sortKey: SortKey = .desc, from: Double?, till: Double?, limit: Int = 100, offset: Int?) -> Observable<[Trade]> {
+    func fetchTrades(with id: Int, sortKey: SortKey = .desc, from: Double?, till: Double?, limit: Int = 100, offset: Int?) -> Observable<[StexTrade]> {
         
         return request(TradesRequest(with: id, sortKey: sortKey, from: from, till: till, limit: limit, offset: offset))
     }
@@ -139,7 +139,7 @@ public extension RxStexClient {
     /// - Returns: The observable sequence with the specified implementation for the `subscribe` method.
     func fetchOrderbook(with id: Int,
                                limitBids: Int = 100,
-                               limitAsks: Int = 100) -> Observable<Orderbook> {
+                               limitAsks: Int = 100) -> Observable<StexOrderbook> {
         
         return request(OrderbookRequest(with: id,
                                 limitBids: limitBids,
@@ -164,7 +164,7 @@ public extension RxStexClient {
                                timeStart: Double,
                                timeEnd: Double,
                                limit: Int = 100,
-                               offset: Int? = nil) -> Observable<[Candle]> {
+                               offset: Int? = nil) -> Observable<[StexCandle]> {
         
         let req = ChartRequest(with: id,
                                candlesType: candlesType,
@@ -183,7 +183,7 @@ public extension RxStexClient {
     /// Get general information about the current user
     ///
     /// - Returns: The observable sequence with the specified implementation for the `subscribe` method.
-    func fetchProfileInfo() -> Observable<User> {
+    func fetchProfileInfo() -> Observable<StexUser> {
         return request(ProfileInfoRequest())
     }
     
@@ -195,7 +195,7 @@ public extension RxStexClient {
     ///   - sortDirection: The `SortKey`. Default value : `.desc`.
     ///   - sortBy: The `WalletSortKey`. Default value : `.balance`.
     /// - Returns: The observable sequence with the specified implementation for the `subscribe` method.
-    func fetchWalletsList(with sortDirection: SortKey? = .desc, sortBy: WalletSortKey? = .balance) -> Observable<[Wallet]> {
+    func fetchWalletsList(with sortDirection: SortKey? = .desc, sortBy: WalletSortKey? = .balance) -> Observable<[StexWallet]> {
         return request(WalletsRequest(with: sortDirection, sortBy: sortBy))
     }
     
@@ -204,7 +204,7 @@ public extension RxStexClient {
     /// - Parameters:
     ///   - walletId: The `Int`.
     /// - Returns: The observable sequence with the specified implementation for the `subscribe` method.
-    func fetchWallet(with walletId: Int) -> Observable<WalletDetail> {
+    func fetchWallet(with walletId: Int) -> Observable<StexWalletDetail> {
         return request(WalletsRequest(with: walletId))
     }
     
@@ -213,7 +213,7 @@ public extension RxStexClient {
     /// - Parameters:
     ///   - pairId: The `Int`. Currency pair id.
     /// - Returns: The observable sequence with the specified implementation for the `subscribe` method.
-    func createWallet(with pairId: Int) -> Observable<WalletDetail> {
+    func createWallet(with pairId: Int) -> Observable<StexWalletDetail> {
         return request(CreateWalletRequest(with: pairId))
     }
     
@@ -222,7 +222,7 @@ public extension RxStexClient {
     /// - Parameters:
     ///   - walletId: The `Int`.
     /// - Returns: The observable sequence with the specified implementation for the `subscribe` method.
-    func fetchWalletAddress(with walletId: Int) -> Observable<DepositAddress> {
+    func fetchWalletAddress(with walletId: Int) -> Observable<StexDepositAddress> {
         return request(WalletAddressRequest(with: walletId))
     }
     
@@ -233,7 +233,7 @@ public extension RxStexClient {
     /// - Parameters:
     ///   - walletId: The `Int`.
     /// - Returns: The observable sequence with the specified implementation for the `subscribe` method.
-    func createWalletAddress(with walletId: Int) -> Observable<DepositAddress> {
+    func createWalletAddress(with walletId: Int) -> Observable<StexDepositAddress> {
         return request(CreateWalletAddressRequest(with: walletId))
     }
     
@@ -256,7 +256,7 @@ public extension RxStexClient {
                                   timeStart: Double? = nil,
                                   timeEnd: Double? = nil,
                                   limit: Int? = 100,
-                                  offset: Int? = nil) -> Observable<[Deposit]> {
+                                  offset: Int? = nil) -> Observable<[StexDeposit]> {
         
         let req = DepositRequest(with: pairId,
                                  sort: sort,
@@ -273,7 +273,7 @@ public extension RxStexClient {
     /// - Parameters:
     ///   - id: The `Int`.
     /// - Returns: The observable sequence with the specified implementation for the `subscribe` method.
-    func fetchDeposit(with depositId: Int) -> Observable<Deposit> {
+    func fetchDeposit(with depositId: Int) -> Observable<StexDeposit> {
         return request(DepositRequest(with: depositId))
     }
     
@@ -294,7 +294,7 @@ public extension RxStexClient {
                                      timeStart: Double? = nil,
                                      timeEnd: Double? = nil,
                                      limit: Int? = 100,
-                                     offset: Int? = nil) -> Observable<[Withdrawal]> {
+                                     offset: Int? = nil) -> Observable<[StexWithdrawal]> {
         
         let req = WithdrawalsRequest(with: pairId,
                                      sort: sort,
@@ -311,7 +311,7 @@ public extension RxStexClient {
     /// - Parameters:
     ///   - withdrawalId: The `Int`.
     /// - Returns: The observable sequence with the specified implementation for the `subscribe` method.
-    func fetchWithdrawal(with withdrawalId: Int) -> Observable<Withdrawal> {
+    func fetchWithdrawal(with withdrawalId: Int) -> Observable<StexWithdrawal> {
         return request(WithdrawalsRequest(with: withdrawalId))
     }
     
@@ -328,7 +328,7 @@ public extension RxStexClient {
     func createWithdraw(with currencyId: Int,
                                amount: Double,
                                address: String,
-                               additionalParameter: String?) -> Observable<Withdrawal> {
+                               additionalParameter: String?) -> Observable<StexWithdrawal> {
         
         let req = CreateWithdrawRequest(with: currencyId,
                                         amount: amount,
@@ -343,7 +343,7 @@ public extension RxStexClient {
     /// - Parameters:
     ///   - withdrawalId: The `Int`. Withdrawal id.
     /// - Returns: The observable sequence with the specified implementation for the `subscribe` method.
-    func cancelWithdraw(with withdrawalId: Int) -> Observable<Withdrawal> {
+    func cancelWithdraw(with withdrawalId: Int) -> Observable<StexWithdrawal> {
         return request(CancelWithdrawRequest(with: withdrawalId))
     }
     
@@ -354,7 +354,7 @@ public extension RxStexClient {
     /// - Parameters:
     ///   - pairId: The `Int`. Currency pair id.
     /// - Returns: The observable sequence with the specified implementation for the `subscribe` method.
-    func fetchFee(for pairId: Int) -> Observable<Fee> {
+    func fetchFee(for pairId: Int) -> Observable<StexFee> {
         return request(FeesRequest(pairId: pairId))
     }
     
@@ -363,7 +363,7 @@ public extension RxStexClient {
     /// List of your currently open orders.
     ///
     /// - Returns: The observable sequence with the specified implementation for the `subscribe` method.
-    func fetchOrdersList() -> Observable<[Order]> {
+    func fetchOrdersList() -> Observable<[StexOrder]> {
         return request(OrdersRequest())
     }
     
@@ -372,7 +372,7 @@ public extension RxStexClient {
     /// - Parameters:
     ///   - pairId: The `Int`. Currency pair id.
     /// - Returns: The observable sequence with the specified implementation for the `subscribe` method.
-    func fetchOrdersList(with pairId: Int) -> Observable<[Order]> {
+    func fetchOrdersList(with pairId: Int) -> Observable<[StexOrder]> {
         return request(OrdersRequest(pairId: pairId))
     }
     
@@ -381,7 +381,7 @@ public extension RxStexClient {
     /// Puts an request to delete all active (processing or pending) orders to orders processing queue.
     ///
     /// - Returns: The observable sequence with the specified implementation for the `subscribe` method.
-    func cancelOrders() -> Observable<CanceledOrders> {
+    func cancelOrders() -> Observable<StexCanceledOrders> {
         return request(CancelOrdersRequest())
     }
     
@@ -392,7 +392,7 @@ public extension RxStexClient {
     /// - Parameters:
     ///   - pairId: The `Int`. Currency pair id.
     /// - Returns: The observable sequence with the specified implementation for the `subscribe` method.
-    func cancelOrders(with pairId: Int) -> Observable<CanceledOrders> {
+    func cancelOrders(with pairId: Int) -> Observable<StexCanceledOrders> {
         return request(CancelOrdersRequest(pairId: pairId))
     }
     
@@ -409,7 +409,7 @@ public extension RxStexClient {
                             type: OrderType,
                             amount: Double,
                             price: Double,
-                            triggerPrice: Double?) -> Observable<Order> {
+                            triggerPrice: Double?) -> Observable<StexOrder> {
         
         let req = CreateOrderReqest(pairId: pairId,
                                     type: type,
@@ -427,7 +427,7 @@ public extension RxStexClient {
     /// - Parameters:
     ///   - id: The `Int`. Order id.
     /// - Returns: The observable sequence with the specified implementation for the `subscribe` method.
-    func fetchOrder(with id: Int) -> Observable<Order> {
+    func fetchOrder(with id: Int) -> Observable<StexOrder> {
         return request(OrderRequest(orderId: id))
     }
     
@@ -436,7 +436,7 @@ public extension RxStexClient {
     /// - Parameters:
     ///   - id: The `Int`. Order id.
     /// - Returns: The observable sequence with the specified implementation for the `subscribe` method.
-    func cancelOrder(with id: Int) -> Observable<CanceledOrders> {
+    func cancelOrder(with id: Int) -> Observable<StexCanceledOrders> {
         return request(CancelOrderRequest(orderId: id))
     }
     
@@ -455,7 +455,7 @@ public extension RxStexClient {
     func fetchTradingHistory(with pairId: Int? = nil,
                                     orderStatus: OrderStatus = .all,
                                     limit: Int = 100,
-                                    offset: Int? = nil) -> Observable<[Order]> {
+                                    offset: Int? = nil) -> Observable<[StexOrder]> {
         
         let req = TradingHistoryRequest(pairId: pairId,
                                         orderStatus: orderStatus,
@@ -472,7 +472,7 @@ public extension RxStexClient {
     /// - Parameters:
     ///   - id: The `Int`. Order id.
     /// - Returns: The observable sequence with the specified implementation for the `subscribe` method.
-    func fetchTradingHistory(with id: Int) -> Observable<OrderDetail> {
+    func fetchTradingHistory(with id: Int) -> Observable<StexOrderDetail> {
         let req = TradingHistoryRequest(orderId: id)
         
         return request(req)
@@ -488,7 +488,7 @@ public extension RxStexClient {
     ///
     /// - Parameters:
     /// - Returns: The observable sequence with the specified implementation for the `subscribe` method.
-    func fetchNotificationsSettingsList() -> Observable<[Notification]> {
+    func fetchNotificationsSettingsList() -> Observable<[StexNotification]> {
         return request(NotificationsRequest())
     }
     
@@ -499,7 +499,7 @@ public extension RxStexClient {
     /// - Parameters:
     ///   - event: An event name you want to check the subscription status of.
     /// - Returns: The observable sequence with the specified implementation for the `subscribe` method.
-    func fetchNotificationSettings(with event: String) -> Observable<Notification> {
+    func fetchNotificationSettings(with event: String) -> Observable<StexNotification> {
         return request(NotificationsRequest(with: event))
     }
     
@@ -510,7 +510,7 @@ public extension RxStexClient {
     /// - Parameters:
     ///   - params: Params for update settings.
     /// - Returns: The observable sequence with the specified implementation for the `subscribe` method.
-    func updateNotificationSettings(with params: NotificationParameters) -> Observable<Notification> {
+    func updateNotificationSettings(with params: NotificationParameters) -> Observable<StexNotification> {
         return request(UpdateNotificationSettingsRequest(with: params))
     }
     
@@ -521,7 +521,7 @@ public extension RxStexClient {
     /// - Parameters:
     ///   - params: Array params for update settings.
     /// - Returns: The observable sequence with the specified implementation for the `subscribe` method.
-    func updateNotificationsSettings(with params: [NotificationParameters]) -> Observable<[Notification]> {
+    func updateNotificationsSettings(with params: [NotificationParameters]) -> Observable<[StexNotification]> {
         return request(UpdateNotificationSettingsRequest(with: params))
     }
 }

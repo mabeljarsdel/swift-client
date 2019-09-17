@@ -42,9 +42,9 @@ class UpdateNotificationSettingsRequest: IRequest {
     
     private func convert(param: NotificationParameters) -> [String: Any] {
         return [
-            ServerConstants.event: param.event,
-            ServerConstants.channel: param.channel,
-            ServerConstants.value: param.value ? 1 : 0
+            StexServerConstants.event: param.event,
+            StexServerConstants.channel: param.channel,
+            StexServerConstants.value: param.value ? 1 : 0
         ]
     }
     

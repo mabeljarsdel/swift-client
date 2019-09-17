@@ -36,20 +36,20 @@ class TradesRequest: IRequest {
     
     func parameters() -> Parameters? {
         var param: Parameters = [
-            ServerConstants.sort: sortKey.rawValue.uppercased(),
-            ServerConstants.limit: limit
+            StexServerConstants.sort: sortKey.rawValue.uppercased(),
+            StexServerConstants.limit: limit
         ]
         
         if let from = from {
-            param[ServerConstants.from] = from
+            param[StexServerConstants.from] = from
         }
         
         if let till = till {
-            param[ServerConstants.till] = till
+            param[StexServerConstants.till] = till
         }
         
         if let offset = offset {
-            param[ServerConstants.offset] = offset
+            param[StexServerConstants.offset] = offset
         }
         
         return param

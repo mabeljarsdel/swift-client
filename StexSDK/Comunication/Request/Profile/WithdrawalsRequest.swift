@@ -59,27 +59,27 @@ class WithdrawalsRequest: IRequest {
         var param: Parameters = [:]
         
         if let pairId = pairId {
-            param[ServerConstants.pairId] = pairId
+            param[StexServerConstants.pairId] = pairId
         }
         
         if let sort = sort {
-            param[ServerConstants.sort] = sort.rawValue
+            param[StexServerConstants.sort] = sort.rawValue
         }
         
         if let timeStart = timeStart {
-            param[ServerConstants.timeStart] = timeStart
+            param[StexServerConstants.timeStart] = timeStart
         }
         
         if let timeEnd = timeEnd {
-            param[ServerConstants.timeEnd] = timeEnd
+            param[StexServerConstants.timeEnd] = timeEnd
         }
         
         if let limit = limit {
-            param[ServerConstants.limit] = limit
+            param[StexServerConstants.limit] = limit
         }
         
         if let offset = offset {
-            param[ServerConstants.offset] = offset
+            param[StexServerConstants.offset] = offset
         }
         
         return param

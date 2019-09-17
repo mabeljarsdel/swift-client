@@ -21,6 +21,6 @@ class WalletAddressRequest: IRequest {
     }
     
     var endpoint: String {
-        return ProfileEndpoints.wallets.path + ServerConstants.Endpoints.address + "/\(id)"
+        return ProfileEndpoints.wallets.path + StexServerConstants.Endpoints.address + "/\(id)"
     }
 }
