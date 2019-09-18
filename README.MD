@@ -77,7 +77,7 @@ import StexSDK
 
 var stexClient = StexClient()
 
-StexTokensManager().sharded.setTokens(accessToken: "you_access_token", refreshToken: "yoi_refresh_token")
+StexTokensManager().sharded.setTokens(accessToken: "you_access_token", refreshToken: "you_refresh_token")
 
 stexClient.fetchProfileInfo { result in
     switch result {
