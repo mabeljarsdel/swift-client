@@ -2,7 +2,7 @@ platform :ios, '11.0'
 use_frameworks!
 
 def shared_pods
-  pod 'Alamofire', :git => 'https://github.com/Alamofire/Alamofire.git', :branch => 'alamofire5'
+  pod 'Alamofire', '5.0.0.beta.1'
   pod 'Socket.IO-Client-Swift'
   
   pod 'Locksmith'

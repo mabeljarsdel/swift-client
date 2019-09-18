@@ -13,7 +13,7 @@ Pod::Spec.new do |spec|
   spec.summary      = "A short description of StexSDK."
   spec.homepage     = "http://stex.com"
   spec.license      = { :type => "MIT", :file => "LICENSE" }
-  spec.author             = { "Alexander Rudyk" => "alakai.1998.28@gmail.com" }
+  spec.author       = { "Alexander Rudyk" => "alakai.1998.28@gmail.com" }
   spec.source       = { :git => "https://github.com/StocksExchange/swift-client.git", :tag => "#{spec.version}" }
   
   spec.ios.deployment_target = "10.0"
@@ -22,11 +22,9 @@ Pod::Spec.new do |spec|
   
   spec.source_files  = "StexSDK/**/*.swift"
 
-  spec.frameworks = 'UIKit'
-
-  spec.dependency 'Alamofire', '~> 5.0.0.beta.1'
+  spec.dependency 'Alamofire', '5.0.0.beta.1'
   spec.dependency 'Socket.IO-Client-Swift'
   spec.dependency 'Locksmith'
-  spec.dependency 'RxSwift'
+  spec.dependency 'RxSwift', '~> 4.0'
 
 end
