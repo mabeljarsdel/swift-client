@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1675D759E43009272D5A111A /* Pods_StexSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E9296B76E65D1F81DF03297 /* Pods_StexSDK.framework */; };
-		D444C107D10F526E5C3B46EE /* Pods_StexSDKTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E1B1D30B1C1603267B0CD0B /* Pods_StexSDKTests.framework */; };
+		C3E39965A0A878089CF672CA /* Pods_StexSDKTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE859534AC7EAA88D41B78FB /* Pods_StexSDKTests.framework */; };
+		E47ED05CA2C5631B862676D2 /* Pods_StexSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 557216FC5A806C2C3DB398E7 /* Pods_StexSDK.framework */; };
+		FA06C07723312BD90042BF4D /* StexUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF8995523019C1B00C18AA1 /* StexUser.swift */; };
 		FA077D3922DDFC1E00CE9B8E /* TradesReqest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA077D3822DDFC1E00CE9B8E /* TradesReqest.swift */; };
 		FA8044B822D5EAB300B77EC5 /* CurrencyPairRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8044B722D5EAB300B77EC5 /* CurrencyPairRequest.swift */; };
 		FA8044B922D5ED1D00B77EC5 /* CurrencyPairRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8044B722D5EAB300B77EC5 /* CurrencyPairRequest.swift */; };
@@ -178,7 +179,6 @@
 		FACA3B8C2301875C00E9970B /* StexProfileInfoTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACA3B8B2301875C00E9970B /* StexProfileInfoTest.swift */; };
 		FAE59E4D22D5E82C00A55E19 /* CurrencyPairsGroupRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE59E4C22D5E82C00A55E19 /* CurrencyPairsGroupRequest.swift */; };
 		FAE59E4E22D5E82C00A55E19 /* CurrencyPairsGroupRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE59E4C22D5E82C00A55E19 /* CurrencyPairsGroupRequest.swift */; };
-		FAF8995623019C1B00C18AA1 /* StexUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF8995523019C1B00C18AA1 /* StexUser.swift */; };
 		FAF8995723019DDC00C18AA1 /* ProfileInfoRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACA3B8623017D2800E9970B /* ProfileInfoRequest.swift */; };
 		FAF8995823019DDF00C18AA1 /* AccessTokenAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACA3B8923017E4B00E9970B /* AccessTokenAdapter.swift */; };
 		FAF8995923019DE300C18AA1 /* StexUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF8995523019C1B00C18AA1 /* StexUser.swift */; };
@@ -197,12 +197,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0923D86974A1BE99D3430206 /* Pods-StexSDK.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StexSDK.release.xcconfig"; path = "Target Support Files/Pods-StexSDK/Pods-StexSDK.release.xcconfig"; sourceTree = "<group>"; };
-		0E1B1D30B1C1603267B0CD0B /* Pods_StexSDKTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StexSDKTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		7A1005AC24060E1268391EF6 /* Pods-StexSDKTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StexSDKTests.release.xcconfig"; path = "Target Support Files/Pods-StexSDKTests/Pods-StexSDKTests.release.xcconfig"; sourceTree = "<group>"; };
-		9E9296B76E65D1F81DF03297 /* Pods_StexSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StexSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		DCC05569C9E759B346DEEE84 /* Pods-StexSDKTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StexSDKTests.debug.xcconfig"; path = "Target Support Files/Pods-StexSDKTests/Pods-StexSDKTests.debug.xcconfig"; sourceTree = "<group>"; };
-		E8ACF3AB611B0EEF83C6CBD7 /* Pods-StexSDK.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StexSDK.debug.xcconfig"; path = "Target Support Files/Pods-StexSDK/Pods-StexSDK.debug.xcconfig"; sourceTree = "<group>"; };
+		1FC7F6F81B1A601AA99AFD27 /* Pods-StexSDK.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StexSDK.debug.xcconfig"; path = "Target Support Files/Pods-StexSDK/Pods-StexSDK.debug.xcconfig"; sourceTree = "<group>"; };
+		557216FC5A806C2C3DB398E7 /* Pods_StexSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StexSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		720D861F1DC7BC073E04C143 /* Pods-StexSDKTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StexSDKTests.debug.xcconfig"; path = "Target Support Files/Pods-StexSDKTests/Pods-StexSDKTests.debug.xcconfig"; sourceTree = "<group>"; };
+		BE859534AC7EAA88D41B78FB /* Pods_StexSDKTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StexSDKTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D6A7C0BF486E2ADE9AD34FE2 /* Pods-StexSDKTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StexSDKTests.release.xcconfig"; path = "Target Support Files/Pods-StexSDKTests/Pods-StexSDKTests.release.xcconfig"; sourceTree = "<group>"; };
 		FA077D3822DDFC1E00CE9B8E /* TradesReqest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradesReqest.swift; sourceTree = "<group>"; };
 		FA8044B722D5EAB300B77EC5 /* CurrencyPairRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyPairRequest.swift; sourceTree = "<group>"; };
 		FA819C3323268D23008A3BED /* OrderRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderRequest.swift; sourceTree = "<group>"; };
@@ -232,6 +231,7 @@
 		FA95C64A232666E60031D6F9 /* StexCanceledOrders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StexCanceledOrders.swift; sourceTree = "<group>"; };
 		FA95C64D2326724A0031D6F9 /* CreateOrderReqest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateOrderReqest.swift; sourceTree = "<group>"; };
 		FA95C65023267B940031D6F9 /* DoubleFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleFormatter.swift; sourceTree = "<group>"; };
+		FAAB963ED9E0280D82E765A6 /* Pods-StexSDK.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StexSDK.release.xcconfig"; path = "Target Support Files/Pods-StexSDK/Pods-StexSDK.release.xcconfig"; sourceTree = "<group>"; };
 		FAB1838422CF3EA600D9C98E /* StexSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = StexSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAB1838722CF3EA600D9C98E /* StexSDK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StexSDK.h; sourceTree = "<group>"; };
 		FAB1838822CF3EA600D9C98E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -311,7 +311,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1675D759E43009272D5A111A /* Pods_StexSDK.framework in Frameworks */,
+				E47ED05CA2C5631B862676D2 /* Pods_StexSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -320,18 +320,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				FAB1838E22CF3EA600D9C98E /* StexSDK.framework in Frameworks */,
-				D444C107D10F526E5C3B46EE /* Pods_StexSDKTests.framework in Frameworks */,
+				C3E39965A0A878089CF672CA /* Pods_StexSDKTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		B3A6EBB70AC13D33130E3D74 /* Frameworks */ = {
+		DDB77A46FC6246395E83FDBD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				9E9296B76E65D1F81DF03297 /* Pods_StexSDK.framework */,
-				0E1B1D30B1C1603267B0CD0B /* Pods_StexSDKTests.framework */,
+				557216FC5A806C2C3DB398E7 /* Pods_StexSDK.framework */,
+				BE859534AC7EAA88D41B78FB /* Pods_StexSDKTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -339,10 +339,10 @@
 		F5D4DED61B8CE86EDF6BF464 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				E8ACF3AB611B0EEF83C6CBD7 /* Pods-StexSDK.debug.xcconfig */,
-				0923D86974A1BE99D3430206 /* Pods-StexSDK.release.xcconfig */,
-				DCC05569C9E759B346DEEE84 /* Pods-StexSDKTests.debug.xcconfig */,
-				7A1005AC24060E1268391EF6 /* Pods-StexSDKTests.release.xcconfig */,
+				1FC7F6F81B1A601AA99AFD27 /* Pods-StexSDK.debug.xcconfig */,
+				FAAB963ED9E0280D82E765A6 /* Pods-StexSDK.release.xcconfig */,
+				720D861F1DC7BC073E04C143 /* Pods-StexSDKTests.debug.xcconfig */,
+				D6A7C0BF486E2ADE9AD34FE2 /* Pods-StexSDKTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -396,7 +396,7 @@
 				FAB1839122CF3EA600D9C98E /* StexSDKTests */,
 				FAB1838522CF3EA600D9C98E /* Products */,
 				F5D4DED61B8CE86EDF6BF464 /* Pods */,
-				B3A6EBB70AC13D33130E3D74 /* Frameworks */,
+				DDB77A46FC6246395E83FDBD /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -682,7 +682,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FAB1839822CF3EA600D9C98E /* Build configuration list for PBXNativeTarget "StexSDK" */;
 			buildPhases = (
-				6B8FC615E38920F39C8EF02F /* [CP] Check Pods Manifest.lock */,
+				E92B64C1F1F49DE43719016E /* [CP] Check Pods Manifest.lock */,
 				FAB1837F22CF3EA600D9C98E /* Headers */,
 				FAB1838022CF3EA600D9C98E /* Sources */,
 				FAB1838122CF3EA600D9C98E /* Frameworks */,
@@ -701,11 +701,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FAB1839B22CF3EA600D9C98E /* Build configuration list for PBXNativeTarget "StexSDKTests" */;
 			buildPhases = (
-				4495BAB84F260A99AA385849 /* [CP] Check Pods Manifest.lock */,
+				C7FF9223A253D8525C780D92 /* [CP] Check Pods Manifest.lock */,
 				FAB1838922CF3EA600D9C98E /* Sources */,
 				FAB1838A22CF3EA600D9C98E /* Frameworks */,
 				FAB1838B22CF3EA600D9C98E /* Resources */,
-				3CA3CD9A32A04105CD7A424F /* [CP] Embed Pods Frameworks */,
+				9DA7609E7BC2A07A668EFD61 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -771,7 +771,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		3CA3CD9A32A04105CD7A424F /* [CP] Embed Pods Frameworks */ = {
+		9DA7609E7BC2A07A668EFD61 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -788,7 +788,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-StexSDKTests/Pods-StexSDKTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		4495BAB84F260A99AA385849 /* [CP] Check Pods Manifest.lock */ = {
+		C7FF9223A253D8525C780D92 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -810,7 +810,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		6B8FC615E38920F39C8EF02F /* [CP] Check Pods Manifest.lock */ = {
+		E92B64C1F1F49DE43719016E /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -839,6 +839,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA06C07723312BD90042BF4D /* StexUser.swift in Sources */,
 				FAC46432232BAB87005B9B1A /* StexNotificationChannel.swift in Sources */,
 				FA077D3922DDFC1E00CE9B8E /* TradesReqest.swift in Sources */,
 				FA95C62823225ABC0031D6F9 /* StexSocketEvent.swift in Sources */,
@@ -873,7 +874,6 @@
 				FAB183A022CF3FCD00D9C98E /* KeyedDecodingContainer+Extension.swift in Sources */,
 				FA819C3723268E76008A3BED /* CancelOrderRequest.swift in Sources */,
 				FABB06CB2327AB8200F204F0 /* StexWalletDetail.swift in Sources */,
-				FAF8995623019C1B00C18AA1 /* StexUser.swift in Sources */,
 				FA95C648232664C30031D6F9 /* CancelOrdersRequest.swift in Sources */,
 				FAC4641C232A74B1005B9B1A /* WithdrawalsRequest.swift in Sources */,
 				FA95C634232294AD0031D6F9 /* StexUserOrderDeleted.swift in Sources */,
@@ -1085,7 +1085,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1143,7 +1143,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -1157,7 +1157,7 @@
 		};
 		FAB1839922CF3EA600D9C98E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E8ACF3AB611B0EEF83C6CBD7 /* Pods-StexSDK.debug.xcconfig */;
+			baseConfigurationReference = 1FC7F6F81B1A601AA99AFD27 /* Pods-StexSDK.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
@@ -1184,7 +1184,7 @@
 		};
 		FAB1839A22CF3EA600D9C98E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0923D86974A1BE99D3430206 /* Pods-StexSDK.release.xcconfig */;
+			baseConfigurationReference = FAAB963ED9E0280D82E765A6 /* Pods-StexSDK.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
@@ -1211,7 +1211,7 @@
 		};
 		FAB1839C22CF3EA600D9C98E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DCC05569C9E759B346DEEE84 /* Pods-StexSDKTests.debug.xcconfig */;
+			baseConfigurationReference = 720D861F1DC7BC073E04C143 /* Pods-StexSDKTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -1231,7 +1231,7 @@
 		};
 		FAB1839D22CF3EA600D9C98E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7A1005AC24060E1268391EF6 /* Pods-StexSDKTests.release.xcconfig */;
+			baseConfigurationReference = D6A7C0BF486E2ADE9AD34FE2 /* Pods-StexSDKTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
