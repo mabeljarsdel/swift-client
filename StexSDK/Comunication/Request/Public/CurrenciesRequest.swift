@@ -13,11 +13,11 @@ import Alamofire
  Get list of avialable currencies.
  */
 
-public class CurrenciesRequest: IRequest {
+class CurrenciesRequest: IRequest {
     
     private var id: Int?
     
-    public init(with currencyId: Int? = nil) {
+    init(with currencyId: Int? = nil) {
         id = currencyId
     }
     
