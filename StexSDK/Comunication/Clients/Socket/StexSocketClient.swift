@@ -22,7 +22,7 @@ public class StexSocketClient {
     
     public init() {
         manager = SocketManager(socketURL: URL(string: StexSocketConstants.socketURL)!,
-                                config: [.log(true)])
+                                config: [.log(false)])
         socket = manager.defaultSocket
     }
     
@@ -49,6 +49,19 @@ public class StexSocketClient {
         let params = buildParams(channel: event.channel, token: token)
         
         socket?.emit(StexSocketConstants.Event.subscribe, params)
+    }
+    
+    //MARK: - Socket unsubscribe with events
+    
+    public func unsubscribe(withEvents events: [StexSocketEvent]) {
+        events.forEach { unsubscribe(withEvent: $0) }
+    }
+    
+    public func unsubscribe(withEvent event: StexSocketEvent) {
+        let token: String? = event.isPrivate ? StexTokensManager.sharded.accessToken : nil
+        let params = buildParams(channel: event.channel, token: token)
+        
+        socket?.emit(StexSocketConstants.Event.unsubscribe, params)
     }
     
     //MARK: - Private
