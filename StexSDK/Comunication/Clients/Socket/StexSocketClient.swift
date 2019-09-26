@@ -22,7 +22,7 @@ public class StexSocketClient {
     
     public init() {
         manager = SocketManager(socketURL: URL(string: StexSocketConstants.socketURL)!,
-                                config: [.log(true)])
+                                config: [.log(false)])
         socket = manager.defaultSocket
     }
     
@@ -45,13 +45,27 @@ public class StexSocketClient {
     }
     
     public func subscribe(toEvent event: StexSocketEvent) {
-        let token: String? = event.isPrivate ? StexTokensManager.sharded.accessToken : nil
-        let params = buildParams(channel: event.channel, token: token)
-        
-        socket?.emit(StexSocketConstants.Event.subscribe, params)
+        send(rout: StexSocketConstants.Event.subscribe, event: event)
+    }
+    
+    //MARK: - Socket unsubscribe with events
+    
+    public func unsubscribe(withEvents events: [StexSocketEvent]) {
+        events.forEach { unsubscribe(withEvent: $0) }
+    }
+    
+    public func unsubscribe(withEvent event: StexSocketEvent) {
+        send(rout: StexSocketConstants.Event.unsubscribe, event: event)
     }
     
     //MARK: - Private
+    
+    private func send(rout: String, event: StexSocketEvent) {
+        let token: String? = event.isPrivate ? StexTokensManager.sharded.accessToken : nil
+        let params = buildParams(channel: event.channel, token: token)
+        
+        socket?.emit(rout, params)
+    }
     
     private func buildParams(channel: String, token: String? = nil) -> [String: AnyHashable] {
         var param: [String: AnyHashable] = [StexSocketConstants.Param.channel: channel]
