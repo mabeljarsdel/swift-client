@@ -23,6 +23,7 @@ struct StexSocketConstants {
         static let connect = "connect"
         static let disconnect = "disconnect"
         static let subscribe = "subscribe"
+        static let unsubscribe = "unsubscribe"
         
         static let ticker = "App\\Events\\Ticker"
         static let tradeCreated = "App\\Events\\OrderFillCreated"
