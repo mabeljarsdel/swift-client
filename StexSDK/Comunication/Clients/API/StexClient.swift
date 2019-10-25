@@ -431,7 +431,7 @@ public class StexClient: APIClient {
     ///   - triggerPrice: The `Double?`. Stop price for stop-limit orders. Required if the order is of type `.stopLimitBuy` or `.stopLimitSell`.
     ///   - completion: A closure to be executed once the request has finished.
     public func createOrder(with pairId: Int,
-                            type: OrderType,
+                            type: StexOrderType,
                             amount: Double,
                             price: Double,
                             triggerPrice: Double?,
@@ -479,7 +479,7 @@ public class StexClient: APIClient {
     ///   - offset: The `Int`.
     ///   - completion: A closure to be executed once the request has finished.
     public func fetchTradingHistory(with pairId: Int? = nil,
-                                    orderStatus: OrderStatus = .all,
+                                    orderStatus: StexOrderStatus = .all,
                                     limit: Int = 100,
                                     offset: Int? = nil,
                                     completion: @escaping StexClientCompletion<[StexOrder]>) {

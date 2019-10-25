@@ -32,7 +32,7 @@ public class StexOrderCreated: Codable {
     public var amount2: Double?
     
     /// Trade type SELL / BUY
-    public var type: TradeType
+    public var type: StexTradeType
     
     /// Timestamp of the trade
     public var timestamp: Double
@@ -56,7 +56,7 @@ public class StexOrderCreated: Codable {
         buyOrderId = try container.decode(Int.self, forKey: .buyOrderId)
         sellOrderId = try container.decode(Int.self, forKey: .sellOrderId)
         pairId = try container.decode(Int.self, forKey: .pairId)
-        type = try container.decode(TradeType.self, forKey: .type)
+        type = try container.decode(StexTradeType.self, forKey: .type)
         timestamp = try container.decode(Double.self, forKey: .timestamp)
         amount2 = try? container.decode(Double.self, forKey: .amount2)
         

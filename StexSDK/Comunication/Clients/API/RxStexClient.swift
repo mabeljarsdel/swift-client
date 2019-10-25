@@ -406,7 +406,7 @@ public extension RxStexClient {
     ///   - triggerPrice: The `Double?`. Stop price for stop-limit orders. Required if the order is of type `.stopLimitBuy` or `.stopLimitSell`.
     /// - Returns: The observable sequence with the specified implementation for the `subscribe` method.
     func createOrder(with pairId: Int,
-                            type: OrderType,
+                            type: StexOrderType,
                             amount: Double,
                             price: Double,
                             triggerPrice: Double?) -> Observable<StexOrder> {
@@ -453,7 +453,7 @@ public extension RxStexClient {
     ///   - offset: The `Int`.
     /// - Returns: The observable sequence with the specified implementation for the `subscribe` method.
     func fetchTradingHistory(with pairId: Int? = nil,
-                                    orderStatus: OrderStatus = .all,
+                                    orderStatus: StexOrderStatus = .all,
                                     limit: Int = 100,
                                     offset: Int? = nil) -> Observable<[StexOrder]> {
         

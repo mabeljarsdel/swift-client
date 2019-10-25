@@ -28,7 +28,7 @@ public class StexTrade: Codable {
     /// Trade type.
     ///
     /// Example: `sell`
-    public var type: TradeType
+    public var type: StexTradeType
     
     /// Timestamp.
     ///
@@ -47,7 +47,7 @@ public class StexTrade: Codable {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         
         id = try container.decode(Int.self, forKey: .id)
-        type = try container.decode(TradeType.self, forKey: .type)
+        type = try container.decode(StexTradeType.self, forKey: .type)
         
         price = try container.decodeStringToDouble(.price)
         amount = try container.decodeStringToDouble(.amount)

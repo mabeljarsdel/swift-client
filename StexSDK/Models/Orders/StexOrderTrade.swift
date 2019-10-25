@@ -14,7 +14,7 @@ public class StexOrderTrade: Codable {
     public var sellOrderId: Int
     public var price: Double
     public var amount: Double
-    public var type: TradeType
+    public var type: StexTradeType
     public var timestemp: Double
     
     enum CodingKeys: String, CodingKey {
@@ -33,7 +33,7 @@ public class StexOrderTrade: Codable {
         id = try container.decode(Int.self, forKey: .id)
         buyOrderId = try container.decode(Int.self, forKey: .buyOrderId)
         sellOrderId = try container.decode(Int.self, forKey: .sellOrderId)
-        type = try container.decode(TradeType.self, forKey: .type)
+        type = try container.decode(StexTradeType.self, forKey: .type)
         
         amount = try container.decodeStringToDouble(.amount) ?? 0
         price = try container.decodeStringToDouble(.price) ?? 0
