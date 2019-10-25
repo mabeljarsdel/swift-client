@@ -387,8 +387,8 @@ public class StexClient: APIClient {
     ///
     /// - Parameters:
     ///   - completion: A closure to be executed once the request has finished.
-    public func fetchOrdersList(completion: @escaping StexClientCompletion<[StexOrder]>) {
-        request(OrdersRequest(), completion: completion)
+    public func fetchOrdersList(limit: Int = 100, offset: Int? = nil, completion: @escaping StexClientCompletion<[StexOrder]>) {
+        request(ActiveOrdersRequest(limit: limit, offset: offset), completion: completion)
     }
     
     /// List of your currently open orders for certain currency pair.
@@ -396,8 +396,8 @@ public class StexClient: APIClient {
     /// - Parameters:
     ///   - pairId: The `Int`. Currency pair id.
     ///   - completion: A closure to be executed once the request has finished.
-    public func fetchOrdersList(with pairId: Int, completion: @escaping StexClientCompletion<[StexOrder]>) {
-        request(OrdersRequest(pairId: pairId), completion: completion)
+    public func fetchOrdersList(with pairId: Int, limit: Int = 100, offset: Int? = nil, completion: @escaping StexClientCompletion<[StexOrder]>) {
+        request(ActiveOrdersRequest(pairId: pairId, limit: limit, offset: offset), completion: completion)
     }
     
     /// Cancel all active orders
