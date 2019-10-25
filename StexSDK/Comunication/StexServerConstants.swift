@@ -114,6 +114,8 @@ public enum SortKey: String {
 public enum StexTradeType: String, Codable {
     case sell = "SELL"
     case buy = "BUY"
+    case stopLimitBuy = "BUY (STOP-LIMIT)"
+    case stopLimitSell = "SELL (STOP-LIMIT)"
 }
 
 public enum CandlesType: String {
@@ -127,10 +129,10 @@ public enum CandlesType: String {
 }
 
 public enum StexOrderType: String, Codable {
-    case sell = "SELL"
     case buy = "BUY"
-    case stopLimitBuy = "STOP_LIMIT_BUY"
-    case stopLimitSell = "STOP_LIMIT_SELL"
+    case sell = "SELL"
+    case stopLimitBuy = "BUY (STOP-LIMIT)"
+    case stopLimitSell = "SELL (STOP-LIMIT)"
 }
 
 public enum StexOrderStatus: String, Codable {

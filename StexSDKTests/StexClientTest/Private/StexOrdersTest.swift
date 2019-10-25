@@ -60,7 +60,7 @@ class StexOrdersTest: StexPrivateClientTest {
         let expectation = self.expectation(description: "Testing creating orders API")
         
         let pairId = 621
-        let type = OrderType.sell
+        let type = StexOrderType.sell
         let amount: Double = 0.1
         let price: Double = 0.00001
         
