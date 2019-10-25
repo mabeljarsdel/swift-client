@@ -13,7 +13,7 @@ class StexOrdersTest: StexPrivateClientTest {
     func testOrdersList() {
         let expectation = self.expectation(description: "Testing orders list API")
         
-        var ordersCount = 0
+        var ordersCount: Int?
         
         stexClient.fetchOrdersList { result in
             switch result {
@@ -30,7 +30,7 @@ class StexOrdersTest: StexPrivateClientTest {
         
         waitForExpectations(timeout: timeout, handler: nil)
         
-        XCTAssertTrue(ordersCount != 0)
+        XCTAssertTrue(ordersCount != nil)
     }
     
     func testCancelOrders() {
