@@ -135,10 +135,12 @@ public enum StexOrderType: String, Codable {
 
 public enum StexOrderStatus: String, Codable {
     case all = "ALL"
-    case processing = "PROCESSING"
     case pending = "PENDING"
+    case processing = "PROCESSING"
     case finished = "FINISHED"
     case cancelled = "CANCELLED"
+    case partial = "PARTIAL"
+    case withTrades = "WITH_TRADES"
 }
 
 public enum WalletSortKey: String {
