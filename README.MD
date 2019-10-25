@@ -77,7 +77,7 @@ import StexSDK
 
 var stexClient = StexClient()
 
-StexTokensManager().sharded.setTokens(accessToken: "you_access_token", refreshToken: "you_refresh_token")
+StexTokensManager.sharded.setTokens(accessToken: "you_access_token", refreshToken: "you_refresh_token")
 
 stexClient.fetchProfileInfo { result in
     switch result {
@@ -94,11 +94,12 @@ stexClient.fetchProfileInfo { result in
 ```swift
 import StexSDK
 
-class SocketListener: StexSDK.ISocketEventListener {
+class SocketListener: ISocketEventListener {
     
     var socketClient = StexSocketClient()
     
     init() {
+        socketClient.eventListener = self
         socketClient.establishConnection()
         socketClient.subscribe(toEvent: .rate)
     }
@@ -114,11 +115,12 @@ Or
 ```swift
 import StexSDK
 
-class SocketListener: StexSDK.ISocketEventListener {
+class SocketListener: ISocketEventListener {
     
     var socketClient = StexSocketClient()
     
     init() {
+        socketClient.eventListener = self
         socketClient.establishConnection()
         socketClient.subscribe(toEvents: [.rate, .buyGlassRowChanget(1), .sellUserOrder(123, 43)])
     }
