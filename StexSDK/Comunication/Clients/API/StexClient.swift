@@ -196,6 +196,27 @@ public class StexClient: APIClient {
         request(req, completion: completion)
     }
     
+    //MARK: - Deposit statuses
+    
+    /// Available Deposit Statuses.
+    ///
+    /// Get list of avialable deposit statuses.
+    ///
+    /// - Parameters:
+    ///   - completion: A closure to be executed once the request has finished.
+    public func fetchDepositStatuses(completion: @escaping StexClientCompletion<[StexDepositStatus]>) {
+        request(DepositStatusesReqest(), completion: completion)
+    }
+    
+    /// Get deposit status info
+    ///
+    /// - Parameters:
+    ///   - statusId: Status id.
+    ///   - completion: A closure to be executed once the request has finished.
+    public func fetchDepositStatus(statusId: Int, completion: @escaping StexClientCompletion<StexDepositStatus>) {
+        request(DepositStatusesReqest(with: statusId), completion: completion)
+    }
+    
     //MARK: - Profile
     
     /// Account information.

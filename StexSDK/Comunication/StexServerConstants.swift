@@ -36,6 +36,8 @@ public struct StexServerConstants {
             case trades
             case orderbook
             case chart
+            case depositStatuses = "deposit-statuses"
+            case withdrawalStatuses = "withdrawal-statuses"
             
             var path: String {
                 return StexServerConstants.baseUrl + Endpoints.public + rawValue

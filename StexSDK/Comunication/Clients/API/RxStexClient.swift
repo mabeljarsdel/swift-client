@@ -176,6 +176,26 @@ public extension RxStexClient {
         return request(req)
     }
     
+    //MARK: - Deposit statuses
+    
+    /// Available Deposit Statuses.
+    ///
+    /// Get list of avialable deposit statuses.
+    ///
+    /// - Returns: The observable sequence with the specified implementation for the `subscribe` method.
+    func fetchDepositStatuses() -> Observable<[StexDepositStatus]> {
+        return request(DepositStatusesReqest())
+    }
+    
+    /// Get deposit status info
+    ///
+    /// - Parameters:
+    ///   - statusId: Status id.
+    /// - Returns: The observable sequence with the specified implementation for the `subscribe` method.
+    func fetchDepositStatus(statusId: Int) -> Observable<StexDepositStatus> {
+        return request(DepositStatusesReqest(with: statusId))
+    }
+    
     //MARK: - Profile
     
     /// Account information.
