@@ -11,9 +11,11 @@ import Alamofire
 class CreateWalletRequest: IRequest {
     
     let pairId: Int
+    let protocolId: Int?
     
-    init(with pairId: Int) {
+    init(with pairId: Int, protocolId: Int? = nil) {
         self.pairId = pairId
+        self.protocolId = protocolId
     }
     
     var httpMethod: HTTPMethod {
@@ -22,5 +24,13 @@ class CreateWalletRequest: IRequest {
     
     var endpoint: String {
         return ProfileEndpoints.wallets.path + "/\(pairId)"
+    }
+    
+    func parameters() -> Parameters? {
+        guard let protocolId = protocolId else { return [:] }
+        
+        return [
+            StexServerConstants.protocolId: protocolId
+        ]
     }
 }

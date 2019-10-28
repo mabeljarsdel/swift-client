@@ -106,6 +106,7 @@ public struct StexServerConstants {
     static let event = "event"
     static let channel = "channel"
     static let value = "value"
+    static let protocolId = "protocol_id"
 }
 
 public enum SortKey: String {

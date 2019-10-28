@@ -13,12 +13,14 @@ class CreateWithdrawRequest: IRequest {
     private let currencyId: Int
     private let amount: Double
     private let address: String
+    private let protocolId: Int?
     private let additionalParameter: String?
     
-    init(with currencyId: Int, amount: Double, address: String, additionalParameter: String?) {
+    init(with currencyId: Int, amount: Double, address: String, protocolId: Int?, additionalParameter: String?) {
         self.currencyId = currencyId
         self.amount = amount
         self.address = address
+        self.protocolId = protocolId
         self.additionalParameter = additionalParameter
     }
     
@@ -39,6 +41,10 @@ class CreateWithdrawRequest: IRequest {
         
         if let additionalParameter = additionalParameter {
             params[StexServerConstants.additionalParameter] = additionalParameter
+        }
+        
+        if let protocolId = protocolId {
+            params[StexServerConstants.protocolId] = protocolId
         }
         
         return params
