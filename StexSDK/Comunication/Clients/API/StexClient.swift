@@ -217,6 +217,27 @@ public class StexClient: APIClient {
         request(DepositStatusesReqest(with: statusId), completion: completion)
     }
     
+    //MARK: - Withdrawal statuses
+    
+    /// Available Withdrawal Statuses.
+    ///
+    /// Get list of avialable withdrawal statuses.
+    ///
+    /// - Parameters:
+    ///   - completion: A closure to be executed once the request has finished.
+    public func fetchWithdrawalStatuses(completion: @escaping StexClientCompletion<[StexWithdrawalStatus]>) {
+        request(WithdrawalStatusesReqest(), completion: completion)
+    }
+    
+    /// Get withdrawal status info
+    ///
+    /// - Parameters:
+    ///   - statusId: Status id.
+    ///   - completion: A closure to be executed once the request has finished.
+    public func fetchWithdrawalStatus(statusId: Int, completion: @escaping StexClientCompletion<StexWithdrawalStatus>) {
+        request(WithdrawalStatusesReqest(with: statusId), completion: completion)
+    }
+    
     //MARK: - Profile
     
     /// Account information.
