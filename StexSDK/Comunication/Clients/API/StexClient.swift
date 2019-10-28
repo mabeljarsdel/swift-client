@@ -418,6 +418,27 @@ public class StexClient: APIClient {
         request(CancelWithdrawRequest(with: withdrawalId), completion: completion)
     }
     
+    //MARK: Referral
+    
+    /// Create referral program
+    ///
+    /// - Parameters:
+    ///   - completion: A closure to be executed once the request has finished.
+    public func createReferral(completion: @escaping StexClientCompletion<StexReferral>) {
+        request(CreateReferralRequest(), completion: completion)
+    }
+    
+    /// Insert referral code
+    ///
+    /// Insert referral code your friend provided to you
+    ///
+    /// - Parameters:
+    ///   - code: Referral code.
+    ///   - completion: A closure to be executed once the request has finished.
+    public func insertReferral(code: String, completion: @escaping StexClientCompletion<StexReferral>) {
+        request(InsertReferralRequest(code: code), completion: completion)
+    }
+    
     //MARK: - Trading
     
     /// Returns the user's fees for a given currency pair

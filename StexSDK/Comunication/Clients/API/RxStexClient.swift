@@ -394,6 +394,26 @@ public extension RxStexClient {
         return request(CancelWithdrawRequest(with: withdrawalId))
     }
     
+    //MARK: Referral
+    
+    /// Create referral program
+    ///
+    /// - Returns: The observable sequence with the specified implementation for the `subscribe` method.
+    func createReferral() -> Observable<StexReferral> {
+        return request(CreateReferralRequest())
+    }
+    
+    /// Insert referral code
+    ///
+    /// Insert referral code your friend provided to you
+    ///
+    /// - Parameters:
+    ///   - code: Referral code.
+    /// - Returns: The observable sequence with the specified implementation for the `subscribe` method.
+    func insertReferral(code: String) -> Observable<StexReferral> {
+        return request(InsertReferralRequest(code: code))
+    }
+    
     //MARK: - Trading
     
     /// Returns the user's fees for a given currency pair
