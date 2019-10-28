@@ -28,6 +28,14 @@ public class StexTokensManager {
         saveTokens(accessToken: accessToken, refreshToken: refreshToken)
     }
     
+    /// Set up your Server-To-Server token for autorized request
+    public func setS2SToken(s2sToken: String) {
+        self.accessToken = s2sToken
+        self.refreshToken = ""
+        
+        saveTokens(accessToken: s2sToken, refreshToken: "")
+    }
+    
     //MARK: - Private
     
     private struct Token {
