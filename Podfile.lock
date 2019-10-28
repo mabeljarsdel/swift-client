@@ -1,34 +1,32 @@
 PODS:
   - Alamofire (5.0.0.beta.1)
-  - RxCocoa (4.5.0):
-    - RxSwift (>= 4.4.2, ~> 4.4)
+  - Locksmith (4.0.0)
   - RxSwift (4.5.0)
+  - Socket.IO-Client-Swift (15.2.0):
+    - Starscream (~> 3.1)
+  - Starscream (3.1.1)
 
 DEPENDENCIES:
-  - Alamofire (from `https://github.com/Alamofire/Alamofire.git`, branch `alamofire5`)
-  - RxCocoa (~> 4.0)
+  - Alamofire (= 5.0.0.beta.1)
+  - Locksmith
   - RxSwift (~> 4.0)
+  - Socket.IO-Client-Swift
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
-    - RxCocoa
+  trunk:
+    - Alamofire
+    - Locksmith
     - RxSwift
-
-EXTERNAL SOURCES:
-  Alamofire:
-    :branch: alamofire5
-    :git: https://github.com/Alamofire/Alamofire.git
-
-CHECKOUT OPTIONS:
-  Alamofire:
-    :commit: 2c99a6691dac40f03ef9f9e89aaf2eb751843393
-    :git: https://github.com/Alamofire/Alamofire.git
+    - Socket.IO-Client-Swift
+    - Starscream
 
 SPEC CHECKSUMS:
   Alamofire: 2ef6d6c984c5d21c366e9b41a9ae7dfee2b67a44
-  RxCocoa: cbf70265dc65a981d4ac982e513c10cf23df24a0
+  Locksmith: e9bebbaaa4cee3c511bc358a44f843c3fe00e21f
   RxSwift: f172070dfd1a93d70a9ab97a5a01166206e1c575
+  Socket.IO-Client-Swift: 1e3e3a1f09f3312a167f0d781eb2f383d477357c
+  Starscream: 4bb2f9942274833f7b4d296a55504dcfc7edb7b0
 
-PODFILE CHECKSUM: 8acee8fd56185a756a81791fda1565cf9003d6a2
+PODFILE CHECKSUM: b0b4735a39a594edc1e5134b90b90e2df27d2246
 
-COCOAPODS: 1.6.1
+COCOAPODS: 1.8.4

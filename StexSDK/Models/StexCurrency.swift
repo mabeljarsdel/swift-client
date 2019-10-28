@@ -1,5 +1,5 @@
 //
-//  Currency.swift
+//  StexCurrency.swift
 //  STEX API
 //
 //  Created by Alexander Rudyk on 7/4/19.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class Currency: Codable {
+public class StexCurrency: Codable {
     
     /// Currency ID.
     ///

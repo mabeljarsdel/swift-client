@@ -1,5 +1,5 @@
 //
-//  Ticker.swift
+//  StexTicker.swift
 //  STEX API
 //
 //  Created by Alexander Rudyk on 6/27/19.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class Ticker: Codable {
+public class StexTicker: Codable {
     
     /// Currency pair ID.
     ///
