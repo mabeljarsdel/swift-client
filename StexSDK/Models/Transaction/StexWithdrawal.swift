@@ -21,7 +21,9 @@ public class StexWithdrawal: Codable {
     
     /// Transaction id.
     public var txid: String?
-    public var status: WithdrawalStatus
+    public var status: String
+    public var statusColorHash: String
+    public var statusId: Int
     public var createdTs: Double
     public var updatetTs: Double
     public var withdrawalAddress: StexWithdrawalAddress
@@ -36,6 +38,8 @@ public class StexWithdrawal: Codable {
         case fee
         case txid
         case status
+        case statusColorHash = "status_color"
+        case statusId = "withdrawal_status_id"
         case createdTs = "created_ts"
         case updatetTs = "updated_ts"
         case withdrawalAddress = "withdrawal_address"
@@ -50,7 +54,9 @@ public class StexWithdrawal: Codable {
         feeCurrencyId = try container.decode(Int.self, forKey: .feeCurrencyId)
         feeCurrencyCode = try container.decode(String.self, forKey: .feeCurrencyCode)
         txid = try? container.decode(String.self, forKey: .txid)
-        status = try container.decode(WithdrawalStatus.self, forKey: .status)
+        status = try container.decode(String.self, forKey: .status)
+        statusColorHash = try container.decode(String.self, forKey: .statusColorHash)
+        statusId = try container.decode(Int.self, forKey: .statusId)
         withdrawalAddress = try container.decode(StexWithdrawalAddress.self, forKey: .withdrawalAddress)
         
         amount = try container.decodeStringToDouble(.amount) ?? 0

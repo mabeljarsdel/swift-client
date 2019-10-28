@@ -196,6 +196,48 @@ public class StexClient: APIClient {
         request(req, completion: completion)
     }
     
+    //MARK: - Deposit statuses
+    
+    /// Available Deposit Statuses.
+    ///
+    /// Get list of avialable deposit statuses.
+    ///
+    /// - Parameters:
+    ///   - completion: A closure to be executed once the request has finished.
+    public func fetchDepositStatuses(completion: @escaping StexClientCompletion<[StexDepositStatus]>) {
+        request(DepositStatusesReqest(), completion: completion)
+    }
+    
+    /// Get deposit status info
+    ///
+    /// - Parameters:
+    ///   - statusId: Status id.
+    ///   - completion: A closure to be executed once the request has finished.
+    public func fetchDepositStatus(statusId: Int, completion: @escaping StexClientCompletion<StexDepositStatus>) {
+        request(DepositStatusesReqest(with: statusId), completion: completion)
+    }
+    
+    //MARK: - Withdrawal statuses
+    
+    /// Available Withdrawal Statuses.
+    ///
+    /// Get list of avialable withdrawal statuses.
+    ///
+    /// - Parameters:
+    ///   - completion: A closure to be executed once the request has finished.
+    public func fetchWithdrawalStatuses(completion: @escaping StexClientCompletion<[StexWithdrawalStatus]>) {
+        request(WithdrawalStatusesReqest(), completion: completion)
+    }
+    
+    /// Get withdrawal status info
+    ///
+    /// - Parameters:
+    ///   - statusId: Status id.
+    ///   - completion: A closure to be executed once the request has finished.
+    public func fetchWithdrawalStatus(statusId: Int, completion: @escaping StexClientCompletion<StexWithdrawalStatus>) {
+        request(WithdrawalStatusesReqest(with: statusId), completion: completion)
+    }
+    
     //MARK: - Profile
     
     /// Account information.
@@ -233,18 +275,20 @@ public class StexClient: APIClient {
     ///
     /// - Parameters:
     ///   - pairId: The `Int`. Currency pair id.
+    ///   - protocolId: The `Int`. Default value : The value that represents legacy protocol (in case of USDT it is 10 as Tether OMNI was default before multi-currency approach used). The list of values can be obtained from the /public/currencies/{currencyId} endpoint that returns the list of all available protocols for a given currency
     ///   - completion: A closure to be executed once the request has finished.
-    public func createWallet(with pairId: Int, completion: @escaping StexClientCompletion<StexWalletDetail>) {
-        request(CreateWalletRequest(with: pairId), completion: completion)
+    public func createWallet(with pairId: Int, protocolId: Int? = nil, completion: @escaping StexClientCompletion<StexWalletDetail>) {
+        request(CreateWalletRequest(with: pairId, protocolId: protocolId), completion: completion)
     }
     
     /// Get deposit address for given wallet
     ///
     /// - Parameters:
     ///   - walletId: The `Int`.
+    ///   - protocolId: The `Int`. Default value : The value that represents legacy protocol (in case of USDT it is 10 as Tether OMNI was default before multi-currency approach used). The list of values can be obtained from the /public/currencies/{currencyId} endpoint that returns the list of all available protocols for a given currency
     ///   - completion: A closure to be executed once the request has finished.
-    public func fetchWalletAddress(with walletId: Int, completion: @escaping StexClientCompletion<StexDepositAddress>) {
-        request(WalletAddressRequest(with: walletId), completion: completion)
+    public func fetchWalletAddress(with walletId: Int, protocolId: Int? = nil, completion: @escaping StexClientCompletion<StexDepositAddress>) {
+        request(WalletAddressRequest(with: walletId, protocolId: protocolId), completion: completion)
     }
     
     /// Create new deposit address
@@ -253,9 +297,10 @@ public class StexClient: APIClient {
     ///
     /// - Parameters:
     ///   - walletId: The `Int`.
+    ///   - protocolId: The `Int`. Default value : The value that represents legacy protocol (in case of USDT it is 10 as Tether OMNI was default before multi-currency approach used). The list of values can be obtained from the /public/currencies/{currencyId} endpoint that returns the list of all available protocols for a given currency
     ///   - completion: A closure to be executed once the request has finished.
-    public func createWalletAddress(with walletId: Int, completion: @escaping StexClientCompletion<StexDepositAddress>) {
-        request(CreateWalletAddressRequest(with: walletId), completion: completion)
+    public func createWalletAddress(with walletId: Int, protocolId: Int? = nil, completion: @escaping StexClientCompletion<StexDepositAddress>) {
+        request(CreateWalletAddressRequest(with: walletId, protocolId: protocolId), completion: completion)
     }
     
     //MARK: Deposits
@@ -345,17 +390,20 @@ public class StexClient: APIClient {
     ///   - currencyId: The `Int`. Currency id.
     ///   - amount: The `Double`.
     ///   - address: The `String`. Address to send currency.
+    ///   - protocolId: The `Int`. This optional parameter has to be used only for multicurrency wallets (for example for USDT). The list of possible values can be obtained in wallet address for such a currency
     ///   - additionalParameter: The `String?`. If withdrawal address requires the payment ID or some key or destination tag etc pass it here.
     ///   - completion: A closure to be executed once the request has finished.
     public func createWithdraw(with currencyId: Int,
                                amount: Double,
                                address: String,
+                               protocolId: Int?,
                                additionalParameter: String?,
                                completion: @escaping StexClientCompletion<StexWithdrawal>) {
         
         let req = CreateWithdrawRequest(with: currencyId,
                                         amount: amount,
                                         address: address,
+                                        protocolId: protocolId,
                                         additionalParameter: additionalParameter)
         
         request(req, completion: completion)
@@ -368,6 +416,27 @@ public class StexClient: APIClient {
     ///   - completion: A closure to be executed once the request has finished.
     public func cancelWithdraw(with withdrawalId: Int, completion: @escaping StexClientCompletion<StexWithdrawal>) {
         request(CancelWithdrawRequest(with: withdrawalId), completion: completion)
+    }
+    
+    //MARK: Referral
+    
+    /// Create referral program
+    ///
+    /// - Parameters:
+    ///   - completion: A closure to be executed once the request has finished.
+    public func createReferral(completion: @escaping StexClientCompletion<StexReferral>) {
+        request(CreateReferralRequest(), completion: completion)
+    }
+    
+    /// Insert referral code
+    ///
+    /// Insert referral code your friend provided to you
+    ///
+    /// - Parameters:
+    ///   - code: Referral code.
+    ///   - completion: A closure to be executed once the request has finished.
+    public func insertReferral(code: String, completion: @escaping StexClientCompletion<StexReferral>) {
+        request(InsertReferralRequest(code: code), completion: completion)
     }
     
     //MARK: - Trading

@@ -36,6 +36,8 @@ public struct StexServerConstants {
             case trades
             case orderbook
             case chart
+            case depositStatuses = "deposit-statuses"
+            case withdrawalStatuses = "withdrawal-statuses"
             
             var path: String {
                 return StexServerConstants.baseUrl + Endpoints.public + rawValue
@@ -48,6 +50,7 @@ public struct StexServerConstants {
             case deposits
             case withdrawals
             case withdraw
+            case referral
             
             var path: String {
                 return StexServerConstants.baseUrl + Endpoints.profile + rawValue
@@ -104,6 +107,7 @@ public struct StexServerConstants {
     static let event = "event"
     static let channel = "channel"
     static let value = "value"
+    static let protocolId = "protocol_id"
 }
 
 public enum SortKey: String {

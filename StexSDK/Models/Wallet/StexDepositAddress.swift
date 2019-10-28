@@ -25,11 +25,19 @@ public class StexDepositAddress: Codable {
     /// An optional notification for this currency's depositing rules or limitations, etc
     public var notification: String?
     
+    /// Used only for wallets accepting different protocols (e.g. Omni and ERC20)
+    public var protocolId: Int?
+    
+    /// Used only for wallets accepting different protocols (e.g. Omni and ERC20)
+    public var protocolName: String?
+    
     enum CodingKeys: String, CodingKey {
         case address
         case addressName = "address_name"
         case additionalAddressParameter = "additional_address_parameter"
         case additionalAddressParameterName = "additional_address_parameter_name"
         case notification
+        case protocolId = "protocol_id"
+        case protocolName = "protocol_name"
     }
 }

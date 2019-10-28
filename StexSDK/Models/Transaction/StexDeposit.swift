@@ -20,7 +20,9 @@ public class StexDeposit: Codable {
     
     /// Transaction id.
     public var txid: String?
-    public var status: DepositStatus
+    public var status: String
+    public var statusColorHash: String
+    public var statusId: Int
     public var timestamp: Double
     
     /// A string representing the current number of confirmations compared to required number of confirmations.
@@ -38,6 +40,8 @@ public class StexDeposit: Codable {
         case fee
         case txid
         case status
+        case statusColorHash = "status_color"
+        case statusId = "deposit_status_id"
         case timestamp
         case confirmations
     }
@@ -51,7 +55,9 @@ public class StexDeposit: Codable {
         depositFeeCurrencyId = try container.decode(Int.self, forKey: .depositFeeCurrencyId)
         depositFeeCurrencyCode = try container.decode(String.self, forKey: .depositFeeCurrencyCode)
         txid = try? container.decode(String.self, forKey: .txid)
-        status = try container.decode(DepositStatus.self, forKey: .status)
+        status = try container.decode(String.self, forKey: .status)
+        statusColorHash = try container.decode(String.self, forKey: .statusColorHash)
+        statusId = try container.decode(Int.self, forKey: .statusId)
         confirmations = try? container.decode(String.self, forKey: .confirmations)
         
         amount = try container.decodeStringToDouble(.amount) ?? 0
