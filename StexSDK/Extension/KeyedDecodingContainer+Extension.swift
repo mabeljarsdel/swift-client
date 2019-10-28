@@ -13,4 +13,9 @@ extension KeyedDecodingContainer {
         guard let doubleString = try? decode(String.self, forKey: key) else { return nil }
         return Double(doubleString)
     }
+    
+    func decodeStringToInt32(_ key: KeyedDecodingContainer.Key) throws -> Int32? {
+        guard let int32String = try? decode(String.self, forKey: key) else { return nil }
+        return Int32(int32String)
+    }
 }

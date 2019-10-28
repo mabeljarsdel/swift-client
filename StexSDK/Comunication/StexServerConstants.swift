@@ -111,9 +111,11 @@ public enum SortKey: String {
     case asc
 }
 
-public enum TradeType: String, Codable {
+public enum StexTradeType: String, Codable {
     case sell = "SELL"
     case buy = "BUY"
+    case stopLimitBuy = "BUY (STOP-LIMIT)"
+    case stopLimitSell = "SELL (STOP-LIMIT)"
 }
 
 public enum CandlesType: String {
@@ -126,19 +128,21 @@ public enum CandlesType: String {
     case oneDay = "1D"
 }
 
-public enum OrderType: String, Codable {
-    case sell = "SELL"
+public enum StexOrderType: String, Codable {
     case buy = "BUY"
-    case stopLimitBuy = "STOP_LIMIT_BUY"
-    case stopLimitSell = "STOP_LIMIT_SELL"
+    case sell = "SELL"
+    case stopLimitBuy = "BUY (STOP-LIMIT)"
+    case stopLimitSell = "SELL (STOP-LIMIT)"
 }
 
-public enum OrderStatus: String, Codable {
+public enum StexOrderStatus: String, Codable {
     case all = "ALL"
-    case processing = "PROCESSING"
     case pending = "PENDING"
+    case processing = "PROCESSING"
     case finished = "FINISHED"
     case cancelled = "CANCELLED"
+    case partial = "PARTIAL"
+    case withTrades = "WITH_TRADES"
 }
 
 public enum WalletSortKey: String {

@@ -10,12 +10,12 @@ import Alamofire
 
 class CreateOrderReqest: OrdersRequest {
     
-    private let type: OrderType
+    private let type: StexOrderType
     private let amount: Double
     private let price: Double
     private let triggerPrice: Double?
     
-    required init(pairId: Int, type: OrderType, amount: Double, price: Double, triggerPrice: Double?) {
+    required init(pairId: Int, type: StexOrderType, amount: Double, price: Double, triggerPrice: Double?) {
         self.type = type
         self.amount = amount
         self.price = price

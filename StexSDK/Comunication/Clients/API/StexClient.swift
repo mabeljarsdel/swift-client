@@ -387,8 +387,8 @@ public class StexClient: APIClient {
     ///
     /// - Parameters:
     ///   - completion: A closure to be executed once the request has finished.
-    public func fetchOrdersList(completion: @escaping StexClientCompletion<[StexOrder]>) {
-        request(OrdersRequest(), completion: completion)
+    public func fetchOrdersList(limit: Int = 100, offset: Int? = nil, completion: @escaping StexClientCompletion<[StexOrder]>) {
+        request(ActiveOrdersRequest(limit: limit, offset: offset), completion: completion)
     }
     
     /// List of your currently open orders for certain currency pair.
@@ -396,8 +396,8 @@ public class StexClient: APIClient {
     /// - Parameters:
     ///   - pairId: The `Int`. Currency pair id.
     ///   - completion: A closure to be executed once the request has finished.
-    public func fetchOrdersList(with pairId: Int, completion: @escaping StexClientCompletion<[StexOrder]>) {
-        request(OrdersRequest(pairId: pairId), completion: completion)
+    public func fetchOrdersList(with pairId: Int, limit: Int = 100, offset: Int? = nil, completion: @escaping StexClientCompletion<[StexOrder]>) {
+        request(ActiveOrdersRequest(pairId: pairId, limit: limit, offset: offset), completion: completion)
     }
     
     /// Cancel all active orders
@@ -431,7 +431,7 @@ public class StexClient: APIClient {
     ///   - triggerPrice: The `Double?`. Stop price for stop-limit orders. Required if the order is of type `.stopLimitBuy` or `.stopLimitSell`.
     ///   - completion: A closure to be executed once the request has finished.
     public func createOrder(with pairId: Int,
-                            type: OrderType,
+                            type: StexOrderType,
                             amount: Double,
                             price: Double,
                             triggerPrice: Double?,
@@ -479,7 +479,7 @@ public class StexClient: APIClient {
     ///   - offset: The `Int`.
     ///   - completion: A closure to be executed once the request has finished.
     public func fetchTradingHistory(with pairId: Int? = nil,
-                                    orderStatus: OrderStatus = .all,
+                                    orderStatus: StexOrderStatus = .all,
                                     limit: Int = 100,
                                     offset: Int? = nil,
                                     completion: @escaping StexClientCompletion<[StexOrder]>) {

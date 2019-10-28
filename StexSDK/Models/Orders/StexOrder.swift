@@ -29,16 +29,16 @@ public class StexOrder: Codable {
     public var processedAmount: Double?
     
     /// Order type
-    public var type: TradeType
+    public var type: StexTradeType
     
     /// Order type
-    public var originalType: OrderType
+    public var originalType: StexOrderType
     
     /// Order creation timestamp (in seconds) UTC
     public var timestamp: Double
     
     /// Order status at the time of the request
-    public var status: OrderStatus
+    public var status: StexOrderStatus
     
     enum CodingKeys: String, CodingKey {
         case id
@@ -58,9 +58,9 @@ public class StexOrder: Codable {
         
         id = try container.decode(Int.self, forKey: .id)
         pairId = try container.decode(Int.self, forKey: .pairId)
-        type = try container.decode(TradeType.self, forKey: .type)
-        originalType = try container.decode(OrderType.self, forKey: .originalType)
-        status = try container.decode(OrderStatus.self, forKey: .status)
+        type = try container.decode(StexTradeType.self, forKey: .type)
+        originalType = try container.decode(StexOrderType.self, forKey: .originalType)
+        status = try container.decode(StexOrderStatus.self, forKey: .status)
         
         price = try container.decodeStringToDouble(.price) ?? 0
         triggerPrice = try container.decodeStringToDouble(.triggerPrice)

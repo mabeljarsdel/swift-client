@@ -363,8 +363,8 @@ public extension RxStexClient {
     /// List of your currently open orders.
     ///
     /// - Returns: The observable sequence with the specified implementation for the `subscribe` method.
-    func fetchOrdersList() -> Observable<[StexOrder]> {
-        return request(OrdersRequest())
+    func fetchOrdersList(limit: Int = 100, offset: Int? = nil) -> Observable<[StexOrder]> {
+        return request(ActiveOrdersRequest(limit: limit, offset: offset))
     }
     
     /// List of your currently open orders for certain currency pair.
@@ -372,8 +372,8 @@ public extension RxStexClient {
     /// - Parameters:
     ///   - pairId: The `Int`. Currency pair id.
     /// - Returns: The observable sequence with the specified implementation for the `subscribe` method.
-    func fetchOrdersList(with pairId: Int) -> Observable<[StexOrder]> {
-        return request(OrdersRequest(pairId: pairId))
+    func fetchOrdersList(with pairId: Int, limit: Int = 100, offset: Int? = nil) -> Observable<[StexOrder]> {
+        return request(ActiveOrdersRequest(pairId: pairId, limit: limit, offset: offset))
     }
     
     /// Cancel all active orders
@@ -406,7 +406,7 @@ public extension RxStexClient {
     ///   - triggerPrice: The `Double?`. Stop price for stop-limit orders. Required if the order is of type `.stopLimitBuy` or `.stopLimitSell`.
     /// - Returns: The observable sequence with the specified implementation for the `subscribe` method.
     func createOrder(with pairId: Int,
-                            type: OrderType,
+                            type: StexOrderType,
                             amount: Double,
                             price: Double,
                             triggerPrice: Double?) -> Observable<StexOrder> {
@@ -453,7 +453,7 @@ public extension RxStexClient {
     ///   - offset: The `Int`.
     /// - Returns: The observable sequence with the specified implementation for the `subscribe` method.
     func fetchTradingHistory(with pairId: Int? = nil,
-                                    orderStatus: OrderStatus = .all,
+                                    orderStatus: StexOrderStatus = .all,
                                     limit: Int = 100,
                                     offset: Int? = nil) -> Observable<[StexOrder]> {
         

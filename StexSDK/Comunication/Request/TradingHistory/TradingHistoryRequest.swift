@@ -13,7 +13,7 @@ class TradingHistoryRequest: IRequest {
     private let orderId: Int?
     
     private let pairId: Int?
-    private let orderStatus: OrderStatus?
+    private let orderStatus: StexOrderStatus?
     private let limit: Int?
     private let offset: Int?
     
@@ -26,7 +26,7 @@ class TradingHistoryRequest: IRequest {
         offset = nil
     }
     
-    init(pairId: Int? = nil, orderStatus: OrderStatus = .all, limit: Int = 100, offset: Int? = nil) {
+    init(pairId: Int? = nil, orderStatus: StexOrderStatus = .all, limit: Int = 100, offset: Int? = nil) {
         self.pairId = pairId
         self.orderStatus = orderStatus
         self.limit = limit
