@@ -35,11 +35,20 @@ public class StexUser: Codable {
     /// Example: `true`
     public var apiWithdrawalsAllowed: Bool
     
+    public var id: Int
+    
+    public var referralProgram: StexReferral
+    
+    public var approxBalance: [String: StexApproxBalance]
+    
     enum CodingKeys: String, CodingKey {
         case email
         case username
         case verifications
         case tradingFeeLevels = "trading_fee_levels"
         case apiWithdrawalsAllowed = "api_withdrawals_allowed"
+        case id = "user_id"
+        case referralProgram = "referral_program"
+        case approxBalance = "approx_balance"
     }
 }

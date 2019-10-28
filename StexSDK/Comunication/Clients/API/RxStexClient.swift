@@ -176,6 +176,47 @@ public extension RxStexClient {
         return request(req)
     }
     
+    //MARK: - Deposit statuses
+    
+    /// Available Deposit Statuses.
+    ///
+    /// Get list of avialable deposit statuses.
+    ///
+    /// - Returns: The observable sequence with the specified implementation for the `subscribe` method.
+    func fetchDepositStatuses() -> Observable<[StexDepositStatus]> {
+        return request(DepositStatusesReqest())
+    }
+    
+    /// Get deposit status info
+    ///
+    /// - Parameters:
+    ///   - statusId: Status id.
+    /// - Returns: The observable sequence with the specified implementation for the `subscribe` method.
+    func fetchDepositStatus(statusId: Int) -> Observable<StexDepositStatus> {
+        return request(DepositStatusesReqest(with: statusId))
+    }
+    
+    //MARK: - Withdrawal statuses
+    
+    /// Available Withdrawal Statuses.
+    ///
+    /// Get list of avialable withdrawal statuses.
+    ///
+    /// - Parameters:
+    /// - Returns: The observable sequence with the specified implementation for the `subscribe` method.
+    func fetchWithdrawalStatuses() -> Observable<[StexWithdrawalStatus]> {
+        return request(WithdrawalStatusesReqest())
+    }
+    
+    /// Get withdrawal status info
+    ///
+    /// - Parameters:
+    ///   - statusId: Status id.
+    /// - Returns: The observable sequence with the specified implementation for the `subscribe` method.
+    func fetchWithdrawalStatus(statusId: Int) -> Observable<StexWithdrawalStatus> {
+        return request(WithdrawalStatusesReqest(with: statusId))
+    }
+    
     //MARK: - Profile
     
     /// Account information.
@@ -212,18 +253,20 @@ public extension RxStexClient {
     ///
     /// - Parameters:
     ///   - pairId: The `Int`. Currency pair id.
+    ///   - protocolId: The `Int`. Default value : The value that represents legacy protocol (in case of USDT it is 10 as Tether OMNI was default before multi-currency approach used). The list of values can be obtained from the /public/currencies/{currencyId} endpoint that returns the list of all available protocols for a given currency
     /// - Returns: The observable sequence with the specified implementation for the `subscribe` method.
-    func createWallet(with pairId: Int) -> Observable<StexWalletDetail> {
-        return request(CreateWalletRequest(with: pairId))
+    func createWallet(with pairId: Int, protocolId: Int? = nil) -> Observable<StexWalletDetail> {
+        return request(CreateWalletRequest(with: pairId, protocolId: protocolId))
     }
     
     /// Get deposit address for given wallet
     ///
     /// - Parameters:
     ///   - walletId: The `Int`.
+    ///   - protocolId: The `Int`. Default value : The value that represents legacy protocol (in case of USDT it is 10 as Tether OMNI was default before multi-currency approach used). The list of values can be obtained from the /public/currencies/{currencyId} endpoint that returns the list of all available protocols for a given currency
     /// - Returns: The observable sequence with the specified implementation for the `subscribe` method.
-    func fetchWalletAddress(with walletId: Int) -> Observable<StexDepositAddress> {
-        return request(WalletAddressRequest(with: walletId))
+    func fetchWalletAddress(with walletId: Int, protocolId: Int? = nil) -> Observable<StexDepositAddress> {
+        return request(WalletAddressRequest(with: walletId, protocolId: protocolId))
     }
     
     /// Create new deposit address
@@ -232,9 +275,10 @@ public extension RxStexClient {
     ///
     /// - Parameters:
     ///   - walletId: The `Int`.
+    ///   - protocolId: The `Int`. Default value : The value that represents legacy protocol (in case of USDT it is 10 as Tether OMNI was default before multi-currency approach used). The list of values can be obtained from the /public/currencies/{currencyId} endpoint that returns the list of all available protocols for a given currency
     /// - Returns: The observable sequence with the specified implementation for the `subscribe` method.
-    func createWalletAddress(with walletId: Int) -> Observable<StexDepositAddress> {
-        return request(CreateWalletAddressRequest(with: walletId))
+    func createWalletAddress(with walletId: Int, protocolId: Int? = nil) -> Observable<StexDepositAddress> {
+        return request(CreateWalletAddressRequest(with: walletId, protocolId: protocolId))
     }
     
     //MARK: Deposits
@@ -323,16 +367,19 @@ public extension RxStexClient {
     ///   - currencyId: The `Int`. Currency id.
     ///   - amount: The `Double`.
     ///   - address: The `String`. Address to send currency.
+    ///   - protocolId: The `Int`. This optional parameter has to be used only for multicurrency wallets (for example for USDT). The list of possible values can be obtained in wallet address for such a currency
     ///   - additionalParameter: The `String?`. If withdrawal address requires the payment ID or some key or destination tag etc pass it here.
     /// - Returns: The observable sequence with the specified implementation for the `subscribe` method.
     func createWithdraw(with currencyId: Int,
                                amount: Double,
                                address: String,
+                               protocolId: Int?,
                                additionalParameter: String?) -> Observable<StexWithdrawal> {
         
         let req = CreateWithdrawRequest(with: currencyId,
                                         amount: amount,
                                         address: address,
+                                        protocolId: protocolId,
                                         additionalParameter: additionalParameter)
         
         return request(req)
@@ -345,6 +392,26 @@ public extension RxStexClient {
     /// - Returns: The observable sequence with the specified implementation for the `subscribe` method.
     func cancelWithdraw(with withdrawalId: Int) -> Observable<StexWithdrawal> {
         return request(CancelWithdrawRequest(with: withdrawalId))
+    }
+    
+    //MARK: Referral
+    
+    /// Create referral program
+    ///
+    /// - Returns: The observable sequence with the specified implementation for the `subscribe` method.
+    func createReferral() -> Observable<StexReferral> {
+        return request(CreateReferralRequest())
+    }
+    
+    /// Insert referral code
+    ///
+    /// Insert referral code your friend provided to you
+    ///
+    /// - Parameters:
+    ///   - code: Referral code.
+    /// - Returns: The observable sequence with the specified implementation for the `subscribe` method.
+    func insertReferral(code: String) -> Observable<StexReferral> {
+        return request(InsertReferralRequest(code: code))
     }
     
     //MARK: - Trading

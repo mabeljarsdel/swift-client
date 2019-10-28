@@ -19,7 +19,7 @@ class StexWithdrawTest: StexPrivateClientTest {
         
         var withdrawalId = 0
         
-        stexClient.createWithdraw(with: currencyId, amount: amount, address: address, additionalParameter: nil) { result in
+        stexClient.createWithdraw(with: currencyId, amount: amount, address: address, protocolId: nil, additionalParameter: nil) { result in
             switch result {
             case .success(let data):
                 expectation.fulfill()
