@@ -29,7 +29,7 @@ public class StexWallet: Codable {
     
     public var totalBalance: Double
     
-    public var protocolSettings: StexWalletProtocol?
+    public var protocolSettings: [StexWalletProtocol]?
     
     enum CodingKeys: String, CodingKey {
         case id
@@ -56,7 +56,7 @@ public class StexWallet: Codable {
         isDisabledDeposit = try container.decode(Bool.self, forKey: .isDisabledDeposit)
         currencyCode = try container.decode(String.self, forKey: .currencyCode)
         currencyName = try container.decode(String.self, forKey: .currencyName)
-        protocolSettings = try? container.decode(StexWalletProtocol.self, forKey: .protocolSettings)
+        protocolSettings = try? container.decode([StexWalletProtocol].self, forKey: .protocolSettings)
         
         balance = try container.decodeStringToDouble(.balance) ?? 0
         frozenBalance = try container.decodeStringToDouble(.frozenBalance) ?? 0
