@@ -36,6 +36,13 @@ public class StexTokensManager {
         saveTokens(accessToken: s2sToken, refreshToken: "")
     }
     
+    public func clearTokens() {
+        self.accessToken = ""
+        self.refreshToken = ""
+        
+        deleteTokens()
+    }
+    
     //MARK: - Private
     
     private struct Token {
@@ -50,7 +57,15 @@ public class StexTokensManager {
         do {
             try Locksmith.updateData(data: tokens, forUserAccount: Token.tokens)
         }  catch let error {
-            NSLog(error.localizedDescription)
+            NSLog("<StexTokensManager> Error: - \(error.localizedDescription)")
+        }
+    }
+    
+    private func deleteTokens() {
+        do {
+            try Locksmith.deleteDataForUserAccount(userAccount: Token.tokens)
+        } catch let error {
+            NSLog("<StexTokensManager> Error: - \(error.localizedDescription)")
         }
     }
 }
