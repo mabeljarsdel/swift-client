@@ -40,6 +40,9 @@ public class StexCurrency: Codable {
     /// Example: `8`
     public var precision: Int
     
+    /// The minimum number of network confirmations required to credit the deposit
+    public var minimumTXconfirmations: Int
+    
     /// Minimum amount that can be withdrawn.
     ///
     /// Example: `0.009`
@@ -95,6 +98,8 @@ public class StexCurrency: Codable {
     /// Example: `https://blockchain.info/tx/`
     public var blockExplorerURL: String?
     
+    public var protocolSettings: [StexWalletProtocol]?
+    
     enum CodingKeys: String, CodingKey {
         case id
         case code
@@ -113,6 +118,8 @@ public class StexCurrency: Codable {
         case withdrawalFeeConst = "withdrawal_fee_const"
         case withdrawalFeePercent = "withdrawal_fee_percent"
         case blockExplorerURL = "block_explorer_url"
+        case protocolSettings = "protocol_specific_settings"
+        case minimumTXconfirmations = "minimum_tx_confirmations"
     }
     
     required public init(from decoder: Decoder) throws {
@@ -129,6 +136,8 @@ public class StexCurrency: Codable {
         withdrawalFeeCurrencyId = try container.decode(Int.self, forKey: .withdrawalFeeCurrencyId)
         withdrawalFeeCurrencyCode = try container.decode(String.self, forKey: .withdrawalFeeCurrencyCode)
         blockExplorerURL = try container.decodeIfPresent(String.self, forKey: .blockExplorerURL)
+        protocolSettings = try? container.decode([StexWalletProtocol].self, forKey: .protocolSettings)
+        minimumTXconfirmations = try container.decode(Int.self, forKey: .minimumTXconfirmations)
         
         minimumWithdrawalAmount = try container.decodeStringToDouble(.minimumWithdrawalAmount)
         minimumDepositAmount = try container.decodeStringToDouble(.minimumDepositAmount)

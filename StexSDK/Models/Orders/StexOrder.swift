@@ -16,6 +16,11 @@ public class StexOrder: Codable {
     /// Id of the currency pair the order is placed at
     public var pairId: Int
     
+    /// Name of the currency pair the order is placed at
+    ///
+    /// Example: `NXT_BTC`
+    public var pairName: String
+    
     /// The price of the order
     public var price: Double
     
@@ -43,6 +48,7 @@ public class StexOrder: Codable {
     enum CodingKeys: String, CodingKey {
         case id
         case pairId = "currency_pair_id"
+        case pairName = "currency_pair_name"
         case price
         case triggerPrice = "trigger_price"
         case initialAmount = "initial_amount"
@@ -58,6 +64,7 @@ public class StexOrder: Codable {
         
         id = try container.decode(Int.self, forKey: .id)
         pairId = try container.decode(Int.self, forKey: .pairId)
+        pairName = try container.decode(String.self, forKey: .pairName)
         type = try container.decode(StexTradeType.self, forKey: .type)
         originalType = try container.decode(StexOrderType.self, forKey: .originalType)
         status = try container.decode(StexOrderStatus.self, forKey: .status)
