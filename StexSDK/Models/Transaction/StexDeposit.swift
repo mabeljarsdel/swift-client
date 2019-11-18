@@ -29,6 +29,7 @@ public class StexDeposit: Codable {
     ///
     /// Example: `1 of 2`
     public var confirmations: String?
+    public var protocolId: Int?
     
     enum CodingKeys: String, CodingKey {
         case id
@@ -44,6 +45,7 @@ public class StexDeposit: Codable {
         case statusId = "deposit_status_id"
         case timestamp
         case confirmations
+        case protocolId = "protocol_id"
     }
     
     public required init(from decoder: Decoder) throws {
@@ -59,6 +61,7 @@ public class StexDeposit: Codable {
         statusColorHash = try container.decode(String.self, forKey: .statusColorHash)
         statusId = try container.decode(Int.self, forKey: .statusId)
         confirmations = try? container.decode(String.self, forKey: .confirmations)
+        protocolId = try? container.decode(Int.self, forKey: .protocolId)
         
         amount = try container.decodeStringToDouble(.amount) ?? 0
         fee = try container.decodeStringToDouble(.fee) ?? 0
