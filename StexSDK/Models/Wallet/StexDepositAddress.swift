@@ -31,7 +31,7 @@ public class StexDepositAddress: Codable {
     /// Used only for wallets accepting different protocols (e.g. Omni and ERC20)
     public var protocolName: String?
     
-    public var isSupportsNewAddressCreation: Bool
+    public var isSupportsNewAddressCreation: Bool?
     
     enum CodingKeys: String, CodingKey {
         case address

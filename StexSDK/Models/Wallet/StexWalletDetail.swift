@@ -9,7 +9,7 @@
 import Foundation
 
 public class StexWalletDetail: StexWallet {
-    public var depositAddress: StexDepositAddress
+    public var depositAddress: StexDepositAddress?
     
     public var multiDepositAddresses: [StexDepositAddress]
     
@@ -25,7 +25,7 @@ public class StexWalletDetail: StexWallet {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: DetailCodingKeys.self)
         
-        depositAddress = try container.decode(StexDepositAddress.self, forKey: .depositAddress)
+        depositAddress = try? container.decode(StexDepositAddress.self, forKey: .depositAddress)
         multiDepositAddresses = try container.decode([StexDepositAddress].self, forKey: .multiDepositAddresses)
         withdrawalAdditionalFieldName = try? container.decode(String.self, forKey: .withdrawalAdditionalFieldName)
         
