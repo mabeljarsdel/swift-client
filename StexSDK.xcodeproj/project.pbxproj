@@ -81,6 +81,8 @@
 		FA95C64F2326724A0031D6F9 /* CreateOrderReqest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95C64D2326724A0031D6F9 /* CreateOrderReqest.swift */; };
 		FA95C65123267B940031D6F9 /* DoubleFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95C65023267B940031D6F9 /* DoubleFormatter.swift */; };
 		FA95C65223267B940031D6F9 /* DoubleFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA95C65023267B940031D6F9 /* DoubleFormatter.swift */; };
+		FAA8BCC6238806A100F5C3C3 /* StexUserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA8BCC5238806A000F5C3C3 /* StexUserSettings.swift */; };
+		FAA8BCC7238806A300F5C3C3 /* StexUserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA8BCC5238806A000F5C3C3 /* StexUserSettings.swift */; };
 		FAB1838E22CF3EA600D9C98E /* StexSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAB1838422CF3EA600D9C98E /* StexSDK.framework */; };
 		FAB1839522CF3EA600D9C98E /* StexSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = FAB1838722CF3EA600D9C98E /* StexSDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FAB183A022CF3FCD00D9C98E /* KeyedDecodingContainer+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB1839F22CF3FCD00D9C98E /* KeyedDecodingContainer+Extension.swift */; };
@@ -259,6 +261,7 @@
 		FA95C64A232666E60031D6F9 /* StexCanceledOrders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StexCanceledOrders.swift; sourceTree = "<group>"; };
 		FA95C64D2326724A0031D6F9 /* CreateOrderReqest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateOrderReqest.swift; sourceTree = "<group>"; };
 		FA95C65023267B940031D6F9 /* DoubleFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleFormatter.swift; sourceTree = "<group>"; };
+		FAA8BCC5238806A000F5C3C3 /* StexUserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StexUserSettings.swift; sourceTree = "<group>"; };
 		FAAB963ED9E0280D82E765A6 /* Pods-StexSDK.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StexSDK.release.xcconfig"; path = "Target Support Files/Pods-StexSDK/Pods-StexSDK.release.xcconfig"; sourceTree = "<group>"; };
 		FAB1838422CF3EA600D9C98E /* StexSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = StexSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAB1838722CF3EA600D9C98E /* StexSDK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StexSDK.h; sourceTree = "<group>"; };
@@ -382,6 +385,7 @@
 				FAF8995523019C1B00C18AA1 /* StexUser.swift */,
 				FA4680A023672ECC00DE7AE6 /* StexReferral.swift */,
 				FA4680A32367311300DE7AE6 /* StexApproxBalance.swift */,
+				FAA8BCC5238806A000F5C3C3 /* StexUserSettings.swift */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -958,6 +962,7 @@
 				FA819C4523278C77008A3BED /* StexOrderFee.swift in Sources */,
 				FA95C614231FC01C0031D6F9 /* SocketDataDecoder.swift in Sources */,
 				FAC46438232BC5F4005B9B1A /* UpdateNotificationSettingsRequest.swift in Sources */,
+				FAA8BCC6238806A100F5C3C3 /* StexUserSettings.swift in Sources */,
 				FAB183C122CF3FEA00D9C98E /* StexCurrency.swift in Sources */,
 				FAB183B222CF3FDC00D9C98E /* RxStexClient.swift in Sources */,
 				FAF00B4B2375B73600D87EF4 /* StexWalletProtocol.swift in Sources */,
@@ -1085,6 +1090,7 @@
 				FA819C4323278C5E008A3BED /* StexOrderTrade.swift in Sources */,
 				FABDBF392302F4BC00F9A12B /* ISocketEventListener.swift in Sources */,
 				FAB183DF22CF6FF300D9C98E /* StexPairsGroupsTest.swift in Sources */,
+				FAA8BCC7238806A300F5C3C3 /* StexUserSettings.swift in Sources */,
 				FAB183B122CF3FDC00D9C98E /* StexClient.swift in Sources */,
 				FAB183AF22CF3FDC00D9C98E /* APIClient.swift in Sources */,
 				FA819C3C2326941A008A3BED /* TradingHistoryRequest.swift in Sources */,
