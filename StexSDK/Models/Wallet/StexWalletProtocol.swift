@@ -14,6 +14,7 @@ public class StexWalletProtocol: Codable {
     public var id: Int
     public var isActive: Bool
     public var feeCurrencyId: Int
+    public var feeCurrencyCode: String?
     public var feeConst: Double?
     public var feePresent: Double?
     public var explorerUrlString: String?
@@ -23,6 +24,7 @@ public class StexWalletProtocol: Codable {
         case id = "protocol_id"
         case isActive = "active"
         case feeCurrencyId = "withdrawal_fee_currency_id"
+        case feeCurrencyCode = "withdrawal_fee_currency_code"
         case feeConst = "withdrawal_fee_const"
         case feePresent = "withdrawal_fee_percent"
         case explorerUrlString = "block_explorer_url"
