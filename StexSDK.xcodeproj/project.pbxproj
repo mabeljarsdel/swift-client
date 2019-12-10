@@ -151,6 +151,8 @@
 		FABDBF392302F4BC00F9A12B /* ISocketEventListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABDBF372302F4BC00F9A12B /* ISocketEventListener.swift */; };
 		FABDBF3F2305995600F9A12B /* StexRate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABDBF3E2305995600F9A12B /* StexRate.swift */; };
 		FABDBF4323059F3100F9A12B /* StexRate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABDBF3E2305995600F9A12B /* StexRate.swift */; };
+		FAC1C989239FF0EB004B79DB /* StexSocketResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC1C988239FF0EB004B79DB /* StexSocketResponse.swift */; };
+		FAC1C98A239FF58C004B79DB /* StexSocketResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC1C988239FF0EB004B79DB /* StexSocketResponse.swift */; };
 		FAC46410232A497F005B9B1A /* StexDeposit.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC4640F232A497F005B9B1A /* StexDeposit.swift */; };
 		FAC46411232A497F005B9B1A /* StexDeposit.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC4640F232A497F005B9B1A /* StexDeposit.swift */; };
 		FAC46413232A6956005B9B1A /* DepositRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC46412232A6955005B9B1A /* DepositRequest.swift */; };
@@ -305,6 +307,7 @@
 		FABDBF342302F3A700F9A12B /* StexSocketConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StexSocketConstants.swift; path = Clients/Socket/StexSocketConstants.swift; sourceTree = "<group>"; };
 		FABDBF372302F4BC00F9A12B /* ISocketEventListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ISocketEventListener.swift; sourceTree = "<group>"; };
 		FABDBF3E2305995600F9A12B /* StexRate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StexRate.swift; sourceTree = "<group>"; };
+		FAC1C988239FF0EB004B79DB /* StexSocketResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StexSocketResponse.swift; sourceTree = "<group>"; };
 		FAC4640F232A497F005B9B1A /* StexDeposit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StexDeposit.swift; sourceTree = "<group>"; };
 		FAC46412232A6955005B9B1A /* DepositRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepositRequest.swift; sourceTree = "<group>"; };
 		FAC46415232A6E11005B9B1A /* StexDepositTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StexDepositTest.swift; sourceTree = "<group>"; };
@@ -641,6 +644,7 @@
 				FA95C62723225ABC0031D6F9 /* StexSocketEvent.swift */,
 				FABDBF2F2302F30300F9A12B /* StexSocketClient.swift */,
 				FABDBF372302F4BC00F9A12B /* ISocketEventListener.swift */,
+				FAC1C988239FF0EB004B79DB /* StexSocketResponse.swift */,
 			);
 			path = Socket;
 			sourceTree = "<group>";
@@ -961,6 +965,7 @@
 				FACA3B6822F9C30400E9970B /* StexTrade.swift in Sources */,
 				FA819C4523278C77008A3BED /* StexOrderFee.swift in Sources */,
 				FA95C614231FC01C0031D6F9 /* SocketDataDecoder.swift in Sources */,
+				FAC1C989239FF0EB004B79DB /* StexSocketResponse.swift in Sources */,
 				FAC46438232BC5F4005B9B1A /* UpdateNotificationSettingsRequest.swift in Sources */,
 				FAA8BCC6238806A100F5C3C3 /* StexUserSettings.swift in Sources */,
 				FAB183C122CF3FEA00D9C98E /* StexCurrency.swift in Sources */,
@@ -1039,6 +1044,7 @@
 				FA95C64F2326724A0031D6F9 /* CreateOrderReqest.swift in Sources */,
 				FAB183D122CF6A1C00D9C98E /* MarketsReqest.swift in Sources */,
 				FACA3B7522F9D54D00E9970B /* OrderbookReqest.swift in Sources */,
+				FAC1C98A239FF58C004B79DB /* StexSocketResponse.swift in Sources */,
 				FAB183D722CF6BC900D9C98E /* StexMarketTest.swift in Sources */,
 				FA95C62923225ABC0031D6F9 /* StexSocketEvent.swift in Sources */,
 				FABDBF292302E81400F9A12B /* RefreshTokensRequest.swift in Sources */,

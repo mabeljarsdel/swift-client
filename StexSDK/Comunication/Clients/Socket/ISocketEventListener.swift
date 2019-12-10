@@ -12,28 +12,28 @@ public protocol ISocketEventListener {
     func socket(_ socketClient: StexSocketClient, connectWith data: [Any])
     func socket(_ socketClient: StexSocketClient, disconnectWith data: [Any])
     
-    func socket(_ socketClient: StexSocketClient, receiveRatesWith data: [StexRate])
-    func socket(_ socketClient: StexSocketClient, receiveTradesCreatedWith data: [StexOrderCreated])
-    func socket(_ socketClient: StexSocketClient, receiveGlassTotalChangedWith data: [StexGlassTotalChanged])
-    func socket(_ socketClient: StexSocketClient, receiveGlassRowChangedWith data: [StexGlassRowChanged])
-    func socket(_ socketClient: StexSocketClient, receiveBestPriceChangedWith data: [StexBestPriceChanged])
-    func socket(_ socketClient: StexSocketClient, receiveCandleChangedWith data: [StexCandleChanged])
-    func socket(_ socketClient: StexSocketClient, receiveBalanceChangedWith data: [StexBalanceChanged])
-    func socket(_ socketClient: StexSocketClient, receiveUserOrdersWith data: [StexUserOrder])
-    func socket(_ socketClient: StexSocketClient, receiveUserOrdersDeletedWith data: [StexUserOrderDeleted])
+    func socket(_ socketClient: StexSocketClient, receiveRatesWith response: StexSocketResponse<StexRate>)
+    func socket(_ socketClient: StexSocketClient, receiveTradesCreatedWith response: StexSocketResponse<StexOrderCreated>)
+    func socket(_ socketClient: StexSocketClient, receiveGlassTotalChangedWith response: StexSocketResponse<StexGlassTotalChanged>)
+    func socket(_ socketClient: StexSocketClient, receiveGlassRowChangedWith response: StexSocketResponse<StexGlassRowChanged>)
+    func socket(_ socketClient: StexSocketClient, receiveBestPriceChangedWith response: StexSocketResponse<StexBestPriceChanged>)
+    func socket(_ socketClient: StexSocketClient, receiveCandleChangedWith response: StexSocketResponse<StexCandleChanged>)
+    func socket(_ socketClient: StexSocketClient, receiveBalanceChangedWith response: StexSocketResponse<StexBalanceChanged>)
+    func socket(_ socketClient: StexSocketClient, receiveUserOrdersWith response: StexSocketResponse<StexUserOrder>)
+    func socket(_ socketClient: StexSocketClient, receiveUserOrdersDeletedWith response: StexSocketResponse<StexUserOrderDeleted>)
 }
 
 extension ISocketEventListener {
     func socket(_ socketClient: StexSocketClient, connectWith data: [Any]) {}
     func socket(_ socketClient: StexSocketClient, disconnectWith data: [Any]) {}
     
-    func socket(_ socketClient: StexSocketClient, receiveTickerWith data: [StexRate]) {}
-    func socket(_ socketClient: StexSocketClient, receiveTradesCreatedWith data: [StexOrderCreated]) {}
-    func socket(_ socketClient: StexSocketClient, receiveGlassTotalChangedWith data: [StexGlassTotalChanged]) {}
-    func socket(_ socketClient: StexSocketClient, receiveGlassRowChangedWith data: [StexGlassRowChanged]) {}
-    func socket(_ socketClient: StexSocketClient, receiveBestPriceChangedWith data: [StexBestPriceChanged]) {}
-    func socket(_ socketClient: StexSocketClient, receiveCandleChangedWith data: [StexCandleChanged]) {}
-    func socket(_ socketClient: StexSocketClient, receiveBalanceChangedWith data: [StexBalanceChanged]) {}
-    func socket(_ socketClient: StexSocketClient, receiveUserOrdersWith data: [StexUserOrder]) {}
-    func socket(_ socketClient: StexSocketClient, receiveUserOrdersDeletedWith data: [StexUserOrderDeleted]) {}
+    func socket(_ socketClient: StexSocketClient, receiveRatesWith response: StexSocketResponse<StexRate>) {}
+    func socket(_ socketClient: StexSocketClient, receiveTradesCreatedWith response: StexSocketResponse<StexOrderCreated>) {}
+    func socket(_ socketClient: StexSocketClient, receiveGlassTotalChangedWith response: StexSocketResponse<StexGlassTotalChanged>) {}
+    func socket(_ socketClient: StexSocketClient, receiveGlassRowChangedWith response: StexSocketResponse<StexGlassRowChanged>) {}
+    func socket(_ socketClient: StexSocketClient, receiveBestPriceChangedWith response: StexSocketResponse<StexBestPriceChanged>) {}
+    func socket(_ socketClient: StexSocketClient, receiveCandleChangedWith response: StexSocketResponse<StexCandleChanged>) {}
+    func socket(_ socketClient: StexSocketClient, receiveBalanceChangedWith response: StexSocketResponse<StexBalanceChanged>) {}
+    func socket(_ socketClient: StexSocketClient, receiveUserOrdersWith response: StexSocketResponse<StexUserOrder>) {}
+    func socket(_ socketClient: StexSocketClient, receiveUserOrdersDeletedWith response: StexSocketResponse<StexUserOrderDeleted>) {}
 }
