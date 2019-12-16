@@ -19,7 +19,8 @@ extension KeyedDecodingContainer {
     }
     
     func decodeStringToDouble(_ key: KeyedDecodingContainer.Key) throws -> Double {
-        guard let double = try? decodeStringToDouble(key) else {
+        guard let doubleString = try? decode(String.self, forKey: key),
+            let double = Double(doubleString) else {
             throw StexDecodingError.anUnexpectedResult }
         
         return double
