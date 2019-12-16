@@ -11,7 +11,7 @@ import Foundation
 public class StexBestPriceChanged: Codable {
     
     /// Best Price.
-    public var bestPrice: Double?
+    public var bestPrice: Double
     
     /// Currency pair ID.
     public var pairId: Int

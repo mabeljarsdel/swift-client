@@ -13,7 +13,7 @@ public class StexGlassTotalChanged: Codable {
     public var pairId: Int
     
     /// Total glass value
-    public var total: Double?
+    public var total: Double
     
     enum CodingKeys: String, CodingKey {
         case pairId = "currency_pair_id"

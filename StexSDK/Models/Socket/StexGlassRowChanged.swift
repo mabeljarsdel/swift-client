@@ -14,13 +14,13 @@ public class StexGlassRowChanged: Codable {
     public var pairId: Int
     
     /// Order amount.
-    public var amount: Double?
+    public var amount: Double
     
     /// Order price.
-    public var price: Double?
+    public var price: Double
     
     /// Product of the amount and price.
-    public var amount2: Double?
+    public var amount2: Double
     
     /// Count of orders in orderbook.
     public var count: Int

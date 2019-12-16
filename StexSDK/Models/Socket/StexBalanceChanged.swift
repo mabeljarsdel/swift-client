@@ -14,16 +14,16 @@ public class StexBalanceChanged: Codable {
     public var id: Int
     
     /// Available balance
-    public var balance: Double?
+    public var balance: Double
     
     /// Bonus balance
-    public var bonusBalance: Double?
+    public var bonusBalance: Double
     
     /// Currency code
     public var currencyCode: String
     
     /// Frozen balance
-    public var frozenBalance: Double?
+    public var frozenBalance: Double
     
     enum CodingKeys: String, CodingKey {
         case id

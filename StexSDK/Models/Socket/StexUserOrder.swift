@@ -20,13 +20,13 @@ public class StexUserOrder: Codable {
     public var pairId: Int
     
     /// Available order amount
-    public var amount: Double?
+    public var amount: Double
     
     /// Order price
-    public var price: Double?
+    public var price: Double
     
     /// Amount in market currency
-    public var amount2: Double?
+    public var amount2: Double
     
     enum CodingKeys: String, CodingKey {
         case id

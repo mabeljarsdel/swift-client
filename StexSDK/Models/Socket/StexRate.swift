@@ -17,28 +17,28 @@ public class StexRate: Codable {
     public var closedOrders: Int
     
     /// Price of the last trade.
-    public var lastPrice: Double?
+    public var lastPrice: Double
     
     /// 24 hours opening price.
-    public var lastPriceDayAgo: Double?
+    public var lastPriceDayAgo: Double
     
     /// 24 hours volume in market currency.
-    public var marketVolume: Double?
+    public var marketVolume: Double
     
     /// Maximum trade price for the last 24 hours.
-    public var maxBuy: Double?
+    public var maxBuy: Double
     
     /// Minimum trade price for the last 24 hours.
-    public var minSell: Double?
+    public var minSell: Double
     
     /// Number of valuable digits after comma.
     public var precision: Int
     
     /// Price change in percent.
-    public var spread: Double?
+    public var spread: Double
     
     /// 24 hours volume.
-    public var volumeSum: Double?
+    public var volumeSum: Double
     
     enum CodingKeys: String, CodingKey {
         case id
