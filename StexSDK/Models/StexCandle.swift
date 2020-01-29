@@ -46,9 +46,9 @@ public class StexCandle: Codable {
         time = try? container.decode(Double.self, forKey: .time)
         volume = try container.decode(Double.self, forKey: .volume)
         
-        close = try? container.decodeStringToDouble(.close)
-        open = try? container.decodeStringToDouble(.open)
-        high = try? container.decodeStringToDouble(.high)
-        low = try? container.decodeStringToDouble(.low)
+        close = try? container.decodeDouble(.close)
+        open = try? container.decodeDouble(.open)
+        high = try? container.decodeDouble(.high)
+        low = try? container.decodeDouble(.low)
     }
 }
