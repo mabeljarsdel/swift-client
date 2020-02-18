@@ -61,7 +61,7 @@ public class StexSocketClient {
     //MARK: - Private
     
     private func send(rout: String, event: StexSocketEvent) {
-        let token: String? = event.isPrivate ? StexTokensManager.sharded.accessToken : nil
+        let token: String? = event.isPrivate ? StexTokensManager.shared.accessToken : nil
         let params = buildParams(channel: event.channel, token: token)
         
         socket?.emit(rout, params)

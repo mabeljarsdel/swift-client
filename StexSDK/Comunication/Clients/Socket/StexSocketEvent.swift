@@ -25,13 +25,13 @@ public enum StexSocketEvent {
     ///
     /// Returns the added or changed glass row data.
     /// In case the amount is zero this means the row should be removed from the glass
-    case sellGlassRowChanget(Int)
+    case sellGlassRowChanged(Int)
     
     /// Given currency pair buy glass row changes.
     ///
     /// Returns the added or changed glass row data.
     /// In case the amount is zero this means the row should be removed from the glass
-    case buyGlassRowChanget(Int)
+    case buyGlassRowChanged(Int)
     
     /// Changes of the best bid price for given currency pair and orders type
     case bidBestPriceChanged(Int)
@@ -77,10 +77,10 @@ public enum StexSocketEvent {
             return StexSocketConstants.Channels.sellGlassTotalChanget + "\(pairId)"
         case .buyGlassTotalChanged(let pairId):
             return StexSocketConstants.Channels.buyGlassTotalChanget + "\(pairId)"
-        case .sellGlassRowChanget(let pairId):
+        case .sellGlassRowChanged(let pairId):
             return StexSocketConstants.Channels.sellGlassRowChanget + "\(pairId)"
-        case .buyGlassRowChanget(let pairId):
-            return StexSocketConstants.Channels.buyGlassRowChanget + "\(pairId)"
+        case .buyGlassRowChanged(let pairId):
+            return StexSocketConstants.Channels.buyGlassRowChanged + "\(pairId)"
         case .bidBestPriceChanged(let pairId):
             return StexSocketConstants.Channels.bidBestPriceChanged + "\(pairId)"
         case .askBestPriceChanged(let pairId):
@@ -105,8 +105,8 @@ public enum StexSocketEvent {
              .tradeCreated(_),
              .sellGlassTotalChanged(_),
              .buyGlassTotalChanged(_),
-             .sellGlassRowChanget(_),
-             .buyGlassRowChanget(_),
+             .sellGlassRowChanged(_),
+             .buyGlassRowChanged(_),
              .bidBestPriceChanged(_),
              .askBestPriceChanged(_),
              .candleChanged(_, _):
