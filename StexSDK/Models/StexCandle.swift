@@ -44,7 +44,7 @@ public class StexCandle: Codable {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         
         time = try? container.decodeDouble(.time)
-        volume = try? container.decodeDouble(.time)
+        volume = try? container.decodeDouble(.volume)
         
         close = try? container.decodeDouble(.close)
         open = try? container.decodeDouble(.open)
