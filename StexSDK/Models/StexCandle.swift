@@ -38,13 +38,13 @@ public class StexCandle: Codable {
     /// Tradig voume during candle period.
     ///
     /// Example: `6.456001`
-    public var volume: Double
+    public var volume: Double?
     
     required public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         
-        time = try? container.decode(Double.self, forKey: .time)
-        volume = try container.decode(Double.self, forKey: .volume)
+        time = try? container.decodeDouble(.time)
+        volume = try? container.decodeDouble(.time)
         
         close = try? container.decodeDouble(.close)
         open = try? container.decodeDouble(.open)

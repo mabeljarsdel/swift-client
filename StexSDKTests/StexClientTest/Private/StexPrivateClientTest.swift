@@ -11,7 +11,7 @@ import XCTest
 class StexPrivateClientTest: StexClientTest {
     
     override func setUp() {
-        StexTokensManager.sharded.setTokens(accessToken: "your_access_token", refreshToken: "your_refresh_token")
+        StexTokensManager.shared.setTokens(accessToken: "your_access_token", refreshToken: "your_refresh_token")
         
         super.setUp()
         
