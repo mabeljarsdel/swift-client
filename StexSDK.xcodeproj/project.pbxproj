@@ -12,6 +12,7 @@
 		205988D9240675150052A987 /* StexNews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205988D8240675150052A987 /* StexNews.swift */; };
 		205988DA2406751D0052A987 /* StexNews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205988D8240675150052A987 /* StexNews.swift */; };
 		205988DD240677D20052A987 /* StexNewsUrls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205988DC240677D20052A987 /* StexNewsUrls.swift */; };
+		205988E124069AB30052A987 /* NewsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205988E024069AB30052A987 /* NewsRequest.swift */; };
 		C3E39965A0A878089CF672CA /* Pods_StexSDKTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE859534AC7EAA88D41B78FB /* Pods_StexSDKTests.framework */; };
 		E47ED05CA2C5631B862676D2 /* Pods_StexSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 557216FC5A806C2C3DB398E7 /* Pods_StexSDK.framework */; };
 		FA06C07723312BD90042BF4D /* StexUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF8995523019C1B00C18AA1 /* StexUser.swift */; };
@@ -227,6 +228,7 @@
 		202E2EC423633904002A4B9C /* ActiveOrdersRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveOrdersRequest.swift; sourceTree = "<group>"; };
 		205988D8240675150052A987 /* StexNews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StexNews.swift; sourceTree = "<group>"; };
 		205988DC240677D20052A987 /* StexNewsUrls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StexNewsUrls.swift; sourceTree = "<group>"; };
+		205988E024069AB30052A987 /* NewsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsRequest.swift; sourceTree = "<group>"; };
 		557216FC5A806C2C3DB398E7 /* Pods_StexSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StexSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		720D861F1DC7BC073E04C143 /* Pods-StexSDKTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StexSDKTests.debug.xcconfig"; path = "Target Support Files/Pods-StexSDKTests/Pods-StexSDKTests.debug.xcconfig"; sourceTree = "<group>"; };
 		BE859534AC7EAA88D41B78FB /* Pods_StexSDKTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StexSDKTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -560,6 +562,7 @@
 				FACA3B7922FAD40C00E9970B /* ChartRequest.swift */,
 				FA4FFAAC2366FFBD00CDF259 /* DepositStatusesReqest.swift */,
 				FA46809B2367172600DE7AE6 /* WithdrawalStatusesReqest.swift */,
+				205988E024069AB30052A987 /* NewsRequest.swift */,
 			);
 			path = Public;
 			sourceTree = "<group>";
@@ -954,6 +957,7 @@
 				202E2EC523633904002A4B9C /* ActiveOrdersRequest.swift in Sources */,
 				FA95C62223215B700031D6F9 /* StexGlassRowChanged.swift in Sources */,
 				FAB183BA22CF3FDC00D9C98E /* TickerRequest.swift in Sources */,
+				205988E124069AB30052A987 /* NewsRequest.swift in Sources */,
 				FAB183A022CF3FCD00D9C98E /* KeyedDecodingContainer+Extension.swift in Sources */,
 				FA819C3723268E76008A3BED /* CancelOrderRequest.swift in Sources */,
 				FABB06CB2327AB8200F204F0 /* StexWalletDetail.swift in Sources */,
