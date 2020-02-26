@@ -219,7 +219,7 @@ public extension RxStexClient {
     
     /// Get news twitter
     
-    func fetchNewsTwitter() -> Observable<StexNewsTwitter> {
+    func fetchNewsTwitter() -> Observable<[StexNewsTwitter]> {
         return request(NewsTwitterRequest())
     }
     

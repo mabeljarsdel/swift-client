@@ -239,7 +239,7 @@ public class StexClient: APIClient {
     }
     
     /// Get news twitter
-    public func fetchNewsTwitter(completion: @escaping StexClientCompletion<StexNewsTwitter>) {
+    public func fetchNewsTwitter(completion: @escaping StexClientCompletion<[StexNewsTwitter]>) {
         request(NewsTwitterRequest(), completion: completion)
     }
     

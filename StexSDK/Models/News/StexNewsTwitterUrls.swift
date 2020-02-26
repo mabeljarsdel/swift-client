@@ -1,5 +1,5 @@
 //
-//  StexNewsUrls.swift
+//  StexNewsTwitterUrls.swift
 //  StexSDK
 //
 //  Created by Hanna Karnaukh on 26.02.2020.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class StexNewsUrls: Codable {
+public class StexNewsTwitterUrls: Codable {
     public var url: String
     public var expandedUrl: String
     public var displayUrl: String

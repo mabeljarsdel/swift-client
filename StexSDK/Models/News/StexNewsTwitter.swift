@@ -14,7 +14,7 @@ public class StexNewsTwitter: Codable {
     public var twitterName: String
     public var baseUrl: String
     public var message: String
-    public var urls: [StexNewsUrls]
+    public var urls: [StexNewsTwitterUrls]
     public var twitPublishedTimeAgo: String
     public var twitPublishedTimestamp: Int
     public var imgUrls: [String]?
@@ -37,7 +37,7 @@ public class StexNewsTwitter: Codable {
         twitterName = try container.decode(String.self, forKey: .twitterName)
         baseUrl = try container.decode(String.self, forKey: .baseUrl)
         message = try container.decode(String.self, forKey: .message)
-        urls = try container.decode([StexNewsUrls].self, forKey: .urls)
+        urls = try container.decode([StexNewsTwitterUrls].self, forKey: .urls)
         twitPublishedTimeAgo = try container.decode(String.self, forKey: .twitPublishedTimeAgo)
         twitPublishedTimestamp = try container.decode(Int.self, forKey: .twitPublishedTimestamp)
         imgUrls = try? container.decode([String].self, forKey: .imgUrls)

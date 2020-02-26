@@ -11,7 +11,7 @@
 		202E2EC623634111002A4B9C /* ActiveOrdersRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202E2EC423633904002A4B9C /* ActiveOrdersRequest.swift */; };
 		205988D9240675150052A987 /* StexNewsTwitter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205988D8240675150052A987 /* StexNewsTwitter.swift */; };
 		205988DA2406751D0052A987 /* StexNewsTwitter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205988D8240675150052A987 /* StexNewsTwitter.swift */; };
-		205988DD240677D20052A987 /* StexNewsUrls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205988DC240677D20052A987 /* StexNewsUrls.swift */; };
+		205988DD240677D20052A987 /* StexNewsTwitterUrls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205988DC240677D20052A987 /* StexNewsTwitterUrls.swift */; };
 		205988E124069AB30052A987 /* NewsTwitterRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205988E024069AB30052A987 /* NewsTwitterRequest.swift */; };
 		C3E39965A0A878089CF672CA /* Pods_StexSDKTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE859534AC7EAA88D41B78FB /* Pods_StexSDKTests.framework */; };
 		E47ED05CA2C5631B862676D2 /* Pods_StexSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 557216FC5A806C2C3DB398E7 /* Pods_StexSDK.framework */; };
@@ -227,7 +227,7 @@
 		1FC7F6F81B1A601AA99AFD27 /* Pods-StexSDK.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StexSDK.debug.xcconfig"; path = "Target Support Files/Pods-StexSDK/Pods-StexSDK.debug.xcconfig"; sourceTree = "<group>"; };
 		202E2EC423633904002A4B9C /* ActiveOrdersRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveOrdersRequest.swift; sourceTree = "<group>"; };
 		205988D8240675150052A987 /* StexNewsTwitter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StexNewsTwitter.swift; sourceTree = "<group>"; };
-		205988DC240677D20052A987 /* StexNewsUrls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StexNewsUrls.swift; sourceTree = "<group>"; };
+		205988DC240677D20052A987 /* StexNewsTwitterUrls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StexNewsTwitterUrls.swift; sourceTree = "<group>"; };
 		205988E024069AB30052A987 /* NewsTwitterRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTwitterRequest.swift; sourceTree = "<group>"; };
 		557216FC5A806C2C3DB398E7 /* Pods_StexSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StexSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		720D861F1DC7BC073E04C143 /* Pods-StexSDKTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StexSDKTests.debug.xcconfig"; path = "Target Support Files/Pods-StexSDKTests/Pods-StexSDKTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -373,7 +373,7 @@
 			isa = PBXGroup;
 			children = (
 				205988D8240675150052A987 /* StexNewsTwitter.swift */,
-				205988DC240677D20052A987 /* StexNewsUrls.swift */,
+				205988DC240677D20052A987 /* StexNewsTwitterUrls.swift */,
 			);
 			path = News;
 			sourceTree = "<group>";
@@ -989,7 +989,7 @@
 				FAC46438232BC5F4005B9B1A /* UpdateNotificationSettingsRequest.swift in Sources */,
 				FAA8BCC6238806A100F5C3C3 /* StexUserSettings.swift in Sources */,
 				FAB183C122CF3FEA00D9C98E /* StexCurrency.swift in Sources */,
-				205988DD240677D20052A987 /* StexNewsUrls.swift in Sources */,
+				205988DD240677D20052A987 /* StexNewsTwitterUrls.swift in Sources */,
 				FAB183B222CF3FDC00D9C98E /* RxStexClient.swift in Sources */,
 				FAF00B4B2375B73600D87EF4 /* StexWalletProtocol.swift in Sources */,
 				FABB06C72327A59900F204F0 /* StexWallet.swift in Sources */,
