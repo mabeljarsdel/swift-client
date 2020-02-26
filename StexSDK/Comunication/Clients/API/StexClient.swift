@@ -238,6 +238,11 @@ public class StexClient: APIClient {
         request(WithdrawalStatusesReqest(with: statusId), completion: completion)
     }
     
+    /// Get news twitter
+    public func fetchNewsTwitter(completion: @escaping StexClientCompletion<StexNewsTwitter>) {
+        request(NewsTwitterRequest(), completion: completion)
+    }
+    
     //MARK: - Profile
     
     /// Account information.

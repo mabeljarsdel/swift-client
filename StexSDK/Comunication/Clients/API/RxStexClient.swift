@@ -217,6 +217,12 @@ public extension RxStexClient {
         return request(WithdrawalStatusesReqest(with: statusId))
     }
     
+    /// Get news twitter
+    
+    func fetchNewsTwitter() -> Observable<StexNewsTwitter> {
+        return request(NewsTwitterRequest())
+    }
+    
     //MARK: - Profile
     
     /// Account information.
