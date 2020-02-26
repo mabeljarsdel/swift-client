@@ -239,6 +239,8 @@ public class StexClient: APIClient {
     }
     
     /// Get news twitter
+    /// - Parameters:
+    ///   - completion: A closure to be executed once the request has finished.
     public func fetchNewsTwitter(completion: @escaping StexClientCompletion<[StexNewsTwitter]>) {
         request(NewsTwitterRequest(), completion: completion)
     }

@@ -218,7 +218,8 @@ public extension RxStexClient {
     }
     
     /// Get news twitter
-    
+    /// - Parameters:
+    ///   - completion: A closure to be executed once the request has finished.
     func fetchNewsTwitter() -> Observable<[StexNewsTwitter]> {
         return request(NewsTwitterRequest())
     }
