@@ -1,5 +1,5 @@
 //
-//  NewsRequest.swift
+//  NewsTwitterRequest.swift
 //  StexSDK
 //
 //  Created by Hanna Karnaukh on 26.02.2020.
@@ -8,7 +8,7 @@
 
 import Alamofire
 
-class NewsRequest: IRequest {
+class NewsTwitterRequest: IRequest {
 
     var httpMethod: HTTPMethod {
         return .get
