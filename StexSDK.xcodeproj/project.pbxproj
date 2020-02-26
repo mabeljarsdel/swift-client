@@ -373,13 +373,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		205988DB240677740052A987 /* News */ = {
+		205988DB240677740052A987 /* News Twitter */ = {
 			isa = PBXGroup;
 			children = (
 				205988D8240675150052A987 /* StexNewsTwitter.swift */,
 				205988DC240677D20052A987 /* StexNewsTwitterUrls.swift */,
 			);
-			path = News;
+			path = "News Twitter";
 			sourceTree = "<group>";
 		};
 		DDB77A46FC6246395E83FDBD /* Frameworks */ = {
@@ -591,7 +591,7 @@
 				FABB06C92327AB6F00F204F0 /* Wallet */,
 				FA4FFAB22367005400CDF259 /* Transaction */,
 				FAC4642D232BAA40005B9B1A /* Notification */,
-				205988DB240677740052A987 /* News */,
+				205988DB240677740052A987 /* News Twitter */,
 			);
 			path = Models;
 			sourceTree = "<group>";
