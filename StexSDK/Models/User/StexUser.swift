@@ -39,7 +39,9 @@ public class StexUser: Codable {
     
     public var referralProgram: StexReferral
     
-    public var approxBalance: [String: StexApproxBalance]
+    public var approxBalance: [String: StexApproxBalance]?
+    
+    public var settings: StexUserSettings?
     
     enum CodingKeys: String, CodingKey {
         case email
@@ -50,5 +52,6 @@ public class StexUser: Codable {
         case id = "user_id"
         case referralProgram = "referral_program"
         case approxBalance = "approx_balance"
+        case settings
     }
 }

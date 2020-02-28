@@ -42,7 +42,7 @@ struct StexSocketConstants {
         static let sellGlassTotalChanget = "sell_total_data"
         static let buyGlassTotalChanget = "buy_total_data"
         static let sellGlassRowChanget = "sell_data"
-        static let buyGlassRowChanget = "buy_data"
+        static let buyGlassRowChanged = "buy_data"
         static let bidBestPriceChanged = "best_bid_price_"
         static let askBestPriceChanged = "best_ask_price_"
         static let candleChanged = "stats_data_%@_%@"

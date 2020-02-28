@@ -14,6 +14,6 @@ class RefreshTokensRequest: IRequest {
     }
     
     var endpoint: String {
-        return StexServerConstants.baseUrl + "refresh_token/" + (StexTokensManager.sharded.refreshToken ?? "")
+        return StexServerConstants.baseUrl + "refresh_token/" + (StexTokensManager.shared.refreshToken ?? "")
     }
 }

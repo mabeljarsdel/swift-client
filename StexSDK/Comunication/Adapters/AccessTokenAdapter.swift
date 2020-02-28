@@ -20,7 +20,7 @@ class AccessTokenAdapter: RequestAdapter, RequestRetrier {
     func adapt(_ urlRequest: URLRequest, completion: @escaping (Result<URLRequest>) -> Void) {
         var urlRequest = urlRequest
         
-        if let accessToken = StexTokensManager.sharded.accessToken {
+        if let accessToken = StexTokensManager.shared.accessToken {
             urlRequest.setValue("Bearer " + accessToken, forHTTPHeaderField: "Authorization")
         }
         
@@ -47,7 +47,7 @@ class AccessTokenAdapter: RequestAdapter, RequestRetrier {
             
             switch result {
             case .success(let tokens):
-                StexTokensManager.sharded.setTokens(accessToken: tokens.accessToken, refreshToken: tokens.refreshToken)
+                StexTokensManager.shared.setTokens(accessToken: tokens.accessToken, refreshToken: tokens.refreshToken)
                 completion(true, 0.0)
             case .error(let error):
                 print(error.localizedDescription)

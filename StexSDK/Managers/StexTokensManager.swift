@@ -10,10 +10,10 @@ import Locksmith
 
 public class StexTokensManager {
     
-    public static let sharded = StexTokensManager()
+    public static let shared = StexTokensManager()
     
-    internal var accessToken: String?
-    internal var refreshToken: String?
+    public private(set) var accessToken: String?
+    public private(set) var refreshToken: String?
     
     init() {
         accessToken = Locksmith.loadDataForUserAccount(userAccount: Token.tokens)?[Token.accessToken] as? String

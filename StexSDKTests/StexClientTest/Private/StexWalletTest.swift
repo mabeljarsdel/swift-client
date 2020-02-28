@@ -67,9 +67,9 @@ class StexWalletTest: StexPrivateClientTest {
             switch result {
             case .success(let data):
                 expectation.fulfill()
-                walletAddress = data.depositAddress.address
+                walletAddress = data.depositAddress?.address
                 
-                print("Success !!! \nData: ", data.depositAddress.address ?? "Addres not creating")
+                print("Success !!! \nData: ", data.depositAddress?.address ?? "Addres not creating")
             case .error(let error):
                 print(error)
                 XCTFail(error.localizedDescription)

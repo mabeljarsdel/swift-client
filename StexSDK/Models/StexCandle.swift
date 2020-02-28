@@ -18,26 +18,37 @@ public class StexCandle: Codable {
     /// Candle close price.
     ///
     /// Example: `0.022276`
-    public var close: Double
+    public var close: Double?
     
     /// Candle open price.
     ///
     /// Example: `0.012285`
-    public var open: Double
+    public var open: Double?
     
     /// Candle highest price.
     ///
     /// Example: `0.032276`
-    public var high: Double
+    public var high: Double?
     
     /// Candle lowest price.
     ///
     /// Example: `0.002276`
-    public var low: Double
+    public var low: Double?
     
     /// Tradig voume during candle period.
     ///
     /// Example: `6.456001`
-    public var volume: Double
+    public var volume: Double?
     
+    required public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        
+        time = try? container.decodeDouble(.time)
+        volume = try? container.decodeDouble(.volume)
+        
+        close = try? container.decodeDouble(.close)
+        open = try? container.decodeDouble(.open)
+        high = try? container.decodeDouble(.high)
+        low = try? container.decodeDouble(.low)
+    }
 }
