@@ -9,7 +9,7 @@
 Pod::Spec.new do |spec|
 
   spec.name         = "StexSDK"
-  spec.version      = "0.0.20"
+  spec.version      = "0.0.21"
   spec.summary      = "A short description of StexSDK."
   spec.homepage     = "http://stex.com"
   spec.license      = { :type => "MIT", :file => "LICENSE" }
