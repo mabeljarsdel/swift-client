@@ -10,7 +10,7 @@ import SWXMLHash
 
 public final class BlogItems: XMLIndexerDeserializable {
     
-    let items: [BlogItem]
+    public let items: [BlogItem]
     
     init(items: [BlogItem]) {
         self.items = items
