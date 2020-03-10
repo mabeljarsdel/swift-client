@@ -10,11 +10,11 @@
 		202C29D6241803CB00FAA7A5 /* String+dateToTimest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202C29D5241803CB00FAA7A5 /* String+dateToTimest.swift */; };
 		202C29D82418058C00FAA7A5 /* NewsBlogRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202C29D72418058C00FAA7A5 /* NewsBlogRequest.swift */; };
 		202C29DA2418074E00FAA7A5 /* StexResultError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202C29D92418074D00FAA7A5 /* StexResultError.swift */; };
-		202C29DE2418094200FAA7A5 /* BlogItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202C29DC2418094200FAA7A5 /* BlogItems.swift */; };
-		202C29DF2418094200FAA7A5 /* BlogItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202C29DD2418094200FAA7A5 /* BlogItem.swift */; };
+		202C29DE2418094200FAA7A5 /* StexBlogItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202C29DC2418094200FAA7A5 /* StexBlogItems.swift */; };
+		202C29DF2418094200FAA7A5 /* StexBlogItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202C29DD2418094200FAA7A5 /* StexBlogItem.swift */; };
 		202C29E0241809B600FAA7A5 /* NewsBlogRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202C29D72418058C00FAA7A5 /* NewsBlogRequest.swift */; };
-		202C29E1241809BB00FAA7A5 /* BlogItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202C29DC2418094200FAA7A5 /* BlogItems.swift */; };
-		202C29E2241809D000FAA7A5 /* BlogItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202C29DD2418094200FAA7A5 /* BlogItem.swift */; };
+		202C29E1241809BB00FAA7A5 /* StexBlogItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202C29DC2418094200FAA7A5 /* StexBlogItems.swift */; };
+		202C29E2241809D000FAA7A5 /* StexBlogItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202C29DD2418094200FAA7A5 /* StexBlogItem.swift */; };
 		202C29E324180A5900FAA7A5 /* StexResultError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202C29D92418074D00FAA7A5 /* StexResultError.swift */; };
 		202E2EC523633904002A4B9C /* ActiveOrdersRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202E2EC423633904002A4B9C /* ActiveOrdersRequest.swift */; };
 		202E2EC623634111002A4B9C /* ActiveOrdersRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202E2EC423633904002A4B9C /* ActiveOrdersRequest.swift */; };
@@ -243,8 +243,8 @@
 		202C29D5241803CB00FAA7A5 /* String+dateToTimest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+dateToTimest.swift"; sourceTree = "<group>"; };
 		202C29D72418058C00FAA7A5 /* NewsBlogRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsBlogRequest.swift; sourceTree = "<group>"; };
 		202C29D92418074D00FAA7A5 /* StexResultError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StexResultError.swift; sourceTree = "<group>"; };
-		202C29DC2418094200FAA7A5 /* BlogItems.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlogItems.swift; sourceTree = "<group>"; };
-		202C29DD2418094200FAA7A5 /* BlogItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlogItem.swift; sourceTree = "<group>"; };
+		202C29DC2418094200FAA7A5 /* StexBlogItems.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StexBlogItems.swift; sourceTree = "<group>"; };
+		202C29DD2418094200FAA7A5 /* StexBlogItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StexBlogItem.swift; sourceTree = "<group>"; };
 		202E2EC423633904002A4B9C /* ActiveOrdersRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveOrdersRequest.swift; sourceTree = "<group>"; };
 		2031C5EF2417EDD000578D4D /* StexNewsBlogItemsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StexNewsBlogItemsTest.swift; sourceTree = "<group>"; };
 		204C0F462416B0490012341A /* StexXMLResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StexXMLResponse.swift; sourceTree = "<group>"; };
@@ -395,8 +395,8 @@
 		20594D002417929D00251517 /* News Blog */ = {
 			isa = PBXGroup;
 			children = (
-				202C29DD2418094200FAA7A5 /* BlogItem.swift */,
-				202C29DC2418094200FAA7A5 /* BlogItems.swift */,
+				202C29DD2418094200FAA7A5 /* StexBlogItem.swift */,
+				202C29DC2418094200FAA7A5 /* StexBlogItems.swift */,
 			);
 			path = "News Blog";
 			sourceTree = "<group>";
@@ -976,8 +976,8 @@
 				FA95C631232288D20031D6F9 /* StexUserOrder.swift in Sources */,
 				FA819C4223278C5E008A3BED /* StexOrderTrade.swift in Sources */,
 				FAB183BC22CF3FDC00D9C98E /* IRequest.swift in Sources */,
-				202C29DF2418094200FAA7A5 /* BlogItem.swift in Sources */,
-				202C29DE2418094200FAA7A5 /* BlogItems.swift in Sources */,
+				202C29DF2418094200FAA7A5 /* StexBlogItem.swift in Sources */,
+				202C29DE2418094200FAA7A5 /* StexBlogItems.swift in Sources */,
 				FABDBF382302F4BC00F9A12B /* ISocketEventListener.swift in Sources */,
 				FABB06D7232A323B00F204F0 /* WalletAddressRequest.swift in Sources */,
 				FA46809C2367172700DE7AE6 /* WithdrawalStatusesReqest.swift in Sources */,
@@ -1080,13 +1080,13 @@
 				FACA3B6B22F9C72700E9970B /* TradesReqest.swift in Sources */,
 				FABB06CF2327AC1000F204F0 /* StexWalletTest.swift in Sources */,
 				FABDBF312302F30400F9A12B /* StexSocketClient.swift in Sources */,
-				202C29E1241809BB00FAA7A5 /* BlogItems.swift in Sources */,
+				202C29E1241809BB00FAA7A5 /* StexBlogItems.swift in Sources */,
 				2031C5F02417EDD000578D4D /* StexNewsBlogItemsTest.swift in Sources */,
 				FAB183C422CF3FEA00D9C98E /* StexTicker.swift in Sources */,
 				FA95C62F23227C3F0031D6F9 /* StexBalanceChanged.swift in Sources */,
 				FAC46422232A87E1005B9B1A /* CreateWithdrawRequest.swift in Sources */,
 				FA819C4823278E0D008A3BED /* StexTradingHistoryTest.swift in Sources */,
-				202C29E2241809D000FAA7A5 /* BlogItem.swift in Sources */,
+				202C29E2241809D000FAA7A5 /* StexBlogItem.swift in Sources */,
 				FAC46417232A6E11005B9B1A /* StexDepositTest.swift in Sources */,
 				FAB183DD22CF6E6600D9C98E /* StexPairGroup.swift in Sources */,
 				FAB183E822CF8F0500D9C98E /* CurrencyPairsListReqest.swift in Sources */,

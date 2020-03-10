@@ -251,7 +251,7 @@ public class StexClient: APIClient {
     ///Get news blog
     /// - Parameters:
     ///   - completion: A closure to be executed once the request has finished.
-    public func fetchNewsBlog(completion: @escaping StexClientXMLCompletion<BlogItems>) {
+    public func fetchNewsBlog(completion: @escaping StexClientXMLCompletion<StexBlogItems>) {
         request(NewsBlogRequest(), completion: completion)
     }
     

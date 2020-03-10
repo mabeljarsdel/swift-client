@@ -1,5 +1,5 @@
 //
-//  BlogItem.swift
+//  StexBlogItem.swift
 //  StexSDK
 //
 //  Created by Hanna Karnaukh on 10.03.2020.
@@ -8,14 +8,14 @@
 
 import SWXMLHash
 
-public final class BlogItem: XMLIndexerDeserializable {
+public final class StexBlogItem: XMLIndexerDeserializable {
     
-    var title: String
-    var description: String
-    var link: String
-    var pubDate: String
-    var pubTimestamp: Int?
-    var imageURL: String
+    public var title: String
+    public var description: String
+    public var link: String
+    public var pubDate: String
+    public var pubTimestamp: Int?
+    public var imageURL: String
     
     enum CodingKeys: String {
         case title
@@ -35,7 +35,7 @@ public final class BlogItem: XMLIndexerDeserializable {
         self.imageURL = imageURL
     }
     
-    public static func deserialize(_ element: XMLIndexer) throws -> BlogItem {
+    public static func deserialize(_ element: XMLIndexer) throws -> StexBlogItem {
         let serverTitle = element[CodingKeys.title.rawValue].element?.text ?? ""
         let title = serverTitle.replacingOccurrences(of: "\n", with: "").replacingOccurrences(of: "  ", with: "")
         let serverDescription = element[CodingKeys.description.rawValue].element?.text ?? ""
@@ -47,6 +47,6 @@ public final class BlogItem: XMLIndexerDeserializable {
         let mediaContent = element[CodingKeys.mediaContent.rawValue].element?.allAttributes
         let imageURL = mediaContent?[CodingKeys.imageURL.rawValue]?.text ?? ""
         
-        return BlogItem(title: title, description: description, link: link, pubDate: pubDate, pubTimestamp: pubTimestamp, imageURL: imageURL)
+        return StexBlogItem(title: title, description: description, link: link, pubDate: pubDate, pubTimestamp: pubTimestamp, imageURL: imageURL)
     }
 }
