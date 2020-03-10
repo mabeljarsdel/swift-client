@@ -6,7 +6,10 @@
 //  Copyright © 2019 beleven. All rights reserved.
 //
 
+import SWXMLHash
+
 public typealias StexClientCompletion<T: Codable> = (StexResult<T>) -> ()
+public typealias StexClientXMLCompletion<T: XMLIndexerDeserializable > = (StexXMLResult<T>) -> ()
 
 /// Client for STEX API
 public class StexClient: APIClient {
@@ -243,6 +246,13 @@ public class StexClient: APIClient {
     ///   - completion: A closure to be executed once the request has finished.
     public func fetchNewsTwitter(completion: @escaping StexClientCompletion<[StexNewsTwitter]>) {
         request(NewsTwitterRequest(), completion: completion)
+    }
+    
+    ///Get news blog
+    /// - Parameters:
+    ///   - completion: A closure to be executed once the request has finished.
+    public func fetchNewsBlog(completion: @escaping StexClientXMLCompletion<BlogItems>) {
+        request(NewsBlogRequest(), completion: completion)
     }
     
     //MARK: - Profile

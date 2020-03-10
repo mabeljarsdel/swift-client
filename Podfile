@@ -8,6 +8,7 @@ def shared_pods
   pod 'Locksmith'
   
   pod 'RxSwift', '~> 4.0'
+  pod 'SWXMLHash', '~> 5.0.0'
 end
 
 workspace 'StexSDK'
