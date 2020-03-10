@@ -28,7 +28,7 @@ class StexNewsBlogItemsTest: StexClientTest {
             }
         }
     
-        waitForExpectations(ti meout: timeout, handler: nil)
+        waitForExpectations(timeout: timeout, handler: nil)
         XCTAssertTrue(newsBlogItemsCount != 0)
     }
 }
