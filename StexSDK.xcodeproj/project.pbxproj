@@ -19,6 +19,7 @@
 		202E2EC523633904002A4B9C /* ActiveOrdersRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202E2EC423633904002A4B9C /* ActiveOrdersRequest.swift */; };
 		202E2EC623634111002A4B9C /* ActiveOrdersRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202E2EC423633904002A4B9C /* ActiveOrdersRequest.swift */; };
 		2031C5EE2417E97B00578D4D /* StexXMLResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204C0F462416B0490012341A /* StexXMLResponse.swift */; };
+		2031C5F02417EDD000578D4D /* StexNewsBlogItemsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2031C5EF2417EDD000578D4D /* StexNewsBlogItemsTest.swift */; };
 		203D47102406BD0B0053D57C /* StexNewsTwitterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205988E22406A8130052A987 /* StexNewsTwitterTest.swift */; };
 		203D47122406BD920053D57C /* StexNewsTwitterUrls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205988DC240677D20052A987 /* StexNewsTwitterUrls.swift */; };
 		203D47132406BDB70053D57C /* NewsTwitterRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205988E024069AB30052A987 /* NewsTwitterRequest.swift */; };
@@ -245,6 +246,7 @@
 		202C29DC2418094200FAA7A5 /* BlogItems.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlogItems.swift; sourceTree = "<group>"; };
 		202C29DD2418094200FAA7A5 /* BlogItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlogItem.swift; sourceTree = "<group>"; };
 		202E2EC423633904002A4B9C /* ActiveOrdersRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveOrdersRequest.swift; sourceTree = "<group>"; };
+		2031C5EF2417EDD000578D4D /* StexNewsBlogItemsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StexNewsBlogItemsTest.swift; sourceTree = "<group>"; };
 		204C0F462416B0490012341A /* StexXMLResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StexXMLResponse.swift; sourceTree = "<group>"; };
 		205988D8240675150052A987 /* StexNewsTwitter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StexNewsTwitter.swift; sourceTree = "<group>"; };
 		205988DC240677D20052A987 /* StexNewsTwitterUrls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StexNewsTwitterUrls.swift; sourceTree = "<group>"; };
@@ -671,6 +673,7 @@
 				FACA3B7F22FAF7CF00E9970B /* StexChartTest.swift */,
 				FA4FFAB32367035D00CDF259 /* StexTransactionStatusTest.swift */,
 				205988E22406A8130052A987 /* StexNewsTwitterTest.swift */,
+				2031C5EF2417EDD000578D4D /* StexNewsBlogItemsTest.swift */,
 			);
 			path = Public;
 			sourceTree = "<group>";
@@ -1078,6 +1081,7 @@
 				FABB06CF2327AC1000F204F0 /* StexWalletTest.swift in Sources */,
 				FABDBF312302F30400F9A12B /* StexSocketClient.swift in Sources */,
 				202C29E1241809BB00FAA7A5 /* BlogItems.swift in Sources */,
+				2031C5F02417EDD000578D4D /* StexNewsBlogItemsTest.swift in Sources */,
 				FAB183C422CF3FEA00D9C98E /* StexTicker.swift in Sources */,
 				FA95C62F23227C3F0031D6F9 /* StexBalanceChanged.swift in Sources */,
 				FAC46422232A87E1005B9B1A /* CreateWithdrawRequest.swift in Sources */,
