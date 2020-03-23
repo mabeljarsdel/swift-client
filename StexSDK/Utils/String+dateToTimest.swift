@@ -13,6 +13,7 @@ extension String {
     public func dateToTimest() -> Int? {
         
         let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
         dateFormatter.dateFormat = "EEE, dd MMM yyyy HH:mm:ss zzz"
         
         guard let date = dateFormatter.date(from: self) else { return nil }
