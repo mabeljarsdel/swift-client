@@ -38,7 +38,12 @@ public class StexOrderbookOrder: Codable {
     /// Sum of all previous orders
     ///
     /// Example: `0.71499228`
-    public var cumulativeAmount: Double
+    public var cumulativeAmount: Double?
+    
+    ///Type of order
+    ///
+    ///Example: "SELL"
+    public var type: String?
     
     enum CodingKeys: String, CodingKey {
         case pairId = "currency_pair_id"
@@ -47,6 +52,7 @@ public class StexOrderbookOrder: Codable {
         case amount2
         case count
         case cumulativeAmount = "cumulative_amount"
+        case type
     }
     
     required public init(from decoder: Decoder) throws {
@@ -54,7 +60,8 @@ public class StexOrderbookOrder: Codable {
         
         pairId = try container.decode(Int.self, forKey: .pairId)
         count = try container.decode(Int.self, forKey: .count)
-        cumulativeAmount = try container.decode(Double.self, forKey: .cumulativeAmount)
+        cumulativeAmount = try? container.decode(Double.self, forKey: .cumulativeAmount)
+        type = try? container.decode(String.self, forKey: .type)
         
         amount = try container.decodeStringToDouble(.amount)
         price = try container.decodeStringToDouble(.price)

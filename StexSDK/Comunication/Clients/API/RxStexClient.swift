@@ -8,6 +8,7 @@
 
 import Foundation
 import RxSwift
+import SWXMLHash
 
 public extension RxStexClient {
     
@@ -215,6 +216,20 @@ public extension RxStexClient {
     /// - Returns: The observable sequence with the specified implementation for the `subscribe` method.
     func fetchWithdrawalStatus(statusId: Int) -> Observable<StexWithdrawalStatus> {
         return request(WithdrawalStatusesReqest(with: statusId))
+    }
+    
+    /// Get news twitter
+    /// - Parameters:
+    ///   - completion: A closure to be executed once the request has finished.
+    func fetchNewsTwitter() -> Observable<[StexNewsTwitter]> {
+        return request(NewsTwitterRequest())
+    }
+    
+    ///Get news blog
+    /// - Parameters:
+    ///   - completion: A closure to be executed once the request has finished.
+    func fetchNewsBlog() -> Observable<StexBlogItems> {
+        return request(NewsBlogRequest())
     }
     
     //MARK: - Profile
@@ -607,6 +622,25 @@ public class RxStexClient: APIClient {
                     observer.onCompleted()
                 case .error(let error):
                     observer.onError(error)
+                }
+            })
+            
+            return Disposables.create {
+                request?.cancel()
+            }
+        }
+    }
+    
+    private func request<T: XMLIndexerDeserializable>(_ req: IRequest) -> Observable<T> {
+        return Observable<T>.create { [weak self] observer in
+            let request = self?.request(req, completion: { (result: StexXMLResult<T>) in
+                switch result {
+                case .success(let data):
+                    observer.onNext(data)
+                    observer.onCompleted()
+                case .error(let error):
+                    observer.onError(error)
+
                 }
             })
             

@@ -7,6 +7,7 @@
 //
 
 import Alamofire
+import SWXMLHash
 
 public class APIClient {
     
@@ -21,17 +22,7 @@ public class APIClient {
     @discardableResult
     func request<T: Codable> (_ req: IRequest, completion: @escaping (StexResult<T>) -> ()) -> DataRequest {
         
-        let request: DataRequest
-        
-        if let urlRequest = req.urlRequest() {
-            request = session.request(urlRequest)
-        } else {
-            request = session.request(req.endpoint,
-                                          method: req.httpMethod,
-                                          parameters: req.parameters(),
-                                          encoding: req.encoding,
-                                          headers: req.httpHeaders())
-        }
+        let request: DataRequest = buildRequest(from: req)
         
         request.validate().responseDecodable { [weak self] (response: DataResponse<StexResponse<T>>) in
             guard let self = self else { return }
@@ -52,7 +43,45 @@ public class APIClient {
         return request
     }
     
+    @discardableResult
+    func request<T: XMLIndexerDeserializable> (_ req: IRequest, completion: @escaping (StexXMLResult<T>) -> ()) -> DataRequest {
+        
+        let request: DataRequest = buildRequest(from: req)
+        
+        request.validate().responseData { response in
+            
+            #if DEBUG
+            print("[\(req.httpMethod.rawValue.uppercased())] Responce from: \(req.endpoint), statusCode: \(response.response?.statusCode ?? 0)")
+            #endif
+            
+            switch response.result {
+            case .success(let data):
+                let indexer = SWXMLHash.parse(data)
+                let result = StexXMLResult<T>(indexer)
+                completion(result)
+            
+            case .failure(let error):
+                let stexError = StexResultError.undefinedError(statusCode: response.response?.statusCode, error: error)
+                completion(.error(stexError))
+            }
+        }
+        
+        return request
+    }
+    
     //MARK: - Private
+    
+    private func buildRequest(from req: IRequest) -> DataRequest {
+        if let urlRequest = req.urlRequest() {
+            return session.request(urlRequest)
+        } else {
+            return session.request(req.endpoint,
+                                      method: req.httpMethod,
+                                      parameters: req.parameters(),
+                                      encoding: req.encoding,
+                                      headers: req.httpHeaders())
+        }
+    }
     
     private func handleErrorResponce<T: Codable>(response: DataResponse<StexResponse<T>>, error: Error, completion: @escaping (StexResult<T>) -> ()) {
         guard let statusCode = response.response?.statusCode else {

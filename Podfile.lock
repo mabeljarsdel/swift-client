@@ -5,12 +5,14 @@ PODS:
   - Socket.IO-Client-Swift (15.2.0):
     - Starscream (~> 3.1)
   - Starscream (3.1.1)
+  - SWXMLHash (5.0.1)
 
 DEPENDENCIES:
   - Alamofire (= 5.0.0.beta.1)
   - Locksmith
   - RxSwift (~> 4.0)
   - Socket.IO-Client-Swift
+  - SWXMLHash (~> 5.0.0)
 
 SPEC REPOS:
   trunk:
@@ -19,6 +21,7 @@ SPEC REPOS:
     - RxSwift
     - Socket.IO-Client-Swift
     - Starscream
+    - SWXMLHash
 
 SPEC CHECKSUMS:
   Alamofire: 2ef6d6c984c5d21c366e9b41a9ae7dfee2b67a44
@@ -26,7 +29,8 @@ SPEC CHECKSUMS:
   RxSwift: f172070dfd1a93d70a9ab97a5a01166206e1c575
   Socket.IO-Client-Swift: 1e3e3a1f09f3312a167f0d781eb2f383d477357c
   Starscream: 4bb2f9942274833f7b4d296a55504dcfc7edb7b0
+  SWXMLHash: 9cc0c2e4807926c74377724aa8722ee5707a0485
 
-PODFILE CHECKSUM: b0b4735a39a594edc1e5134b90b90e2df27d2246
+PODFILE CHECKSUM: 5f759a2ca14a8c8e7a9d195cbf362f42a768e781
 
-COCOAPODS: 1.8.4
+COCOAPODS: 1.9.1

@@ -1,35 +1,32 @@
 //
-//  StexResponse.swift
-//  STEX API
+//  StexXMLResponse.swift
+//  StexSDK
 //
-//  Created by Alexander Rudyk on 7/4/19.
-//  Copyright © 2019 beleven. All rights reserved.
+//  Created by Hanna Karnaukh on 09.03.2020.
+//  Copyright © 2020 beleven. All rights reserved.
 //
 
-import Foundation
+import SWXMLHash
 
-public struct StexResponse<T: Codable>: Codable {
-    var isSuccess: Bool
-    var message: String?
-    var data: T?
-    
-    enum CodingKeys: String, CodingKey {
-        case isSuccess = "success"
-        case message
-        case data
-    }
-}
-
-public enum StexResult<Value: Codable> {
+public enum StexXMLResult<Value: XMLIndexerDeserializable> {
     
     case success(Value)
     case error(StexResultError)
     
-    init(response: StexResponse<Value>, statusCode: Int = 400) {
-        if response.isSuccess, let data = response.data {
+    init(_ indexer: XMLIndexer, statusCode: Int = 400) {
+        
+        switch indexer {
+        case .xmlError(let error):
+             self = .error(StexResultError.undefinedError(statusCode: statusCode, error: error))
+        case .parsingError(let error):
+            self = .error(StexResultError.undefinedError(statusCode: statusCode, error: error))
+        default:
+            guard let data = try? Value.deserialize(indexer) else {
+                self = .error(StexResultError.undefinedError(statusCode: statusCode, error: nil))
+                return
+            }
+            
             self = .success(data)
-        } else {
-            self = .error(StexResultError.serverMessage(statusCode: statusCode, message: response.message))
         }
     }
     

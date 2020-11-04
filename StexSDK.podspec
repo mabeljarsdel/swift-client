@@ -9,7 +9,7 @@
 Pod::Spec.new do |spec|
 
   spec.name         = "StexSDK"
-  spec.version      = "0.0.19"
+  spec.version      = "0.0.27"
   spec.summary      = "A short description of StexSDK."
   spec.homepage     = "http://stex.com"
   spec.license      = { :type => "MIT", :file => "LICENSE" }
@@ -26,5 +26,6 @@ Pod::Spec.new do |spec|
   spec.dependency 'Socket.IO-Client-Swift'
   spec.dependency 'Locksmith'
   spec.dependency 'RxSwift', '~> 4.0'
+  spec.dependency 'SWXMLHash', '~> 5.0.0'
 
 end
