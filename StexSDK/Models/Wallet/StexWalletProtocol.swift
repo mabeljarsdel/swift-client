@@ -18,6 +18,9 @@ public class StexWalletProtocol: Codable {
     public var feeConst: Double?
     public var feePresent: Double?
     public var explorerUrlString: String?
+    public var withdrawalAdditionalFieldName: String?
+    public var isDisabledDeposit: Bool?
+    public var isDisabledWithdrawals: Bool?
     
     enum CodingKeys: String, CodingKey {
         case name = "protocol_name"
@@ -28,5 +31,8 @@ public class StexWalletProtocol: Codable {
         case feeConst = "withdrawal_fee_const"
         case feePresent = "withdrawal_fee_percent"
         case explorerUrlString = "block_explorer_url"
+        case withdrawalAdditionalFieldName = "withdrawal_additional_field_name"
+        case isDisabledDeposit = "disable_deposits"
+        case isDisabledWithdrawals = "disable_withdrawals"
     }
 }

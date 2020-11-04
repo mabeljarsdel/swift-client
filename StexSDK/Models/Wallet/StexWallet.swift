@@ -33,6 +33,10 @@ public class StexWallet: Codable {
     
     public var rates: [String: String]
     
+    public var withdrawalAdditionalFieldNameWallet: String?
+      
+    public var isDisabledWithdrawals: Bool?
+    
     enum CodingKeys: String, CodingKey {
         case id
         case currencyId = "currency_id"
@@ -47,6 +51,8 @@ public class StexWallet: Codable {
         case totalBalance = "total_balance"
         case protocolSettings = "protocol_specific_settings"
         case rates
+        case withdrawalAdditionalFieldNameWallet = "withdrawal_additional_field_name"
+        case isDisabledWithdrawals = "disable_withdrawals"
     }
     
     required public init(from decoder: Decoder) throws {
@@ -66,5 +72,9 @@ public class StexWallet: Codable {
         frozenBalance = try container.decodeStringToDouble(.frozenBalance) ?? 0
         bonusBalance = try container.decodeStringToDouble(.bonusBalance) ?? 0
         totalBalance = try container.decodeStringToDouble(.totalBalance) ?? 0
+        
+        withdrawalAdditionalFieldNameWallet = try? container.decode(String.self, forKey: .withdrawalAdditionalFieldNameWallet)
+                     
+        isDisabledWithdrawals = try? container.decode(Bool.self, forKey: .isDisabledWithdrawals)
     }
 }
