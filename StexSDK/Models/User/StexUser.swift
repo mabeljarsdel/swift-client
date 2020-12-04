@@ -30,11 +30,6 @@ public class StexUser: Codable {
     /// Example: `"not_verified": "0.0005"`
     public var tradingFeeLevels: [String: String]
     
-    /// Allow withdrawals
-    ///
-    /// Example: `true`
-    public var apiWithdrawalsAllowed: Bool
-    
     public var id: Int
     
     public var referralProgram: StexReferral
@@ -48,7 +43,6 @@ public class StexUser: Codable {
         case username
         case verifications
         case tradingFeeLevels = "trading_fee_levels"
-        case apiWithdrawalsAllowed = "api_withdrawals_allowed"
         case id = "user_id"
         case referralProgram = "referral_program"
         case approxBalance = "approx_balance"

@@ -35,11 +35,6 @@ public class StexOrderbookOrder: Codable {
     /// Example: `1`
     public var count: Int
     
-    /// Sum of all previous orders
-    ///
-    /// Example: `0.71499228`
-    public var cumulativeAmount: Double?
-    
     ///Type of order
     ///
     ///Example: "SELL"
@@ -51,7 +46,6 @@ public class StexOrderbookOrder: Codable {
         case price
         case amount2
         case count
-        case cumulativeAmount = "cumulative_amount"
         case type
     }
     
@@ -60,7 +54,6 @@ public class StexOrderbookOrder: Codable {
         
         pairId = try container.decode(Int.self, forKey: .pairId)
         count = try container.decode(Int.self, forKey: .count)
-        cumulativeAmount = try? container.decode(Double.self, forKey: .cumulativeAmount)
         type = try? container.decode(String.self, forKey: .type)
         
         amount = try container.decodeStringToDouble(.amount)
