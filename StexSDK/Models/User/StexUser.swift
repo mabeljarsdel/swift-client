@@ -38,6 +38,10 @@ public class StexUser: Codable {
     
     public var settings: StexUserSettings?
     
+    public var needVerify: Bool?
+    
+    public var showNoKycTerms: Bool?
+    
     enum CodingKeys: String, CodingKey {
         case email
         case username
@@ -47,5 +51,7 @@ public class StexUser: Codable {
         case referralProgram = "referral_program"
         case approxBalance = "approx_balance"
         case settings
+        case needVerify
+        case showNoKycTerms
     }
 }
