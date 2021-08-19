@@ -435,6 +435,15 @@ public class StexClient: APIClient {
         request(CancelWithdrawRequest(with: withdrawalId), completion: completion)
     }
     
+    //MARK: Policy
+    /// Confirm policy
+    ///
+    /// - Parameters:
+    ///   - completion: A closure to be executed once the request has finished.
+    public func confirmationPolicy(completion: @escaping StexClientCompletion<StexPolicyConfirmation>) {
+        request(ConfirmPolicyRequest(), completion: completion)
+    }
+    
     //MARK: Referral
     
     /// Create referral program

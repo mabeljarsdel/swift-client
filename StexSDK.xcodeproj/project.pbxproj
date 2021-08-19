@@ -29,6 +29,8 @@
 		205988DD240677D20052A987 /* StexNewsTwitterUrls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205988DC240677D20052A987 /* StexNewsTwitterUrls.swift */; };
 		205988E124069AB30052A987 /* NewsTwitterRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205988E024069AB30052A987 /* NewsTwitterRequest.swift */; };
 		C3E39965A0A878089CF672CA /* Pods_StexSDKTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE859534AC7EAA88D41B78FB /* Pods_StexSDKTests.framework */; };
+		E1BBAAF026CE94270093EC8D /* ConfirmPolicyRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BBAAEF26CE94270093EC8D /* ConfirmPolicyRequest.swift */; };
+		E1BBAAF226CE9BD00093EC8D /* StexPolicyConfirmation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BBAAF126CE9BD00093EC8D /* StexPolicyConfirmation.swift */; };
 		E47ED05CA2C5631B862676D2 /* Pods_StexSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 557216FC5A806C2C3DB398E7 /* Pods_StexSDK.framework */; };
 		FA06C07723312BD90042BF4D /* StexUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF8995523019C1B00C18AA1 /* StexUser.swift */; };
 		FA077D3922DDFC1E00CE9B8E /* TradesReqest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA077D3822DDFC1E00CE9B8E /* TradesReqest.swift */; };
@@ -256,6 +258,8 @@
 		720D861F1DC7BC073E04C143 /* Pods-StexSDKTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StexSDKTests.debug.xcconfig"; path = "Target Support Files/Pods-StexSDKTests/Pods-StexSDKTests.debug.xcconfig"; sourceTree = "<group>"; };
 		BE859534AC7EAA88D41B78FB /* Pods_StexSDKTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StexSDKTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6A7C0BF486E2ADE9AD34FE2 /* Pods-StexSDKTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StexSDKTests.release.xcconfig"; path = "Target Support Files/Pods-StexSDKTests/Pods-StexSDKTests.release.xcconfig"; sourceTree = "<group>"; };
+		E1BBAAEF26CE94270093EC8D /* ConfirmPolicyRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmPolicyRequest.swift; sourceTree = "<group>"; };
+		E1BBAAF126CE9BD00093EC8D /* StexPolicyConfirmation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StexPolicyConfirmation.swift; sourceTree = "<group>"; };
 		FA077D3822DDFC1E00CE9B8E /* TradesReqest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradesReqest.swift; sourceTree = "<group>"; };
 		FA46809B2367172600DE7AE6 /* WithdrawalStatusesReqest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithdrawalStatusesReqest.swift; sourceTree = "<group>"; };
 		FA4680A023672ECC00DE7AE6 /* StexReferral.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StexReferral.swift; sourceTree = "<group>"; };
@@ -437,6 +441,7 @@
 				FA4680A023672ECC00DE7AE6 /* StexReferral.swift */,
 				FA4680A32367311300DE7AE6 /* StexApproxBalance.swift */,
 				FAA8BCC5238806A000F5C3C3 /* StexUserSettings.swift */,
+				E1BBAAF126CE9BD00093EC8D /* StexPolicyConfirmation.swift */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -772,6 +777,7 @@
 				FAC46426232A9130005B9B1A /* CancelWithdrawRequest.swift */,
 				FA4680A62367332600DE7AE6 /* CreateReferralRequest.swift */,
 				FA4680A923673C2A00DE7AE6 /* InsertReferralRequest.swift */,
+				E1BBAAEF26CE94270093EC8D /* ConfirmPolicyRequest.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -980,6 +986,7 @@
 				202C29DE2418094200FAA7A5 /* StexBlogItems.swift in Sources */,
 				FABDBF382302F4BC00F9A12B /* ISocketEventListener.swift in Sources */,
 				FABB06D7232A323B00F204F0 /* WalletAddressRequest.swift in Sources */,
+				E1BBAAF226CE9BD00093EC8D /* StexPolicyConfirmation.swift in Sources */,
 				FA46809C2367172700DE7AE6 /* WithdrawalStatusesReqest.swift in Sources */,
 				FAF8995E2302DE0200C18AA1 /* Tokens.swift in Sources */,
 				FAB183D322CF6AA000D9C98E /* StexMarket.swift in Sources */,
@@ -998,6 +1005,7 @@
 				FAB183B422CF3FDC00D9C98E /* StexServerConstants.swift in Sources */,
 				FA819C3E232786CD008A3BED /* StexOrderDetail.swift in Sources */,
 				202E2EC523633904002A4B9C /* ActiveOrdersRequest.swift in Sources */,
+				E1BBAAF026CE94270093EC8D /* ConfirmPolicyRequest.swift in Sources */,
 				FA95C62223215B700031D6F9 /* StexGlassRowChanged.swift in Sources */,
 				FAB183BA22CF3FDC00D9C98E /* TickerRequest.swift in Sources */,
 				205988E124069AB30052A987 /* NewsTwitterRequest.swift in Sources */,

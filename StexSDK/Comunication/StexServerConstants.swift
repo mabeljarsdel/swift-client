@@ -53,6 +53,7 @@ public struct StexServerConstants {
             case withdrawals
             case withdraw
             case referral
+            case confirmation
             
             var path: String {
                 return StexServerConstants.baseUrl + Endpoints.profile + rawValue

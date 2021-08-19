@@ -409,6 +409,16 @@ public extension RxStexClient {
         return request(CancelWithdrawRequest(with: withdrawalId))
     }
     
+    //MARK: Policy
+    
+    /// Policy confirmation
+    ///
+    /// - Returns: The observable sequence with the specified implementation for the `subscribe` method.
+    func createReferral() -> Observable<StexPolicyConfirmation> {
+        return request(CreateReferralRequest())
+    }
+    
+    
     //MARK: Referral
     
     /// Create referral program
