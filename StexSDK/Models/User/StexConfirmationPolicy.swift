@@ -8,6 +8,6 @@
 
 import Foundation
 
-public class StexPolicyConfirmation: Codable {
+public class StexConfirmationPolicy: Codable {
     
 }

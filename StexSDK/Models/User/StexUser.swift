@@ -51,7 +51,7 @@ public class StexUser: Codable {
         case referralProgram = "referral_program"
         case approxBalance = "approx_balance"
         case settings
-        case needVerify
-        case showNoKycTerms
+        case needVerify = "need_verify"
+        case showNoKycTerms = "show_no_kyc_terms"
     }
 }

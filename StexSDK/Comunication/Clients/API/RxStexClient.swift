@@ -412,10 +412,8 @@ public extension RxStexClient {
     //MARK: Policy
     
     /// Policy confirmation
-    ///
-    /// - Returns: The observable sequence with the specified implementation for the `subscribe` method.
-    func createReferral() -> Observable<StexPolicyConfirmation> {
-        return request(CreateReferralRequest())
+    func confirmationPolicy() -> Observable<StexPolicyConfirmation> {
+        return request(StexConfirmationPolicy())
     }
     
     

@@ -9,7 +9,7 @@
 import Foundation
 import Alamofire
 
-class ConfirmPolicyRequest: IRequest {
+class ConfirmationPolicyRequest: IRequest {
     
     var httpMethod: HTTPMethod {
         return .post

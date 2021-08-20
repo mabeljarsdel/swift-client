@@ -440,8 +440,8 @@ public class StexClient: APIClient {
     ///
     /// - Parameters:
     ///   - completion: A closure to be executed once the request has finished.
-    public func confirmationPolicy(completion: @escaping StexClientCompletion<StexPolicyConfirmation>) {
-        request(ConfirmPolicyRequest(), completion: completion)
+    public func confirmationPolicy(completion: @escaping StexClientCompletion<StexConfirmationPolicy>) {
+        request(ConfirmationPolicyRequest(), completion: completion)
     }
     
     //MARK: Referral
