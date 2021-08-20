@@ -412,8 +412,8 @@ public extension RxStexClient {
     //MARK: Policy
     
     /// Policy confirmation
-    func confirmationPolicy() -> Observable<StexPolicyConfirmation> {
-        return request(StexConfirmationPolicy())
+    func confirmationPolicy() -> Observable<StexConfirmationPolicy> {
+        return request(ConfirmationPolicyRequest())
     }
     
     
