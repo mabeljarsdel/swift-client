@@ -15,13 +15,15 @@ class CreateWithdrawRequest: IRequest {
     private let address: String
     private let protocolId: Int?
     private let additionalParameter: String?
+    private let oneTimeCode: String
     
-    init(with currencyId: Int, amount: Double, address: String, protocolId: Int?, additionalParameter: String?) {
+    init(with currencyId: Int, amount: Double, address: String, protocolId: Int?, additionalParameter: String?, oneTimeCode: String) {
         self.currencyId = currencyId
         self.amount = amount
         self.address = address
         self.protocolId = protocolId
         self.additionalParameter = additionalParameter
+        self.oneTimeCode = oneTimeCode
     }
     
     var httpMethod: HTTPMethod {
@@ -36,7 +38,8 @@ class CreateWithdrawRequest: IRequest {
         var params: Parameters = [
             StexServerConstants.currencyId: currencyId,
             StexServerConstants.amount: amount,
-            StexServerConstants.address: address
+            StexServerConstants.address: address,
+            StexServerConstants.oneTimeCode: oneTimeCode
         ]
         
         if let additionalParameter = additionalParameter {

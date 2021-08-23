@@ -415,13 +415,15 @@ public class StexClient: APIClient {
                                address: String,
                                protocolId: Int?,
                                additionalParameter: String?,
+                               oneTimeCode: String,
                                completion: @escaping StexClientCompletion<StexWithdrawal>) {
         
         let req = CreateWithdrawRequest(with: currencyId,
                                         amount: amount,
                                         address: address,
                                         protocolId: protocolId,
-                                        additionalParameter: additionalParameter)
+                                        additionalParameter: additionalParameter,
+                                        oneTimeCode: oneTimeCode)
         
         request(req, completion: completion)
     }

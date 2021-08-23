@@ -111,6 +111,7 @@ public struct StexServerConstants {
     static let channel = "channel"
     static let value = "value"
     static let protocolId = "protocol_id"
+    static let oneTimeCode = "one_time_code"
 }
 
 public enum SortKey: String {

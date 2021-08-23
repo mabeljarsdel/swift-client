@@ -389,13 +389,15 @@ public extension RxStexClient {
                                amount: Double,
                                address: String,
                                protocolId: Int?,
-                               additionalParameter: String?) -> Observable<StexWithdrawal> {
+                               additionalParameter: String?,
+                               oneTimeCode: String) -> Observable<StexWithdrawal> {
         
         let req = CreateWithdrawRequest(with: currencyId,
                                         amount: amount,
                                         address: address,
                                         protocolId: protocolId,
-                                        additionalParameter: additionalParameter)
+                                        additionalParameter: additionalParameter,
+                                        oneTimeCode: oneTimeCode)
         
         return request(req)
     }
