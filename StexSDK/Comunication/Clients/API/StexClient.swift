@@ -415,13 +415,15 @@ public class StexClient: APIClient {
                                address: String,
                                protocolId: Int?,
                                additionalParameter: String?,
+                               oneTimeCode: String,
                                completion: @escaping StexClientCompletion<StexWithdrawal>) {
         
         let req = CreateWithdrawRequest(with: currencyId,
                                         amount: amount,
                                         address: address,
                                         protocolId: protocolId,
-                                        additionalParameter: additionalParameter)
+                                        additionalParameter: additionalParameter,
+                                        oneTimeCode: oneTimeCode)
         
         request(req, completion: completion)
     }
@@ -433,6 +435,15 @@ public class StexClient: APIClient {
     ///   - completion: A closure to be executed once the request has finished.
     public func cancelWithdraw(with withdrawalId: Int, completion: @escaping StexClientCompletion<StexWithdrawal>) {
         request(CancelWithdrawRequest(with: withdrawalId), completion: completion)
+    }
+    
+    //MARK: Policy
+    /// Confirm policy
+    ///
+    /// - Parameters:
+    ///   - completion: A closure to be executed once the request has finished.
+    public func confirmationPolicy(completion: @escaping StexClientCompletion<StexConfirmationPolicy>) {
+        request(ConfirmationPolicyRequest(), completion: completion)
     }
     
     //MARK: Referral

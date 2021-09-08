@@ -389,13 +389,15 @@ public extension RxStexClient {
                                amount: Double,
                                address: String,
                                protocolId: Int?,
-                               additionalParameter: String?) -> Observable<StexWithdrawal> {
+                               additionalParameter: String?,
+                               oneTimeCode: String) -> Observable<StexWithdrawal> {
         
         let req = CreateWithdrawRequest(with: currencyId,
                                         amount: amount,
                                         address: address,
                                         protocolId: protocolId,
-                                        additionalParameter: additionalParameter)
+                                        additionalParameter: additionalParameter,
+                                        oneTimeCode: oneTimeCode)
         
         return request(req)
     }
@@ -408,6 +410,14 @@ public extension RxStexClient {
     func cancelWithdraw(with withdrawalId: Int) -> Observable<StexWithdrawal> {
         return request(CancelWithdrawRequest(with: withdrawalId))
     }
+    
+    //MARK: Policy
+    
+    /// Policy confirmation
+    func confirmationPolicy() -> Observable<StexConfirmationPolicy> {
+        return request(ConfirmationPolicyRequest())
+    }
+    
     
     //MARK: Referral
     

@@ -53,6 +53,7 @@ public struct StexServerConstants {
             case withdrawals
             case withdraw
             case referral
+            case confirmation
             
             var path: String {
                 return StexServerConstants.baseUrl + Endpoints.profile + rawValue
@@ -110,6 +111,7 @@ public struct StexServerConstants {
     static let channel = "channel"
     static let value = "value"
     static let protocolId = "protocol_id"
+    static let oneTimeCode = "one_time_code"
 }
 
 public enum SortKey: String {
